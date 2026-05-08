@@ -1,0 +1,14 @@
+{
+  "name": "ideal-postcodes",
+  "displayName": "Ideal Postcodes",
+  "description": "Skills for integrating Ideal Postcodes APIs and widgets — address autocomplete, postcode lookup, and direct API integration.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ideal Postcodes",
+    "url": "https://ideal-postcodes.co.uk"
+  },
+  "homepage": "https://ideal-postcodes.co.uk",
+  "repository": "https://github.com/ideal-postcodes/skills",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["address", "postcode", "ideal-postcodes", "autocomplete", "lookup"]
+}

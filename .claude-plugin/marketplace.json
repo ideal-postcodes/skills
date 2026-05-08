@@ -1,0 +1,17 @@
+{
+  "name": "ideal-postcodes-skills",
+  "metadata": {
+    "description": "Ideal Postcodes address and postcode lookup skills for Claude Code"
+  },
+  "owner": {
+    "name": "Ideal Postcodes",
+    "email": "support@ideal-postcodes.co.uk"
+  },
+  "plugins": [
+    {
+      "name": "ideal-postcodes",
+      "source": "./",
+      "category": "developer-tools"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "ideal-postcodes-skills",
+  "owner": {
+    "name": "Ideal Postcodes",
+    "email": "support@ideal-postcodes.co.uk"
+  },
+  "plugins": [
+    {
+      "name": "ideal-postcodes",
+      "source": "./"
+    }
+  ]
+}
