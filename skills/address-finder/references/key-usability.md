@@ -6,7 +6,7 @@ Your key may not be available at some times. For instance:
 - Your user has reached their individual usage cap for the day
 - The balance on your key is exhausted
 
-By default, Address Finder not initialise if your key is not usable for whatever reason. You may use the [`onLoaded`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onLoaded) and [`onFailedCheck`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onFailedCheck) callbacks to make necessary adjustments.
+By default, Address Finder will not initialise if your key is not usable for whatever reason. You may use the [`onLoaded`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onLoaded) and [`onFailedCheck`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onFailedCheck) callbacks to make necessary adjustments.
 
 To disable key checking, set `checkKey` to `false`.
 

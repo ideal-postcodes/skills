@@ -1,6 +1,6 @@
 # Configure
 
-Postcode Lookup a [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) method to apply address verification to a form. [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) requires the following configuration at minimum.
+Postcode Lookup exports a [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) method to apply address verification to a form. [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) requires the following configuration at minimum.
 
 ## API Key
 

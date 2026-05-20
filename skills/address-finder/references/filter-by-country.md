@@ -1,6 +1,6 @@
 # Filter By Country
 
-Display address results that matches the chosen country (England, Wales, Scotland, Northern Ireland, Jersey, Guernsey and Isle of Man )) using `queryOptions`.
+Display address results that match the chosen country (England, Wales, Scotland, Northern Ireland, Jersey, Guernsey and Isle of Man) using `queryOptions`.
 
 Only addresses with exactly matching Country will be suggested.
 

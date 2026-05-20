@@ -9,7 +9,7 @@ description: >
   query. Always load this skill before running `idpc` — it defines the
   non-interactive flag contract and output shape that keep agent runs
   deterministic.
-license: SEE LICENSE IN LICENSE
+license: See LICENSE in LICENSE
 metadata:
   author: ideal-postcodes
   source: https://github.com/ideal-postcodes/atlas/tree/main/packages/cli-ideal

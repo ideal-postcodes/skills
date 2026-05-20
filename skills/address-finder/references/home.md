@@ -64,7 +64,7 @@ Enable Address Finder by:
 
 ## How it Works
 
-1. Add the library to your project. Your webpage should have pre-existing address input fields as well as an input field to host the finder
+1. Add the library to your project. Your webpage should have pre-existing address input fields as well as an input field to host the finder.
 2. Run initialisation code providing a reference to the Address Finder input and any other configuration.
 3. When initialising, Address Finder will perform a key check to determine whether it is usable. If the check fails, initialisation is aborted. Use the `onCheckFailed` callback to update your page for manual address entry.
-4. When initialised, Address Finder binds to the input field of your choice and renders a dropdown of address suggestion when the user starts typing.
+4. When initialised, Address Finder binds to the input field of your choice and renders a dropdown of address suggestions when the user starts typing.

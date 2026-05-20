@@ -36,7 +36,7 @@ Invoked when Address Finder suggestion box is closed (i.e. hidden from user).
 
 [`onFailedCheck`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onFailedCheck)
 
-Invoked function invoked if checkKey is enabled and the check fails.
+Invoked if checkKey is enabled and the check fails.
 
 ## Address Field is Selected
 
@@ -48,7 +48,7 @@ Invoked when user selects or focuses address input field.
 
 [`onInput`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onInput)
 
-Invoked when user edits Address Finder field
+Invoked when user edits Address Finder field.
 
 ## User Presses a Key
 
@@ -72,7 +72,7 @@ Invoked when controller attaches to the DOM (controller.view.attach()).
 
 [`onMouseDown`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onMouseDown)
 
-Invoked when mousedown event is triggered on suggestion list
+Invoked when mousedown event is triggered on suggestion list.
 
 ## Address Suggestion List Opens
 

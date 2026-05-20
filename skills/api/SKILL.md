@@ -1,11 +1,11 @@
 ---
 name: api
 description: |
-  Use when integrating the Ideal Postcodes API directly via HTTP or the provided SDKs.
-  Covers authentication, key HTTP endpoints (/postcodes, /addresses, /udprn, /autocomplete),
-  client libraries (fetch, axios, @ideal-postcodes/core-axios, Python SDK), error handling,
-  rate limits, and common gotchas (API key restrictions, CORS, JSONP legacy mode, async/await
-  patterns).
+  Use when integrating the Ideal Postcodes API directly via HTTP.
+  Covers authentication (header + query forms), the core lookup endpoints
+  (postcodes, autocomplete, places, cleanse), key/licensee/config admin,
+  data models (PafAddress, MrAddress, AddressSuggestion, etc.), error
+  codes, rate limits, and common gotchas around CORS and allowed URLs.
 license: SEE LICENSE IN LICENSE
 metadata:
   author: ideal-postcodes
@@ -24,12 +24,9 @@ inputs:
     required: true
 references:
   - authentication.md
-  - endpoints.md
-  - sdk-node.md
-  - sdk-browser.md
   - error-codes.md
-  - rate-limits.md
-  - openapi.yaml
+  - endpoints/
+  - data/
 ---
 
 # Ideal Postcodes API
@@ -39,11 +36,12 @@ Direct HTTP integration with the Ideal Postcodes API. Supports multiple client l
 ## Quick Start (fetch)
 
 ```javascript
+const key = process.env.IDEAL_POSTCODES_API_KEY;
 const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/postcodes/SW1A1AA',
+  'https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A1AA',
   {
     headers: {
-      'Authorization': `ApiKey ${process.env.IDEAL_POSTCODES_API_KEY}`,
+      Authorization: `api_key="${key}"`,
     },
   }
 );
@@ -52,48 +50,55 @@ const data = await response.json();
 console.log(data.result); // Array of addresses
 ```
 
+Alternatively, pass `?api_key=...` in the query string.
+
 ## Quick Start (axios)
 
 ```javascript
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://api.ideal-postcodes.co.uk',
+  baseURL: 'https://api.ideal-postcodes.co.uk/v1',
   headers: {
-    'Authorization': `ApiKey ${process.env.IDEAL_POSTCODES_API_KEY}`,
+    Authorization: `api_key="${process.env.IDEAL_POSTCODES_API_KEY}"`,
   },
 });
 
 const { data } = await client.get('/postcodes/SW1A1AA');
-console.log(data.result); // Array of addresses
-```
-
-## Quick Start (Node.js SDK)
-
-```javascript
-import { IdealPostcodes } from 'ideal-postcodes';
-
-const client = new IdealPostcodes({
-  apiKey: process.env.IDEAL_POSTCODES_API_KEY,
-});
-
-const addresses = await client.postcodes.lookup('SW1A1AA');
-console.log(addresses);
+console.log(data.result);
 ```
 
 ## Core Endpoints
 
-- `GET /postcodes/:postcode` — Lookup all addresses for a UK postcode
-- `GET /addresses` — Search for addresses by query string
-- `GET /udprn/:udprn` — Lookup a specific address by UDPRN (unique delivery point reference number)
-- `GET /autocomplete` — Typeahead search for addresses
+- `GET /postcodes/{postcode}` — Lookup all addresses for a UK postcode
+- `GET /autocomplete/addresses` — Typeahead address search
+- `GET /autocomplete/addresses/{address}/gbr` — Resolve a UK autocomplete suggestion
+- `GET /places` / `GET /places/{place}` — Place search and resolve
+- `POST /cleanse/addresses` — Cleanse a freeform address string
+- `GET /emails`, `GET /phone_numbers` — Email and phone validation
+
+See [`endpoints/`](./references/endpoints/) for the full list (23 operations).
 
 ## Critical Gotchas
 
-- **Authentication header format** — must be `Authorization: ApiKey <your-api-key>`, not `Bearer` or `X-Api-Key`
+- **Auth header format** — `Authorization: api_key="<your-key>"` (with double quotes around the key). Not `Bearer`, not `ApiKey <key>`. Query-string `?api_key=...` also works
 - **API key restrictions** — default keys are restricted to specific domains. Ensure your domain is in the key's allowed list
 - **CORS in browsers** — the API sets CORS headers for `http://localhost` in development. Production domains must be explicitly added to your key
-- **Rate limits** — keys have rate limits. See [`rate-limits.md`](./references/rate-limits.md)
-- **Error responses** — all errors are JSON with an `error` object containing `code` and `message`. Check error codes before retrying
+- **Rate limits** — each IP is rate limited at 30 requests per second. Tripping the limit returns a 503
+- **Error responses** — all errors are JSON with a numeric `code` and human-readable `message`. Check codes before retrying — see [`error-codes.md`](./references/error-codes.md)
 
-See [`./references/`](./references/) for detailed guides on authentication, endpoints, SDKs, and error handling.
+## Reference Layout
+
+- [`authentication.md`](./references/authentication.md) — header and query auth, key restrictions
+- [`error-codes.md`](./references/error-codes.md) — error code catalogue with fixes
+- [`endpoints/`](./references/endpoints/) — one reference per API operation (parameters, request body, response schema, examples, status codes)
+- [`data/`](./references/data/) — one reference per data model (PafAddress, MrAddress, AddressSuggestion, etc.) with field tables and "used by" cross-links
+
+## Full Spec
+
+The complete OpenAPI spec is available at:
+
+- npm: `@ideal-postcodes/openapi`
+- web: <https://openapi.ideal-postcodes.co.uk/openapi.yaml>
+
+Reach for it when you need exhaustive parameter detail beyond what's in the endpoint references.

@@ -59,7 +59,7 @@ useEffect(() => {
 }, []);
 ```
 
-> Make sure to replace the apikey:`ak_test` to your apiKey. This can be located on your [account](https://account.ideal-postcodes.co.uk/tokens).
+> Make sure to replace the `apiKey` `ak_test` with your own API key. This can be located on your [account](https://account.ideal-postcodes.co.uk/tokens).
 
 ## Your Address Inputs
 

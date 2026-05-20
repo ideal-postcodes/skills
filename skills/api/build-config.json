@@ -1,0 +1,30 @@
+{
+  "$comment": "Drives generation of skills/api/references/. Lifted into OpenAPI tags later — see plan/2026-05-14-api-skill-exclusion-and-data-models.md.",
+  "endpoints": {
+    "exclude": [
+      "UDPRN",
+      "UMPRN",
+      "Addresses",
+      "AddressVerify",
+      "RetrieveAddress"
+    ]
+  },
+  "data": {
+    "include": [
+      "PafAddress",
+      "MrAddress",
+      "NybAddress",
+      "AbAddress",
+      "WelshPafAddress",
+      "EcadAddress",
+      "EcafAddress",
+      "GeonamesPlace",
+      "AddressSuggestion",
+      "UkAddressSuggestion",
+      "PlaceSuggestion",
+      "ApiKey",
+      "Licensee",
+      "Config"
+    ]
+  }
+}
