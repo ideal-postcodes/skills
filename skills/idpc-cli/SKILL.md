@@ -48,7 +48,7 @@ The CLI auto-detects non-TTY environments and emits JSON — no `--json` flag ne
 - Supply ALL required flags. The CLI will NOT prompt when stdin is not a TTY.
 - `-q / --quiet` suppresses any status output and implies `--json`.
 - Exit `0` = success, `1` = error.
-- Success JSON → stdout; error JSON → stderr:
+- Both success and error JSON go to **stdout** — parse it uniformly, then check for an `error` key and the exit code:
   ```json
   {"error":{"code":"...","message":"...","details":{...}}}
   ```
