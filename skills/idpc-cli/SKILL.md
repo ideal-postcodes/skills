@@ -9,7 +9,7 @@ description: >
   query. Always load this skill before running `idpc` — it defines the
   non-interactive flag contract and output shape that keep agent runs
   deterministic.
-license: See LICENSE in LICENSE
+license: SEE LICENSE IN LICENSE
 metadata:
   author: ideal-postcodes
   source: https://github.com/ideal-postcodes/atlas/tree/main/packages/cli-ideal
@@ -20,9 +20,6 @@ metadata:
     - name: IDPC_USER_TOKEN
       required: false
       description: Required for private key endpoints (details, usage, logs, configs)
-    - name: IDPC_PROFILE
-      required: false
-      description: Named profile for multi-account setups
 references:
   - auth.md
   - keys.md
@@ -63,7 +60,7 @@ Two credentials: `api_key` (required) and `user_token` (required for `/keys/*` r
 |---|---|
 | 1 (highest) | `--api-key <k>` / `--user-token <t>` |
 | 2 | `IDPC_API_KEY` / `IDPC_USER_TOKEN` env var |
-| 3 (lowest) | Active profile in `~/.config/ideal-postcodes/credentials.json` |
+| 3 (lowest) | `~/.config/ideal-postcodes/credentials.json` (written by `idpc auth login` / `idpc auth signup`) |
 
 Missing api_key → error code `missing_api_key`. Missing user_token on a command that needs it → `missing_user_token`.
 
@@ -73,7 +70,6 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 |------|-------------|
 | `--api-key <k>` | Override API key for this invocation |
 | `--user-token <t>` | Override user token |
-| `-p, --profile <name>` | Select a stored profile |
 | `--json` | Force JSON (auto in non-TTY) |
 | `-q, --quiet` | Suppress status, implies `--json` |
 | `--base-url <url>` | Override API base (diagnostics only) |
@@ -82,13 +78,51 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 
 | Group | Subcommands |
 |---|---|
-| `idpc auth` | `login`, `logout`, `whoami` |
+| `idpc auth` | `login`, `logout`, `signup`, `whoami` |
 | `idpc keys` | `get`, `details`, `update`, `usage`, `logs`, `configs {list,get,create,update,delete}` |
 | `idpc cleanse` | Cleanse one address, a file, or stdin |
 | `idpc find` / `resolve` | Autocomplete then resolve a suggestion id to a full address (paired; see `find.md`) |
 | `idpc doctor` | Env + connectivity check |
 
 Read the matching reference file for flags and example output.
+
+## Standing up a brand-new account: `idpc auth signup`
+
+`idpc auth signup` mints a one-shot `cli_token`, prints the prefilled Rails signup URL, and polls until the new account propagates. **The command intentionally pauses for a human step**: a person (the user, not the agent) must open the URL in a browser and complete the captcha + ToS. The CLI resumes automatically and writes credentials to the same store `idpc auth login` uses — `whoami` works after with no extra step.
+
+Required flags (non-interactive — supply all when scripting):
+`--email`, `--name`, `--org-name`, `--org-address-line-one`, `--org-post-town`, `--org-postcode`, `--org-country-code`.
+
+Optional: `--org-address-line-two`, `--org-address-line-three`. Polling is fixed at 3s with a 30-minute ceiling.
+
+Progress signals while polling (in JSON / non-TTY mode), one NDJSON event per line on **stderr**:
+
+```jsonl
+{"event":"signup_url_issued","signup_url":"https://ideal-postcodes.co.uk/users/sign_up?...","expires_at":"..."}
+{"event":"waiting","elapsed_sec":30}
+{"event":"waiting","elapsed_sec":60}
+```
+
+Final success JSON on stdout:
+
+```json
+{"success":true,"config_path":"/home/you/.config/ideal-postcodes/credentials.json","email":"you@example.com","user_id":"..."}
+```
+
+Exit codes: `0` success, `2` invalid input or rate-limited (`429` is not retried — bulk minting is what the limit prevents), `3` network error, `4` link expired or polling timeout, `130` SIGINT.
+
+Example invocation an agent can copy:
+
+```bash
+idpc auth signup \
+  --email you@example.com \
+  --name "Your Name" \
+  --org-name "Your Company Ltd" \
+  --org-address-line-one "1 Example Street" \
+  --org-post-town London \
+  --org-postcode SW1A1AA \
+  --org-country-code GB
+```
 
 ## Common Pitfalls
 
