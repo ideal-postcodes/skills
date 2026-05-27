@@ -16,7 +16,7 @@
 - **Rapid Address Entry.** Receive address suggestions as you type with a response time of less than 100ms.
 - **Fuzzy Search.** Reduce keystrokes by compensating for spelling mistakes.
 - **Word Abbreviations.** Accepts abbreviations such as rd (Road), st (Street) and wy (Way).
-- **Transposed Letters.** Handle accidental switching of letters for instance Liecester (Leicester) .
+- **Transposed Letters.** Handle accidental switching of letters, for instance Liecester (Leicester).
 - **Filtering.** Filter suggestions with criteria like locality, country and postcode areas.
 - **Biasing.** Bias suggestions towards a location defined by a geospatial point or IP address.
 - **Geospatial Filtering.** Restrict suggestions to a geospatial bounding box.
@@ -30,7 +30,7 @@ Enable Address Finder by:
 1. Adding your API Key with `apiKey`
 2. Designating address fields to be autofilled with `outputFields`
 
-> Use the .watch method instead of .setup if you want to dynamically apply Address Finder when relevant fields appear
+> Use the `.watch` method instead of `.setup` if you want to dynamically apply Address Finder when relevant fields appear
 
 ```html
 <form>

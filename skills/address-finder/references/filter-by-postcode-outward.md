@@ -1,6 +1,6 @@
 # Filter By Postcode Outward
 
-Display address results that matches the chosen postcode outward value.
+Display address results that match the chosen postcode outward value.
 It will only display matched addresses.
 
 The `queryOptions` object allows customizing the search query. In this example, the postcode_outward property is set to "NW1" to filter the search results towards the NW1 postcode outward code.

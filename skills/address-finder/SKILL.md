@@ -37,6 +37,7 @@ references:
   - filter-by-locality.md
   - filter-by-postcode-outward.md
   - hide.md
+  - hide-toolbar.md
   - home.md
   - how-it-works.md
   - key-usability.md
@@ -112,6 +113,7 @@ Use `AddressFinder.watch` (not `.setup`) inside `useEffect` — it will pick up 
 - **Pin your CDN version in production.** Pulling from `@latest` will silently break when a major bumps. Use `@ideal-postcodes/address-finder-bundled@4` (or whatever current major).
 - **Source vs bundled package:** use `@ideal-postcodes/address-finder` for bundlers (smaller, tree-shakable). Use `@ideal-postcodes/address-finder-bundled` for `<script>` tags or if your bundler can't handle the source package.
 - **API key allowed URLs.** Frontend keys are restricted by domain. If requests fail with 403, check your key's allowed URL list at ideal-postcodes.co.uk/account — match scheme + host (e.g. `https://example.com`, no trailing slash, no path).
+- **Country toolbar vs country restriction are independent.** `restrictCountries: ["GBR"]` removes the country *picker control* inside the toolbar — it does **not** hide the toolbar bar itself. For a clean single-country setup with no toolbar on focus, also set `hideToolbar: true`. See [`hide-toolbar.md`](./references/hide-toolbar.md).
 - **Bundler CSS import.** The source package does not auto-inject CSS. Either import the stylesheet (`@ideal-postcodes/address-finder/css/address-finder.css`) or set `injectStyle: true` in the setup options.
 
 For the long tail of error patterns and fixes, see [`troubleshooting.md`](./troubleshooting.md).
@@ -133,7 +135,8 @@ The references below are organised by intent. Read only the ones relevant to the
 - [`nudge-address-finder.md`](./references/nudge-address-finder.md) — manual re-init / re-attach
 
 ### Country handling
-- [`restrict-country.md`](./references/restrict-country.md) — limit which countries the user can pick
+- [`restrict-country.md`](./references/restrict-country.md) — limit which countries the user can pick (removes the picker, not the toolbar bar)
+- [`hide-toolbar.md`](./references/hide-toolbar.md) — hide the toolbar bar entirely (`hideToolbar: true`); independent of `restrictCountries`
 - [`default-country.md`](./references/default-country.md) — pre-select / bias toward a country
 - [`filter-by-country.md`](./references/filter-by-country.md) — filter results by country
 - [`convert-iso-code.md`](./references/convert-iso-code.md) — ISO 3166 helper

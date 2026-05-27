@@ -1,6 +1,6 @@
 # Bias By Postcode
 
-Display address results that closely matches the chosen postcode value.
+Display address results that closely match the chosen postcode value.
 
 It will still display unmatched addresses but they will be ranked lower.
 
@@ -43,7 +43,7 @@ The `queryOptions` object allows customizing the search query. In this example, 
 
 ## Dynamically Updating Bias
 
-The example below includes an event listener, which allows users to dynamically change the bias. When the value of the input field changes,  `setQueryOptions` function is used to apply the new bias.
+The example below includes an event listener, which allows users to dynamically change the bias. When the value of the input field changes, `setQueryOptions` function is used to apply the new bias.
 
 #### Live Demo (Dynamic Postcode)
 

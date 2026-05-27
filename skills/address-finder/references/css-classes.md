@@ -1,6 +1,6 @@
 # CSS Classes
 
-The Address Finder can be styled CSS classes.
+The Address Finder can be styled with CSS classes.
 
 ## CSS Class Hierarchy
 

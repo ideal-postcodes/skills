@@ -34,7 +34,7 @@ Applies custom styling to every list element `<li>` including address suggestion
 
 ## Demo
 
-This sandbox provides a visual demonstrate of how style attribute and how it impacts the overall styling of Address Finder.
+This sandbox provides a visual demonstration of how a style attribute impacts the overall styling of Address Finder.
 
 ```html
 <form style="max-width: 450px; padding: 10px;">

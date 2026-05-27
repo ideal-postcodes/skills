@@ -17,7 +17,7 @@ import { AddressFinder } from "@ideal-postcodes/address-finder";
 import { useEffect, useState, useRef } from "react";
 ```
 
-## Initializing Component State
+## Initialising Component State
 
 Within your component, use a state hook to capture the address elements you need.
 

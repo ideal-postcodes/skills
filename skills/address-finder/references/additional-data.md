@@ -2,7 +2,7 @@
 
 You can retrieve more data for an address by passing more arguments into [`outputFields`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#OutputFields).
 
-The key value should map to an address field described in our [standard address schema ](https://docs.ideal-postcodes.co.uk/docs/data/paf).
+The key value should map to an address field described in our [standard address schema](https://docs.ideal-postcodes.co.uk/docs/data/paf).
 
 ## Example
 

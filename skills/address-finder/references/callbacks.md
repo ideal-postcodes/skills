@@ -1,6 +1,6 @@
 # Callbacks
 
-Address Finder also provides callbacks which let you hook the following events:
+Address Finder also provides callbacks which let you hook into the following events:
 
 ## Address Fields Populated
 
@@ -14,7 +14,7 @@ Invoked after the selected address is applied to input fields.
 
 Invoked when the Address Finder client has retrieved a full address from the API following a user accepting a suggestion. The first argument is an object representing the address that has been retrieved.
 
-## User Selects an Address Selection
+## User Selects an Address Suggestion
 
 [`onAddressSelected`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onAddressSelected)
 
@@ -44,7 +44,7 @@ Invoked if checkKey is enabled and the check fails.
 
 Invoked when user selects or focuses address input field.
 
-## User inputs into Address Finder Field
+## User Inputs into Address Finder Field
 
 [`onInput`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onInput)
 
@@ -94,7 +94,7 @@ Invoked when an error has occurred following an attempt to retrieve a full addre
 
 The first argument is an error instance (i.e. inherits from Error) representing the error which has occurred.
 
-Examples of errors includes "lookup balance exhausted" and "lookup limit reached" errors.
+Examples of errors include "lookup balance exhausted" and "lookup limit reached" errors.
 
 ## Address Suggestion is Selected
 
@@ -110,7 +110,7 @@ Invoked when an error has occurred following an attempt to retrieve suggestions 
 
 The first argument is an error instance (i.e. inherits from Error) representing the error which has occurred.
 
-Examples of errors includes "lookup balance exhausted" and "lookup limit reached" errors.
+Examples of errors include "lookup balance exhausted" and "lookup limit reached" errors.
 
 ## Address Suggestions Retrieved from API
 

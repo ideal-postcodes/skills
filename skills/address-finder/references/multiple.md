@@ -4,7 +4,7 @@ Address Finder can be invoked multiple times to attach multiple instances to you
 
 Each Address Finder instance is isolated and can be configured individually.
 
-The example below illustrates how this can be done two invocations of `AddressFinder.setup()`. Each with a unique `inputField` property. This allows the user to search for an address using either the first or second line of the address.
+The example below illustrates how this can be done with two invocations of `AddressFinder.setup()`. Each with a unique `inputField` property. This allows the user to search for an address using either the first or second line of the address.
 
 ## Live Demo
 

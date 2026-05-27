@@ -2,9 +2,9 @@
 
 From time to time, you may want to tweak the default style of Address Finder to better match your applications design system.
 
-[JavaScript Style Adjustments](style-js) are the recommended means to make small changes.
+[JavaScript Style Adjustments](https://docs.ideal-postcodes.co.uk/docs/address-finder/style-js) are the recommended means to make small changes.
 
-A common issue is the alignment of the Address Finder dropdown, this may be a few pixels to high or low. In these instances, we recommend a positive or negative `margin-top` style attribute.
+A common issue is the alignment of the Address Finder dropdown, this may be a few pixels too high or low. In these instances, we recommend a positive or negative `margin-top` style attribute.
 
 ## Live Demo
 

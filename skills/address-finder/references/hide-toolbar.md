@@ -1,13 +1,15 @@
-# Bias By Geolocation
+# Hide the country toolbar
 
-Bias search to a geospatial circle determined by an origin and radius in metres. Max radius is `50000`.
+Suppress the toolbar bar that renders below the suggestion list on focus.
 
-Uses the format `bias_lonlat=[longitude],[latitude],[radius in metres]`. Only one geospatial bias may be provided
+`hideToolbar` is **independent** of [`restrictCountries`](./restrict-country.mdx). `restrictCountries: ["GBR"]` removes the country *picker control* inside the toolbar but the toolbar container still renders. To hide the bar entirely — useful for single-country checkouts that want a clean, "nothing shows until results" focus experience — set `hideToolbar: true`.
 
-In the example below, a geolocation bias is set to prioritize addresses near "10 Downing St".
+Defaults to `false`.
+
+## Live Demo
 
 ```html
-<form style="max-width: 450px; padding: 10px;">
+<form>
     <label for="line_1">Address First Line</label>
     <input type="text" id="line_1" />
     <label for="line_2">Address Second Line</label>
@@ -26,10 +28,10 @@ In the example below, a geolocation bias is set to prioritize addresses near "10
 
   AddressFinder.setup({
     apiKey: "ak_test",
-    queryOptions: {
-      // Set geolocation bias to 10 Downing St
-      bias_lonlat: "-0.1276,51.5034,100",
-    },
+    detectCountry: false,
+    defaultCountry: "GBR",
+    restrictCountries: ["GBR"],
+    hideToolbar: true,
     outputFields: {
       line_1: "#line_1",
       line_2: "#line_2",

@@ -146,6 +146,22 @@ controller still references the old element.
 
 ## UX issues
 
+### Country toolbar still shows after `restrictCountries: ["GBR"]`
+
+**Cause:** `restrictCountries` removes the country *picker control* but leaves
+the toolbar container rendered. The two options are independent.
+
+**Fix:** also set `hideToolbar: true`:
+
+```js
+AddressFinder.setup({
+  apiKey: "ak_...",
+  restrictCountries: ["GBR"],
+  hideToolbar: true,
+  outputFields: { /* … */ },
+});
+```
+
 ### Browser autofill collides with the finder dropdown
 
 **Cause:** the finder input gets `autocomplete` suggestions from the browser

@@ -2,7 +2,7 @@
 
 Address Finder is also available without transpilation or minification on npm as [`@ideal-postcodes/address-finder`](https://www.npmjs.com/package/@ideal-postcodes/address-finder).
 
-The `address-finder` npm package works out-of-the-box with most bundlers. The advantage of consuming this package are:
+The `address-finder` npm package works out-of-the-box with most bundlers. The advantages of consuming this package are:
 
 - Finer control over which browsers you wish to support
 - Dependency deduplification

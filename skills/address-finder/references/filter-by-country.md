@@ -2,7 +2,7 @@
 
 Display address results that match the chosen country (England, Wales, Scotland, Northern Ireland, Jersey, Guernsey and Isle of Man) using `queryOptions`.
 
-Only addresses with exactly matching Country will be suggested.
+Only addresses with an exactly matching country will be suggested.
 
 ## Live Demo
 
