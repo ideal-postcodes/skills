@@ -3,10 +3,12 @@ name: idpc-cli
 description: >
   Drive api.ideal-postcodes.co.uk from the terminal — manage API keys
   (balance, usage, allowed-URL configs, lookup logs), cleanse messy addresses,
-  and resolve specific addresses from partial queries via the `idpc` CLI.
+  validate email addresses and phone numbers, and resolve specific addresses
+  from partial queries via the `idpc` CLI.
   Use when the user wants to inspect or update an Ideal Postcodes account,
-  cleanse addresses in bulk, or pin down a specific address from a partial
-  query. Always load this skill before running `idpc` — it defines the
+  cleanse addresses in bulk, validate emails or phone numbers, or pin down a
+  specific address from a partial query. Always load this skill before running
+  `idpc` — it defines the
   non-interactive flag contract and output shape that keep agent runs
   deterministic.
 license: SEE LICENSE IN LICENSE
@@ -24,6 +26,8 @@ references:
   - auth.md
   - keys.md
   - cleanse.md
+  - email.md
+  - phone.md
   - find.md
 ---
 
@@ -81,6 +85,8 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 | `idpc auth` | `login`, `logout`, `signup`, `whoami` |
 | `idpc keys` | `get`, `details`, `update`, `usage`, `logs`, `configs {list,get,create,update,delete}` |
 | `idpc cleanse` | Cleanse one address, a file, or stdin |
+| `idpc email` | Validate one email, a file, or stdin |
+| `idpc phone` | Validate one phone number, a file, or stdin |
 | `idpc find` / `resolve` | Autocomplete then resolve a suggestion id to a full address (paired; see `find.md`) |
 | `idpc doctor` | Env + connectivity check |
 
@@ -127,9 +133,10 @@ idpc auth signup \
 ## Common Pitfalls
 
 - **`user_token` is separate from `api_key`.** `keys details`, `keys usage`, `keys logs`, `keys update`, and all `configs` writes require both.
-- **`cleanse` costs paid lookups.** Public test key `iddqd` will return `auth_failed` on `/cleanse/addresses`.
+- **`cleanse`, `email`, and `phone` cost paid lookups.** Public test key `iddqd` will return `auth_failed`.
+- **`cleanse` / `email` / `phone` batch mode emits CSV** unless `--json` is passed; a single query always emits JSON.
 - **`find` without a query in non-TTY errors.** Always pass a query when scripting.
-- **`keys logs` emits raw CSV**, not JSON. Redirect to a file or pipe into your CSV tooling.
+- **`keys logs` emits raw CSV**, not JSON, and rejects `--json` / `-q` with `invalid_input`. Redirect to a file or pipe into your CSV tooling.
 - **Credentials file is `0600`.** If your umask is unusual, `idpc auth login` may fail with `write_failed`.
 
 ## Quick Examples
@@ -141,8 +148,16 @@ idpc cleanse "10 downing street, london"
 # Batch cleanse
 cat addresses.txt | idpc cleanse --stdin
 
+# Validate an email or phone number
+idpc email "support@example.com"
+idpc phone "+442071128019" --carrier
+
+# Batch validate emails to a CSV
+cat emails.txt | idpc email --stdin > emails.csv
+
 # Find a specific address and resolve it
-idpc find "10 downing" --resolve
+ID=$(idpc find "10 downing" | jq -r '.suggestions[0].id')
+idpc resolve "$ID"
 
 # Inspect a key
 idpc keys details

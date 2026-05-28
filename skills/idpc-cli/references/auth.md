@@ -8,17 +8,17 @@ Mint a one-shot `cli_token`, print a prefilled signup URL, then poll the api unt
 
 The command **pauses for a human step**: someone must open the printed URL in a browser and complete the captcha + ToS. The terminal resumes automatically when Rails finishes propagating the user.
 
-| Flag | Description |
-|---|---|
-| `--email <email>` | Account holder email (required in non-interactive mode) |
-| `--name <name>` | Account holder full name (required in non-interactive mode) |
-| `--org-name <name>` | Organisation name (required) |
-| `--org-address-line-one <line>` | Organisation address line 1 (required) |
-| `--org-address-line-two <line>` | Optional address line 2 |
-| `--org-address-line-three <line>` | Optional address line 3 |
-| `--org-post-town <town>` | Organisation post town (required) |
-| `--org-postcode <postcode>` | Organisation postcode (required) |
-| `--org-country-code <iso2>` | Organisation country code, ISO 3166-1 alpha-2 (required) |
+| Flag                              | Description                                                 |
+| --------------------------------- | ----------------------------------------------------------- |
+| `--email <email>`                 | Account holder email (required in non-interactive mode)     |
+| `--name <name>`                   | Account holder full name (required in non-interactive mode) |
+| `--org-name <name>`               | Organisation name (required)                                |
+| `--org-address-line-one <line>`   | Organisation address line 1 (required)                      |
+| `--org-address-line-two <line>`   | Optional address line 2                                     |
+| `--org-address-line-three <line>` | Optional address line 3                                     |
+| `--org-post-town <town>`          | Organisation post town (required)                           |
+| `--org-postcode <postcode>`       | Organisation postcode (required)                            |
+| `--org-country-code <iso2>`       | Organisation country code, ISO 3166-1 alpha-2 (required)    |
 
 Polling runs every 3 seconds and gives up after 30 minutes — both are fixed. Override the api host (rarely needed) with the global `--base-url`.
 
@@ -67,26 +67,31 @@ idpc auth signup \
 
 ## `idpc auth login`
 
-Store an `api_key` and `user_token` for later reuse.
+Store an `api_key` (required) and `user_token` (optional) for later reuse. The api_key is verified against `GET /keys/{key}` before being written.
 
-| Flag | Description |
-|---|---|
-| `--api-key <k>` | API key to store (required in non-interactive mode) |
-| `--user-token <t>` | User token to store (required in non-interactive mode) |
+| Flag               | Description                                                   |
+| ------------------ | ------------------------------------------------------------- |
+| `--api-key <k>`    | **Required** in non-interactive mode; prompted interactively. |
+| `--user-token <t>` | Optional. Unlocks `/keys/*` reads when present.               |
 
-Non-interactive (no TTY or `--json`): both flags required; missing either returns `invalid_input`.
+Non-interactive (no TTY or `--json`): `--api-key` is required; missing it returns `invalid_input`. `--user-token` is optional and stored only if supplied.
 
-Interactive: prompts for both via masked password input.
+Interactive: prompts for the api_key (required) then the user_token (press enter to skip). Both inputs are masked.
 
 ### Output
 
 ```json
-{ "success": true, "config_path": "/home/you/.config/ideal-postcodes/credentials.json" }
+{
+  "success": true,
+  "config_path": "/home/you/.config/ideal-postcodes/credentials.json",
+  "available": true
+}
 ```
 
 ### Error codes
 
-- `invalid_input` — non-interactive mode missing `--api-key` or `--user-token`
+- `invalid_input` — non-interactive mode missing `--api-key`
+- `auth_failed` — API rejected the supplied credentials during verification
 - `write_failed` — unable to write credentials file
 
 ## `idpc auth logout`
@@ -109,11 +114,13 @@ Show where each credential was resolved from and call `GET /keys/{key}` to verif
 
 ```json
 {
-  "api_key": { "source": "env", "preview": "ak_xxx…" },
-  "user_token": { "source": "config", "preview": "ut_xxx…" },
+  "api_key": { "source": "env", "preview": "ak_mpl…" },
+  "user_token": { "source": "config", "preview": "uk_jc6…" },
   "live": true,
-  "availability": { /* GET /keys/{key} response */ }
+  "available": true
 }
 ```
 
-`source` is `flag`, `env`, or `config`.
+`source` is `flag`, `env`, or `config`. `preview` is the first 6 characters of the credential followed by `…`.
+
+Either credential may be `null` if it isn't configured. When `api_key` is `null` the API check is skipped — output omits `available` and reports `"live": false`.

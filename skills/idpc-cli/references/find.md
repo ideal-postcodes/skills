@@ -9,7 +9,6 @@ Address autocomplete — two-step by design. Useful when you need to pin a speci
 | Flag | Description |
 |---|---|
 | `--country <iso3>` | Filter by ISO-3 (e.g. GBR, USA) |
-| `--resolve` | In non-TTY, auto-call resolve on each suggestion |
 
 **TTY (human):** prompts for input if no query, shows a `select` picker, auto-resolves the chosen suggestion, prints the full address.
 
@@ -25,25 +24,9 @@ Address autocomplete — two-step by design. Useful when you need to pin a speci
 }
 ```
 
-Adding `--resolve` pairs each suggestion with its full address in one call:
-
-```json
-{
-  "count": 2,
-  "results": [
-    { "suggestion": { ... }, "address": { /* full */ } },
-    { "suggestion": { ... }, "address": { /* full */ } }
-  ]
-}
-```
-
 ## `idpc resolve <id>`
 
-`GET /autocomplete/addresses/{id}/{country}`.
-
-| Flag | Description |
-|---|---|
-| `--country <iso3>` | ISO-3 country code (default: `gbr`) |
+`GET /autocomplete/addresses/{id}/gbr`.
 
 Returns the resolved address object.
 
@@ -53,7 +36,4 @@ Returns the resolved address object.
 # Pick the top hit and resolve
 ID=$(idpc find "10 downing" | jq -r '.suggestions[0].id')
 idpc resolve "$ID"
-
-# Or in one shot
-idpc find "10 downing" --resolve | jq '.results[0].address'
 ```
