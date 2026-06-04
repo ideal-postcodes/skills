@@ -1,6 +1,6 @@
 # Ideal Postcodes Skills
 
-A collection of skills for AI coding agents (Claude Code, Cursor, Codex) providing guidance for integrating Ideal Postcodes and AddressZen APIs and widgets.
+A collection of skills for AI coding agents (Claude Code, Cursor, Codex) providing guidance for integrating Ideal Postcodes APIs, widgets, and CLI.
 
 ## Install
 
@@ -14,13 +14,12 @@ Or configure a plugin manually in your Claude Code settings.
 
 | Skill | Description |
 |---|---|
-| [`address-finder`](./skills/address-finder) | Address autocomplete widget (@ideal-postcodes/address-finder, @addresszen/address-lookup) |
-| [`postcode-lookup`](./skills/postcode-lookup) | Postcode search widget (@ideal-postcodes/postcode-lookup) |
-| [`api`](./skills/api) | Direct API integration (HTTP, SDK, Node.js, browser) |
+| [`ideal-postcodes-address-finder`](./skills/ideal-postcodes-address-finder) | Address autocomplete widget — suggestions as the user types, populates form fields on selection (`@ideal-postcodes/address-finder`) |
+| [`ideal-postcodes-postcode-lookup`](./skills/ideal-postcodes-postcode-lookup) | Postcode search widget — postcode in, address dropdown out, fills the form (`@ideal-postcodes/postcode-lookup`) |
+| [`ideal-postcodes-api-integration`](./skills/ideal-postcodes-api-integration) | Direct API integration — auth, `/postcodes`, `/addresses`, `/udprn`, `/autocomplete`, client libraries, error handling |
+| [`ideal-postcodes-cli`](./skills/ideal-postcodes-cli) | Drive the API from the terminal — manage keys, cleanse addresses, resolve from partial queries via the `idpc` CLI |
 
-## About These Skills
-
-Skills include quickstarts, critical gotchas, and reference documentation tailored for agents. For comprehensive API reference, see [docs.ideal-postcodes.co.uk](https://docs.ideal-postcodes.co.uk).
+Each skill includes quickstarts, critical gotchas, and reference documentation tailored for agents. For comprehensive API reference, see [docs.ideal-postcodes.co.uk](https://docs.ideal-postcodes.co.uk).
 
 ## Source
 
