@@ -1,6 +1,6 @@
 # Hide the country toolbar
 
-Suppress the toolbar bar that renders below the suggestion list on focus.
+Suppress the toolbar that renders below the suggestion list on focus.
 
 `hideToolbar` is **independent** of [`restrictCountries`](./restrict-country.mdx). `restrictCountries: ["GBR"]` removes the country *picker control* inside the toolbar but the toolbar container still renders. To hide the bar entirely — useful for single-country checkouts that want a clean, "nothing shows until results" focus experience — set `hideToolbar: true`.
 

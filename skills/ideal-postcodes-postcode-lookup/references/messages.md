@@ -51,12 +51,12 @@ Postcode Lookup exposes some accessibility settings.
 - Search input aria label [`inputAriaLabel`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#inputAriaLabel)
 - Address select aria label [`selectAriaLabel`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectAriaLabel)
 
-The following WAI-ARIA components of Postcode Lookups have WAI-ARIA attributes enabled
+The following WAI-ARIA components of Postcode Lookups have WAI-ARIA attributes enabled.
 
-- Message box `aria-role` is set to `alert` to immediately notify the user
+- Message box `role` is set to `alert` to immediately notify the user
 - Postcode Lookup container has `aria-live` enabled to alert users to updates in the address dropdown
 - Search input accepts an Enter/Return key to trigger an address search without submitting the form
 
 > **Accessibility**
 > 
-> Keep in mind these messages are also important for users who rely on the screen-reader. When altering the message be sure that the necessary meaning and intent is understandable to visually impaired users who will be getting audio cues from their screen-reader.
+> Bear in mind these messages are also important for users who rely on the screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.

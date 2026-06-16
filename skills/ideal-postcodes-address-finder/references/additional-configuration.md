@@ -6,7 +6,7 @@
 
 Configure `inputField` if you want Address Finder to render on an input field which is not your first address line.
 
-CSS selector or HTML Element which specifies the `<input>` field which the Address Finder interface should bind.
+CSS selector or HTML Element that specifies the `<input>` field the Address Finder interface should bind to.
 
 Defaults to `outputFields.line_1` (the first address line).
 
@@ -31,7 +31,7 @@ If the check fails, the plugin will not initialise. You can use the [`onFailedCh
 
 [`titleizePostTown`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#TitleizePostTown)
 
-An optional field to convert the case of the Post Town from upper case into title case. E.g. `"LONDON"` becomes `"London".`
+An optional field to convert the case of the Post Town from upper case into title case. E.g. `"LONDON"` becomes `"London"`.
 
 Defaults to `true`.
 
@@ -84,7 +84,7 @@ Accepts an array of HTMLElements or CSS selectors. E.g.
   hide: [
     "#line_1",
     document.getElementById("line_2"),
-    document.getElementById("line_3")],
+    document.getElementById("line_3"),
   ],
 }
 ```
@@ -99,4 +99,4 @@ Defaults to `[]`.
 
 [`unHide`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#Unhide)
 
-Specify a query selector (`string`) or (`HTMLElement`) as a custom clickable element to unhide and form fields configured with `hide`. This will prevent the default unhide element from being rendered.
+Specify a query selector (`string`) or (`HTMLElement`) as a custom clickable element to unhide the form fields configured with `hide`. This will prevent the default unhide element from being rendered.

@@ -122,4 +122,4 @@ Invoked immediately after address suggestions are retrieved from the API. The fi
 
 [`onUnhide`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onUnhide)
 
-Invoked when hidden fields are unhidden (i.e. user selects an address or opts for manual input)
+Invoked when hidden fields are unhidden (i.e. user selects an address or opts for manual input).

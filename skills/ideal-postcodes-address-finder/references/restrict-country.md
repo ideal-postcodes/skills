@@ -4,7 +4,7 @@ Narrow the countries you wish to support.
 
 Setting this to an empty array (default) will enable all countries.
 
-Setting this to a single country disables the country picker control inside the toolbar. To hide the toolbar bar itself, set [`hideToolbar: true`](./hide-toolbar.mdx) — `restrictCountries` and `hideToolbar` are independent options.
+Setting this to a single country disables the country picker control inside the toolbar. To hide the toolbar itself, set [`hideToolbar: true`](https://docs.ideal-postcodes.co.uk/docs/address-finder/hide-toolbar) — `restrictCountries` and `hideToolbar` are independent options.
 
 ## Live Demo
 

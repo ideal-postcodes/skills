@@ -44,4 +44,4 @@ Defaults to `"Please enter your address manually"`
 
 > **Accessibility**
 > 
-> Keep in mind these messages are also important for users who rely on the screen-reader. When altering the message be sure that the necessary meaning and intent is understandable to visually impaired users who will be getting audio cues from their screen-reader.
+> Bear in mind these messages are also important for users who rely on the screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.

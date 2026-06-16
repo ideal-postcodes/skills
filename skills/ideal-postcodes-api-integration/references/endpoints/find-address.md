@@ -33,7 +33,7 @@ Combine filters by `AND` logic, for instance, `su_organisation_indicator=Y&postc
 
 Preface bias searches with `bias_` to boost certain address results. Unlike filters, biasing allows unmatched addresses to appear with lower priority.
 
-For example, use `bias_postcode_area=SW,SE` to favor addresses in the `SW` and `SE` postcode areas. Invalid bias terms have no effect.
+For example, use `bias_postcode_area=SW,SE` to favour addresses in the `SW` and `SE` postcode areas. Invalid bias terms have no effect.
 
 Multiple bias terms are allowed unless stated otherwise, with a combined maximum of **5**.
 

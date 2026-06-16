@@ -23,7 +23,7 @@ Biases search based on approximate geolocation of an IP address. Set `bias_ip` t
   AddressFinder.setup({
     apiKey: "ak_test",
     queryOptions: {
-      // Set IP bias to prioritize addresses based on user's IP location
+      // Set IP bias to prioritise addresses based on user's IP location
       bias_ip: "true",
     },
     outputFields: {

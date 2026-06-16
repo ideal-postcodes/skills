@@ -1,6 +1,6 @@
 # Style Adjustments
 
-It's possible that the default styling may require a small tweak to allow it to better match your design and site aesthetic. Rather than adding CSS assets, consider applying a style attribute as a setup configuration option. The configurations below apply a style attribute directly to a specific element of the address finder.
+It's possible that the default styling may require a small tweak to allow it to better match your design and site aesthetic. Rather than adding CSS assets, consider applying a style attribute as a setup configuration option. The configurations below apply a style attribute directly to a specific element of the Postcode Lookup.
 
 ## Input
 

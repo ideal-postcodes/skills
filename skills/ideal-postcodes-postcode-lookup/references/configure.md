@@ -12,7 +12,7 @@ API Key from your Ideal Postcodes account. Typically begins `ak_`
 
 [`context`](https://postcode-lookup.ideal-postcodes.co.uk/classes/Controller.Controller-1.html#context)
 
-Specify an area on your page where Postcode Lookup can render the necessary user interface to allow Postcode Lookup. Typically a `<div>`, you may reference this using a CSS Selector or a direct reference to the node.
+Specify an area on your page where Postcode Lookup can render its user interface. Typically a `<div>`, you may reference this using a CSS Selector or a direct reference to the node.
 
 ```javascript
 {

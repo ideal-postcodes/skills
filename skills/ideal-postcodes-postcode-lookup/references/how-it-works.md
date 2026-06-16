@@ -10,4 +10,4 @@ When initialised it will:
     3. Container to render address list
     4. Message container
 3. Pipe address results to the fields defined in `outputFields`.
-4. Perform a key check to determine whether it is usable. If the check fails, initialisation is aborted. Use the `onCheckFailed` callback to update your page for manual address entry.
+4. Perform a key check to determine whether it is usable. If the check fails, initialisation is aborted. Use the `onFailedCheck` callback to update your page for manual address entry.

@@ -1,4 +1,4 @@
-# Omit Company Name
+# Omit Organisation Name
 
 In many countries including the UK, the organisation name will take precedence as the first line of an address if it is present.
 
