@@ -2,6 +2,8 @@
 
 Postcode Lookup exports a [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) method to apply address verification to a form. [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) requires the following configuration at minimum.
 
+> `apiKey`, `context` and `outputFields` below are all you need to get Postcode Lookup working. For the complete set of controller options, see [Additional Configuration](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/additional-configuration).
+
 ## API Key
 
 [`apiKey`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#apiKey)
@@ -35,6 +37,8 @@ Specify where to send address data given a selected address. `outputFields` is a
   postcode: document.getElementById("postcode")
 }
 ```
+
+> The fields above (`line_1`, `line_2`, `line_3`, `post_town` and `postcode`) are the minimum set needed to capture a complete, deliverable UK address. Collect all of them so the address you store reliably routes to the premises.
 
 Assigning up to 3 address lines, post town and postcode fields, is all addressing information required to identify a UK premise. You may extract more data for an address by passing more properties into the `outputFields` configuration object.
 

@@ -178,3 +178,7 @@ If you need a fully custom UI (your own dropdown, your own suggestion rendering)
 - Vanilla library skill: [`../ideal-postcodes-address-finder`](../ideal-postcodes-address-finder) — read this for the full options reference, filters, biases, and styling
 - Live API docs: [docs.ideal-postcodes.co.uk](https://docs.ideal-postcodes.co.uk)
 - Address types: [api-typings.ideal-postcodes.co.uk](https://api-typings.ideal-postcodes.co.uk)
+
+## Full documentation
+
+The full Ideal Postcodes documentation — every guide, API reference, and integration — is available as a single file at [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt). Point your agent there for anything this skill doesn't cover.

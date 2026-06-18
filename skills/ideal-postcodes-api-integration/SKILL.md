@@ -102,3 +102,7 @@ The complete OpenAPI spec is available at:
 - web: <https://openapi.ideal-postcodes.co.uk/openapi.yaml>
 
 Reach for it when you need exhaustive parameter detail beyond what's in the endpoint references.
+
+## Full documentation
+
+The full Ideal Postcodes documentation — every guide, API reference, and integration — is available as a single file at [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt). Point your agent there for anything this skill doesn't cover.

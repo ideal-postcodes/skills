@@ -165,3 +165,7 @@ idpc keys details
 # Add an allowed URL
 idpc keys configs update web --allowed-urls https://example.com,https://www.example.com
 ```
+
+## Full documentation
+
+The full Ideal Postcodes documentation — every guide, API reference, and integration — is available as a single file at [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt). Point your agent there for anything this skill doesn't cover.

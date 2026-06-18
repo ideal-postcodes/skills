@@ -6,7 +6,9 @@
       "UMPRN",
       "Addresses",
       "AddressVerify",
-      "RetrieveAddress"
+      "RetrieveAddress",
+      "SignUpClaim",
+      "SignUpMintToken"
     ]
   },
   "data": {

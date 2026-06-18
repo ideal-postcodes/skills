@@ -154,3 +154,7 @@ The references below are organised by intent. Read only the ones relevant to the
 
 ### Troubleshooting
 - [`troubleshooting.md`](./troubleshooting.md) — common errors with root cause + fix (authored sibling, not in references/)
+
+## Full documentation
+
+The full Ideal Postcodes documentation — every guide, API reference, and integration — is available as a single file at [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt). Point your agent there for anything this skill doesn't cover.
