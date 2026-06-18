@@ -4,31 +4,31 @@ It's possible that the default styling may require a small tweak to allow it to 
 
 ## Address Finder Container
 
-[`containerStyle`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#ContainerStyle)
+`containerStyle`
 
 Applies additional styling to the entire Address Finder including the input field.
 
 ## Input Style
 
-[`inputStyle`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#InputStyle)
+`inputStyle`
 
 Applies additional styling to the main input field that triggers Address Finder.
 
 ## Main Style
 
-[`mainStyle`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#MainStyle)
+`mainStyle`
 
 Applies styling to the toggleable Address Finder (includes suggestion list and toolbar).
 
 ## Suggestion List
 
-[`listStyle`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#ListStyle)
+`listStyle`
 
 Applies additional styling to the suggestion list.
 
 ## Suggestion Element
 
-[`liStyle`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#LiStyle)
+`liStyle`
 
 Applies custom styling to every list element `<li>` including address suggestions and messages.
 

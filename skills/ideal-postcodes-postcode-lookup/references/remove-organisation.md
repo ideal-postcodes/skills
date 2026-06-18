@@ -2,7 +2,7 @@
 
 In many countries including the UK, the organisation name will take precedence as the first line of an address if it is present.
 
-Set [`removeOrganisation`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#removeOrganisation) to `true` and include a target `organisation_name` in your `outputFields`. This will strip the address lines of the organisation but separately add the organisation to the input field you have designated with `organisation_name`.
+Set `removeOrganisation` to `true` and include a target `organisation_name` in your `outputFields`. This will strip the address lines of the organisation but separately add the organisation to the input field you have designated with `organisation_name`.
 
 Note that addresses which only have an organisation name as a premise identifier will not have the name stripped.
 

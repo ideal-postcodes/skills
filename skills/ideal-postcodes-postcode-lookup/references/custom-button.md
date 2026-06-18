@@ -2,7 +2,7 @@
 
 You may also specify any clickable DOM element as a trigger to lookup a postcode.
 
-Identify your custom input via the [`button`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#button) property.
+Identify your custom input via the `button` property.
 
 ## Live Demo
 

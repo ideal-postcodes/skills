@@ -2,7 +2,7 @@
 
 Instead of writing address attributes to specific input fields, you can also write out the entire address to a general input like a `textarea`.
 
-This is achieved by using the [`onAddressSelected`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#onAddressSelected) callback.
+This is achieved by using the `onAddressSelected` callback.
 
 Postcode Lookup provides a number of [callbacks](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/callbacks) to enable custom behaviours.
 

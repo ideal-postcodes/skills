@@ -1,6 +1,6 @@
 # Run Custom Callback
 
-By passing a function to a callback like [`onSearchCompleted`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#onSearchCompleted), you can modify or extend the behaviour of Postcode Lookup.
+By passing a function to a callback like `onSearchCompleted`, you can modify or extend the behaviour of Postcode Lookup.
 
 This option is useful if you want to run custom code after the user has searched for an address and before the user selects from the dropdown menu.
 

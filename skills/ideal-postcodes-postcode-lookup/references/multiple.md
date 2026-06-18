@@ -2,7 +2,7 @@
 
 You can create multiple, independent Postcode Lookup fields on the same page. This is useful for certain requirements, e.g. separate billing and shipping addresses.
 
-[`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) can be invoked multiple times on different DOM elements to create multiple fields.
+`setup` can be invoked multiple times on different DOM elements to create multiple fields.
 
 Each lookup field is independent and so can behave differently if you pass in different configuration settings.
 

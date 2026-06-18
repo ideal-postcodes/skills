@@ -4,7 +4,7 @@ Address Finder uses a small default set of messages to communicate specific even
 
 ## Initial Message
 
-[`msgInitial`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#msginitial)
+`msgInitial`
 
 Displays when the Address Finder is opened and the input field is empty.
 
@@ -12,7 +12,7 @@ Defaults to `"Start typing to find address"`
 
 ## Accessibility (Screen Reader) Message
 
-[`msgList`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#MsgList)
+`msgList`
 
 The aria-label assigned to the address suggestion list. This message will only be picked up by screen readers.
 
@@ -20,7 +20,7 @@ Defaults to `"Select your address"`
 
 ## No Match
 
-[`msgNoMatch`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#MsgNoMatch)
+`msgNoMatch`
 
 Displays when no suggestions could be found for the query.
 
@@ -28,7 +28,7 @@ Defaults to `"No matches found"`
 
 ## Unhide Label
 
-[`msgUnhide`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#MsgUnhide)
+`msgUnhide`
 
 Displayed to the user if Address Fields have been hidden. It is shown as a clickable element to trigger manual address entry.
 
@@ -36,7 +36,7 @@ Defaults to `"Enter address manually"`
 
 ## Fallback Message
 
-[`msgFallback`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#MsgFallback)
+`msgFallback`
 
 Shown when Address Finder is unable to provide suggestions for any reason (e.g. key is not available).
 

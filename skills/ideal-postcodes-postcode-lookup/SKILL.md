@@ -22,10 +22,10 @@ inputs:
     required: true
 references:
   - add-custom-elements.md
-  - additional-configuration.md
   - additional-data.md
   - behaviours.md
   - callbacks.md
+  - configuration-reference.md
   - configure.md
   - css-classes.md
   - custom-button.md
@@ -117,7 +117,7 @@ The references below are organised by intent. Read only the ones relevant to the
 - [`npm.md`](./references/npm.md) — npm/bundler install, source vs bundled trade-offs
 - [`script.md`](./references/script.md) — CDN `<script>` tag install
 - [`configure.md`](./references/configure.md) — minimum required config (`apiKey`, `context`, `outputFields`)
-- [`additional-configuration.md`](./references/additional-configuration.md) — full options reference
+- [`configuration-reference.md`](./references/configuration-reference.md) — full options reference
 - [`callbacks.md`](./references/callbacks.md) — `onAddressSelected`, `onLoaded`, `onSearchCompleted`, etc.
 
 ### React / single-page apps

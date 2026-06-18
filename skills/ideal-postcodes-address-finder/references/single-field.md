@@ -1,6 +1,6 @@
 # Display Address in One Line
 
-Instead of writing each address attribute to individual fields, you may exercise fine control over how address data is presented using the [`onAddressRetrieved`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#onAddressRetrieved) callback.
+Instead of writing each address attribute to individual fields, you may exercise fine control over how address data is presented using the `onAddressRetrieved` callback.
 
 In this example, we merge the address lines and insert them into a `textarea`.
 

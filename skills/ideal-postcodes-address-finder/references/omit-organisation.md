@@ -2,7 +2,7 @@
 
 In many countries including the UK, the organisation name will take precedence as the first line of an address if it is present.
 
-By setting [`removeOrganisation`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#RemoveOrganisation) to true, the plugin will scrub any organisation name from address lines.
+By setting `removeOrganisation` to true, the plugin will scrub any organisation name from address lines.
 
 > Note that in instances where the organisation name is the _only_ premise identifier, it will not be removed from an address.
 

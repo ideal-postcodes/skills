@@ -1,6 +1,6 @@
 # Separate Input from Address
 
-Specify an [`inputField`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#InputField) to apply the Address Finder to a field other than the first line of the address.
+Specify an `inputField` to apply the Address Finder to a field other than the first line of the address.
 
 ## Live Demo
 

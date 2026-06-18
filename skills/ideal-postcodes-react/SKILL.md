@@ -140,7 +140,7 @@ Everything else carries across unchanged.
 }
 ```
 
-For US addresses (when `format="usa"`), the shape differs — see the `additional-data` reference in the sibling [`address-finder`](../ideal-postcodes-address-finder) skill or [api-typings.ideal-postcodes.co.uk](https://api-typings.ideal-postcodes.co.uk).
+For US addresses (when `format="usa"`), the shape differs — see the `additional-data` reference in the sibling [`address-finder`](../ideal-postcodes-address-finder) skill or the [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
 
 ## Country handling
 
@@ -177,7 +177,7 @@ If you need a fully custom UI (your own dropdown, your own suggestion rendering)
 - Component source: `packages/react-ideal/` in the [`ideal-postcodes/atlas`](https://github.com/ideal-postcodes/atlas) repo
 - Vanilla library skill: [`../ideal-postcodes-address-finder`](../ideal-postcodes-address-finder) — read this for the full options reference, filters, biases, and styling
 - Live API docs: [docs.ideal-postcodes.co.uk](https://docs.ideal-postcodes.co.uk)
-- Address types: [api-typings.ideal-postcodes.co.uk](https://api-typings.ideal-postcodes.co.uk)
+- Address types: [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf)
 
 ## Full documentation
 

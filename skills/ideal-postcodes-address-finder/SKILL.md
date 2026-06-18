@@ -20,12 +20,12 @@ inputs:
     description: API key for the Ideal Postcodes API. Get one at ideal-postcodes.co.uk/account
     required: true
 references:
-  - additional-configuration.md
   - additional-data.md
   - bias-by-geolocation.md
   - bias-by-ip.md
   - bias-by-postcode.md
   - callbacks.md
+  - configuration-reference.md
   - configure.md
   - convert-iso-code.md
   - css-classes.md
@@ -126,7 +126,7 @@ The references below are organised by intent. Read only the ones relevant to the
 - [`npm.md`](./references/npm.md) — npm/bundler install, source vs bundled trade-offs
 - [`script.md`](./references/script.md) — CDN `<script>` tag install
 - [`configure.md`](./references/configure.md) — minimum required config (`apiKey`, `outputFields`)
-- [`additional-configuration.md`](./references/additional-configuration.md) — full options reference
+- [`configuration-reference.md`](./references/configuration-reference.md) — full options reference
 - [`callbacks.md`](./references/callbacks.md) — `onAddressRetrieved`, `onLoaded`, `onCheckFailed`, etc.
 
 ### React / single-page apps

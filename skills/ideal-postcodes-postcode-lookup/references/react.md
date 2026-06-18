@@ -1,8 +1,8 @@
 # Add to React
 
 1. Create a `context` container and attach a reference with `createRef`
-2. Bind Postcode Lookup with [`setup`](https://postcode-lookup.ideal-postcodes.co.uk/modules/Setup.html#setup) passing in reference as context
-3. Update address state using [`onAddressSelected`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#onAddressSelected) callback.
+2. Bind Postcode Lookup with `setup` passing in reference as context
+3. Update address state using `onAddressSelected` callback.
 
 ```jsx
 import "./styles.css";

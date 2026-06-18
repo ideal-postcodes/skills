@@ -2,7 +2,7 @@
 
 You can also enable a full address search, i.e. combine a postcode with house number.
 
-Set [`strictlyPostcodes`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#strictlyPostcodes) to `false`.
+Set `strictlyPostcodes` to `false`.
 
 ## Live Demo
 

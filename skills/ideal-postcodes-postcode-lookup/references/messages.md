@@ -4,43 +4,43 @@ Postcode Lookup uses a small default set of messages to communicate specific eve
 
 ## Postcode Lookup Placeholder
 
-[`placeholder`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#placeholder)
+`placeholder`
 
 Sets the default placeholder label on input field.
 
 ## Button Label
 
-[`buttonLabel`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#buttonLabel)
+`buttonLabel`
 
 Sets the label on the search button.
 
 ## Postcode Lookup Disabled
 
-[`msgDisabled`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#msgDisabled)
+`msgDisabled`
 
 Message shown when button is temporarily disabled due to lookup.
 
 ## An Error Occurred
 
-[`msgError`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#msgError)
+`msgError`
 
 Message shown when an error occurs and prevents address verification from succeeding.
 
 ## Postcode Not Found
 
-[`msgNotFound`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#msgNotFound)
+`msgNotFound`
 
 Message shown when an invalid or terminated postcode is searched.
 
 ## Address Dropdown Prompt
 
-[`msgSelect`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#msgSelect)
+`msgSelect`
 
 Message shown at the top of the address `<select>` dropdown.
 
 ## Unhide Address Fields Message
 
-[`msgUnhide`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#msgUnhide)
+`msgUnhide`
 
 Message shown to unhide address fields and allow manual address entry.
 
@@ -48,8 +48,8 @@ Message shown to unhide address fields and allow manual address entry.
 
 Postcode Lookup exposes some accessibility settings.
 
-- Search input aria label [`inputAriaLabel`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#inputAriaLabel)
-- Address select aria label [`selectAriaLabel`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectAriaLabel)
+- Search input aria label `inputAriaLabel`
+- Address select aria label `selectAriaLabel`
 
 The following WAI-ARIA components of Postcode Lookups have WAI-ARIA attributes enabled.
 

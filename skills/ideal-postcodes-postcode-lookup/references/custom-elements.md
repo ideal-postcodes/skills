@@ -1,6 +1,6 @@
 # Custom Elements
 
-While Postcode Lookup can reduce much of the friction by rendering postcode lookup elements inside the provided [`context`](https://postcode-lookup.ideal-postcodes.co.uk/classes/Controller.Controller-1.html#context), this is less ideal for forms with complex designs and styling rules. In these instances, you may create one or more custom postcode lookup elements and provide them to Postcode Lookup.
+While Postcode Lookup can reduce much of the friction by rendering postcode lookup elements inside the provided `context`, this is less ideal for forms with complex designs and styling rules. In these instances, you may create one or more custom postcode lookup elements and provide them to Postcode Lookup.
 
 Postcode Lookup consists of 5 main elements with the following order and hierarchy:
 - Context
@@ -9,29 +9,29 @@ Postcode Lookup consists of 5 main elements with the following order and hierarc
   - Dropdown Container `<div>`
   - Message Container `<p>`
 
-Identify custom elements to Postcode Lookup by supplying CSS Selectors or node references to your DOM elements. When a custom element is specified, the corresponding element will no longer be rendered in [`context`](https://postcode-lookup.ideal-postcodes.co.uk/classes/Controller.Controller-1.html#context). Listed below are elements of Postcode Lookup which can be supplied to the plugin:
+Identify custom elements to Postcode Lookup by supplying CSS Selectors or node references to your DOM elements. When a custom element is specified, the corresponding element will no longer be rendered in `context`. Listed below are elements of Postcode Lookup which can be supplied to the plugin:
 
 ## Postcode Lookup Input Field
 
-[`input`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#input)
+`input`
 
 Identify an alternate element to use as the Postcode Lookup field.
 
 ## Search Button
 
-[`button`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#button)
+`button`
 
 Identify an alternate element to trigger a postcode lookup.
 
 ## Message
 
-[`message`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#message)
+`message`
 
 Identify an alternate text element to convey messages to the user.
 
 ## Address Dropdown Container
 
-[`selectContainer`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectContainer)
+`selectContainer`
 
 Identify an alternate element and location to render the address selection dropdown.
 

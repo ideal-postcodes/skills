@@ -4,31 +4,31 @@ It's possible that the default styling may require a small tweak to allow it to 
 
 ## Input
 
-[`inputStyle`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#inputStyle)
+`inputStyle`
 
 Applies additional styling to the postcode lookup field.
 
 ## Container Element
 
-[`contextStyle`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#contextStyle)
+`contextStyle`
 
 Applies styling to the Postcode Lookup UI container element.
 
 ## Button Style
 
-[`buttonStyle`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#buttonStyle)
+`buttonStyle`
 
 Applies additional styling to the search button.
 
 ## Message Style
 
-[`messageStyle`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#messageStyle)
+`messageStyle`
 
 Applies styling to the message container.
 
 ## Address Dropdown Style
 
-[`selectStyle`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectStyle)
+`selectStyle`
 
 Applies styling to the `<select>` element displaying address selections.
 

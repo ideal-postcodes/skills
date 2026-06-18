@@ -4,7 +4,7 @@ Postcode Lookup does not inject any styling into your page. Instead it relies on
 
 ## CSS Class Hierarchy
 
-Postcode Lookup renders the UI inside of your named [`context`](https://postcode-lookup.ideal-postcodes.co.uk/classes/Controller.Controller-1.html#context). The HTML and CSS classes are structured as shown below:
+Postcode Lookup renders the UI inside of your named `context`. The HTML and CSS classes are structured as shown below:
 
 ```html
 <!-- Parent Context Element -->
@@ -87,9 +87,9 @@ Note that:
 
 Custom styling can be achieved by applying your own CSS classes to each HTML element created by Postcode Lookup:
 
-- Search Button [`buttonClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#buttonClass)
-- Search Input [`inputClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#inputClass)
-- Select Container Class [`selectContainerClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectContainerClass)
-- Select Input [`selectClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#selectClass)
-- Message Container [`messageClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#messageClass)
-- Unhide Container Class [`unhideClass`](https://postcode-lookup.ideal-postcodes.co.uk/interfaces/Controller.ControllerConfig.html#unhideClass)
+- Search Button `buttonClass`
+- Search Input `inputClass`
+- Select Container Class `selectContainerClass`
+- Select Input `selectClass`
+- Message Container `messageClass`
+- Unhide Container Class `unhideClass`

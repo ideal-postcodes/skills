@@ -4,13 +4,13 @@
 
 In some instances, you may want to hide the address inputs and subsequently unhide them when the user has selected a verified address. This makes it harder for the user to input an incorrect address and bypass address verification.
 
-Address Finder provides this functionality natively using [`hide`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#Hide). Specify which HTML Elements you would like to hide as CSS Selector or references. When the user selects an address, or address verification fails (no balance, limit reached, etc), the fields will unhide.
+Address Finder provides this functionality natively using `hide`. Specify which HTML Elements you would like to hide as CSS Selector or references. When the user selects an address, or address verification fails (no balance, limit reached, etc), the fields will unhide.
 
 A clickable link will also be provided to allow the user to manually enter an address.
 
 ## Custom Unhide Element
 
-You can assign a custom element to serve as a clickable element to unhide the address fields. Use the [`unHide`](https://address-finder.ideal-postcodes.co.uk/interfaces/Controller.ControllerOptions.html#Unhide) option.
+You can assign a custom element to serve as a clickable element to unhide the address fields. Use the `unHide` option.
 
 ## Live Demo
 
