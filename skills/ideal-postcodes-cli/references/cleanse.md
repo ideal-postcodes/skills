@@ -1,4 +1,4 @@
-# `idpc cleanse`
+# idpc cleanse
 
 Clean messy address strings — `POST /cleanse/addresses`. Requires `api_key`. Each input counts as a paid lookup.
 
@@ -26,7 +26,7 @@ Exactly one of: `[query]`, `--file`, `--stdin`. Requests are tagged `cli`.
 ```json
 {
   "query": "10 downing street",
-  "response": { /* IDPC cleanse response */ }
+  "response": {  }
 }
 ```
 
@@ -36,20 +36,16 @@ Exactly one of: `[query]`, `--file`, `--stdin`. Requests are tagged `cli`.
 {
   "count": 3,
   "results": [
-    { "query": "...", "response": { ... } },
-    { "query": "...", "response": { ... } },
-    { "query": "...", "response": { ... } }
+    { "query": "...", "response": {} },
+    { "query": "...", "response": {} },
+    { "query": "...", "response": {} }
   ]
 }
 ```
 
-Each `response` includes the IDPC `result` array and the confidence score. There is no absolute confidence threshold — decide per your dataset.
+Each `response` includes the cleanse `result` array and the confidence score. There is no absolute confidence threshold — decide per your dataset.
 
-Multiple inputs emit CSV by default; pass `--json` for the shape above. A row
-that fails its lookup doesn't abort the batch: in CSV its `status` becomes
-`Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`.
-The batch still exits `0`. Auth/permission failures (`auth_failed`,
-`forbidden`) are the exception: they abort the whole run.
+Multiple inputs emit CSV by default; pass `--json` for the shape above. A row that fails its lookup doesn't abort the batch: in CSV its `status` becomes `Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`. The batch still exits `0`. Auth/permission failures (`auth_failed`, `forbidden`) are the exception: they abort the whole run.
 
 ## Agent patterns
 

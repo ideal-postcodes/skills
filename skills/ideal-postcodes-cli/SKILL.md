@@ -64,7 +64,7 @@ Two credentials: `api_key` (required) and `user_token` (required for `/keys/*` r
 |---|---|
 | 1 (highest) | `--api-key <k>` / `--user-token <t>` |
 | 2 | `IDPC_API_KEY` / `IDPC_USER_TOKEN` env var |
-| 3 (lowest) | `~/.config/ideal-postcodes/credentials.json` (written by `idpc auth login` / `idpc auth signup`) |
+| 3 (lowest) | `~/.config/ideal-postcodes/credentials.json` (written by `idpc auth login`) |
 
 Missing api_key → error code `missing_api_key`. Missing user_token on a command that needs it → `missing_user_token`.
 
@@ -82,7 +82,7 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 
 | Group | Subcommands |
 |---|---|
-| `idpc auth` | `login`, `logout`, `signup`, `whoami` |
+| `idpc auth` | `login`, `logout`, `whoami` |
 | `idpc keys` | `get`, `details`, `update`, `usage`, `logs`, `configs {list,get,create,update,delete}` |
 | `idpc cleanse` | Cleanse one address, a file, or stdin |
 | `idpc email` | Validate one email, a file, or stdin |
@@ -91,6 +91,9 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 | `idpc doctor` | Env + connectivity check |
 
 Read the matching reference file for flags and example output.
+
+<!-- `idpc auth signup` is implemented but hidden until the backing /signup-tokens
+endpoint ships. Uncomment this section when it goes live.
 
 ## Standing up a brand-new account: `idpc auth signup`
 
@@ -129,6 +132,7 @@ idpc auth signup \
   --org-postcode SW1A1AA \
   --org-country-code GB
 ```
+-->
 
 ## Common Pitfalls
 

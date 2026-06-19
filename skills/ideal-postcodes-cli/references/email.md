@@ -1,4 +1,4 @@
-# `idpc email`
+# idpc email
 
 Validate email addresses — `GET /emails`. Requires `api_key`. Each input counts as a paid lookup.
 
@@ -39,20 +39,15 @@ Exactly one of: `[query]`, `--file`, `--stdin`. Requests are tagged `cli`.
 }
 ```
 
-`result` is `"deliverable"` or `"not_deliverable"`. `suggestions` lists corrected spellings (e.g. a fixed typo'd domain).
+`result` is `"deliverable"` or `"not_deliverable"`. `suggestions` lists corrected spellings (for example a fixed typo'd domain).
 
-**Multiple inputs** (file or stdin) emit CSV by default; pass `--json` for the
-`{ count, results: [{ query, response }] }` shape. CSV columns:
+**Multiple inputs** (file or stdin) emit CSV by default; pass `--json` for the `{ count, results: [{ query, response }] }` shape. CSV columns:
 
 ```
 query,status,result,deliverable,disposable,free,role,catchall,suggestions
 ```
 
-A row that fails its lookup doesn't abort the batch: in CSV its `status`
-becomes `Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`.
-The batch still exits `0` — filter on `status` / the `error` key to find failures.
-Auth/permission failures (`auth_failed`, `forbidden`) are the exception: they
-abort the whole run since every row would fail identically.
+A row that fails its lookup doesn't abort the batch: in CSV its `status` becomes `Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`. The batch still exits `0` — filter on `status` or the `error` key to find failures. Auth/permission failures (`auth_failed`, `forbidden`) are the exception: they abort the whole run since every row would fail identically.
 
 ## Agent patterns
 

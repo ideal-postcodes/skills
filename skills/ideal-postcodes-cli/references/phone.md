@@ -1,4 +1,4 @@
-# `idpc phone`
+# idpc phone
 
 Validate phone numbers — `GET /phone_numbers`. Requires `api_key`. Each input counts as a paid lookup.
 
@@ -19,7 +19,7 @@ idpc phone --stdin
 
 Exactly one of: `[query]`, `--file`, `--stdin`. Requests are tagged `cli`.
 
-Include the country code (e.g. `+442071128019`) for reliable parsing.
+Include the country code (for example `+442071128019`) for reliable parsing.
 
 ## Output
 
@@ -45,19 +45,13 @@ Include the country code (e.g. `+442071128019`) for reliable parsing.
 
 `current_carrier` is only populated when `--carrier` is passed (an HLR lookup that is slower and may cost more). Unparseable numbers return `"valid": false` with the format fields blank.
 
-**Multiple inputs** (file or stdin) emit CSV by default; pass `--json` for the
-`{ count, results: [{ query, response }] }` shape. CSV columns (carriers
-flattened to their name):
+**Multiple inputs** (file or stdin) emit CSV by default; pass `--json` for the `{ count, results: [{ query, response }] }` shape. CSV columns (carriers flattened to their name):
 
 ```
 query,status,valid,national_format,international_format,iso_country,iso_country_2,country,current_carrier,original_carrier
 ```
 
-A row that fails its lookup doesn't abort the batch: in CSV its `status`
-becomes `Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`.
-The batch still exits `0` — filter on `status` / the `error` key to find failures.
-Auth/permission failures (`auth_failed`, `forbidden`) are the exception: they
-abort the whole run since every row would fail identically.
+A row that fails its lookup doesn't abort the batch: in CSV its `status` becomes `Error: <message>`; in JSON its entry is `{ query, error: { code, message } }`. The batch still exits `0` — filter on `status` or the `error` key to find failures. Auth/permission failures (`auth_failed`, `forbidden`) are the exception: they abort the whole run since every row would fail identically.
 
 ## Agent patterns
 

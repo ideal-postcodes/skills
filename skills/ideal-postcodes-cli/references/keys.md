@@ -1,4 +1,4 @@
-# `idpc keys`
+# idpc keys
 
 Inspect and manage API keys.
 
@@ -8,7 +8,7 @@ All subcommands except `keys get` **require a user_token**. The CLI preflights t
 
 ## `idpc keys get [key]`
 
-Public availability info — `GET /keys/{key}`. No user_token attached (the response shape changes if one is present, so the CLI explicitly omits it even when available).
+Public availability info — `GET /keys/{key}`. No user_token is attached (the response shape changes if one is present, so the CLI explicitly omits it even when available).
 
 ## `idpc keys details [key]`
 

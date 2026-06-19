@@ -1,4 +1,4 @@
-# `idpc find` & `idpc resolve`
+# idpc find & resolve
 
 Address autocomplete — two-step by design. Useful when you need to pin a specific address from partial info before using it downstream.
 
@@ -8,11 +8,11 @@ Address autocomplete — two-step by design. Useful when you need to pin a speci
 
 | Flag | Description |
 |---|---|
-| `--country <iso3>` | Filter by ISO-3 (e.g. GBR, USA) |
+| `--country <iso3>` | Filter by ISO-3 (for example GBR, USA) |
 
-**TTY (human):** prompts for input if no query, shows a `select` picker, auto-resolves the chosen suggestion, prints the full address.
+**TTY (human):** prompts for input if no query, shows a `select` picker, auto-resolves the chosen suggestion, and prints the full address.
 
-**Non-TTY (agent):** query is required. Emits suggestions as JSON:
+**Non-TTY (agent):** the query is required. Emits suggestions as JSON:
 
 ```json
 {
