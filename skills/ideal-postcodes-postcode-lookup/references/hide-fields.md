@@ -4,7 +4,7 @@ Instead of writing address attributes to specific input fields, you can also wri
 
 This is achieved by using the `onAddressSelected` callback.
 
-Postcode Lookup provides a number of [callbacks](callbacks) to enable custom behaviours.
+Postcode Lookup provides a number of [callbacks](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/callbacks) to enable custom behaviours.
 
 ## Live Demo
 

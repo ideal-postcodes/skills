@@ -36,4 +36,10 @@ More complex, dynamic assignment can be performed using the `onAddressRetrieved`
 
 Output fields assigned with a query selector are evaluated lazily (i.e. when an address attribute needs to be piped to a field).
 
+## Country
+
+A third, optional attribute to be aware of is country. Use `country_iso` or `country_iso_2` to populate the 3 or 2 letter ISO code (`"GBR"` or `"GB"`, for example). For the full country name on an input, use `country`, which yields a value like `"United Kingdom"`.
+
+Each of these targets can be an `<input>` or a `<select>`. When the target is a `<select>`, Address Finder resolves the matching `<option>` for you - it first matches on the option `value`, then falls back to the option's visible text - so no callback is needed. See [Populate a country select](https://docs.ideal-postcodes.co.uk/docs/address-finder/populate-country-select) for a worked example.
+
 [More information on addressing data can be found on our address data documentation](https://docs.ideal-postcodes.co.uk/docs/data).
