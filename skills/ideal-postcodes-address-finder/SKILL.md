@@ -32,6 +32,7 @@ references:
   - default-country.md
   - default-styling.md
   - detach-reattach-af.md
+  - external-stylesheet.md
   - filter-by-country.md
   - filter-by-geospatial-box.md
   - filter-by-locality.md

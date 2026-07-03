@@ -4,12 +4,12 @@ Address Finder's default styling works by injecting a style tag into the documen
 
 The default style can be found at [https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder/css/address-finder.css](https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder/css/address-finder.css).
 
-To prevent this, set `injectStyle`<br/>
+To prevent this, set `injectStyle: false` and load the stylesheet yourself - required under a strict Content Security Policy. See [External Stylesheet](https://docs.ideal-postcodes.co.uk/docs/address-finder/external-stylesheet).
 
-To provide your own CSS stylesheet you can assign a CSS Stylesheet link to `injectStyle`. E.g.
+Alternatively, assign a CSS stylesheet URL to `injectStyle` and the widget loads it as a `<link>` tag instead. E.g.
 
 ```javascript
 {
-  injectStyle: "https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder@1.2.1/css/address-finder.min.css",
+  injectStyle: "https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder@5/css/address-finder.min.css",
 }
 ```
