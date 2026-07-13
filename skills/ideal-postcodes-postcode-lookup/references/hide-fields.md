@@ -1,10 +1,8 @@
 # Hide Address Fields
 
-Instead of writing address attributes to specific input fields, you can also write out the entire address to a general input like a `textarea`.
+You can hide your address input fields until the user has selected a verified address, making it harder to bypass address verification with an unrecognised entry.
 
-This is achieved by using the `onAddressSelected` callback.
-
-Postcode Lookup provides a number of [callbacks](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/callbacks) to enable custom behaviours.
+Pass the elements to conceal to the `hide` option as CSS selectors or direct DOM references. Postcode Lookup hides them on initialisation and unhides them once an address is selected or verification fails. A clickable link is also rendered so the user can choose to enter an address manually.
 
 ## Live Demo
 

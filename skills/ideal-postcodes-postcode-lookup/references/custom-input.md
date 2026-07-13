@@ -4,7 +4,7 @@ You may not want the plugin to create its own postcode input field. Instead, you
 
 The plugin allows you to define a pre-existing element to accept inputs for your postcode lookup.
 
-To enable this behaviour identify your custom input via the `input` property.
+To enable this behaviour, identify your custom input via the `input` property.
 
 ## Live Demo
 

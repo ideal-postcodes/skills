@@ -1,6 +1,6 @@
 # CSS Classes
 
-Postcode Lookup does not inject any styling into your page. Instead it relies on your pre-existing styles for your forms to render the Postcode Lookup UI.
+Postcode Lookup does not inject any styling into your page. Instead, it relies on your pre-existing styles for your forms to render the Postcode Lookup UI.
 
 ## CSS Class Hierarchy
 

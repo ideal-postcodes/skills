@@ -224,4 +224,6 @@ Inherited from the underlying API client. Defaults suit the production API and r
 
 ## Callbacks
 
-Every lifecycle hook is documented on the [Callbacks](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/callbacks) page: `onLoaded`, `onFailedCheck`, `onButtonTrigger`, `onLookupTriggered`, `shouldLookupTrigger`, `onSearchCompleted`, `onSearchError`, `onAddressesRetrieved`, `onAddressSelected`, `onAddressPopulated`, `onSelectCreated`, `onSelectRemoved`, `onUnhide` and `onRemove`.
+Every lifecycle hook is documented on the [Callbacks](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/callbacks) page: `onLoaded`, `onFailedCheck`, `onButtonTrigger`, `onLookupTriggered`, `shouldLookupTrigger`, `shouldAddressPopulate`, `onSearchCompleted`, `onSearchError`, `onAddressesRetrieved`, `onAddressSelected`, `onAddressPopulated`, `onSelectCreated`, `onSelectRemoved`, `onUnhide` and `onRemove`.
+
+`shouldAddressPopulate` is a predicate run before a selected address is written to the form; return `false` (synchronously or via a promise) to cancel population, or `true` to proceed. Error handling is your responsibility: a rejecting promise **fails open** (population proceeds) rather than blocking the user, so catch inside the predicate and return an explicit boolean. See [Gate population by delivery area](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/gate-population) for a worked example.

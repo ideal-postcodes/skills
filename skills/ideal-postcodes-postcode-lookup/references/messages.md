@@ -1,6 +1,6 @@
 # Messages
 
-Postcode Lookup uses a small default set of messages to communicate specific events to the user.  All of Postcode Lookup's default messages can be overridden. They are outlined below:
+Postcode Lookup uses a small default set of messages to communicate specific events to the user. All of Postcode Lookup's default messages can be overridden. They are outlined below:
 
 ## Postcode Lookup Placeholder
 
@@ -44,7 +44,7 @@ Message shown at the top of the address `<select>` dropdown.
 
 Message shown to unhide address fields and allow manual address entry.
 
-## WAI ARIA
+## WAI-ARIA
 
 Postcode Lookup exposes some accessibility settings.
 
@@ -59,4 +59,4 @@ The following WAI-ARIA components of Postcode Lookups have WAI-ARIA attributes e
 
 > **Accessibility**
 > 
-> Bear in mind these messages are also important for users who rely on the screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.
+> Bear in mind these messages are also important for users who rely on a screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.

@@ -1,8 +1,8 @@
 # Custom Search Button
 
-You may also specify any clickable DOM element as a trigger to lookup a postcode.
+You may also specify any clickable DOM element as a trigger to look up a postcode.
 
-Identify your custom input via the `button` property.
+Identify your custom button via the `button` property.
 
 ## Live Demo
 

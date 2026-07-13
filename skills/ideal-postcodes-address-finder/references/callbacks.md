@@ -72,7 +72,7 @@ Invoked when controller attaches to the DOM (controller.view.attach()).
 
 `onMouseDown`
 
-Invoked when mousedown event is triggered on suggestion list.
+Invoked when a mousedown event is triggered on the suggestion list.
 
 ## Address Suggestion List Opens
 
@@ -90,7 +90,7 @@ Invoked when controller detaches from the DOM (controller.view.detach()).
 
 `onSearchError`
 
-Invoked when an error has occurred following an attempt to retrieve a full address. In this scenario the user will also receive a message to manually input their address.
+Invoked when an error has occurred following an attempt to retrieve a full address. In this scenario, the user will also receive a message to manually input their address.
 
 The first argument is an error instance (i.e. inherits from Error) representing the error which has occurred.
 
@@ -106,7 +106,7 @@ Invoked when a suggestion has been selected.
 
 `onSuggestionError`
 
-Invoked when an error has occurred following an attempt to retrieve suggestions for a key press. In this scenario the user will also receive a message to manually input their address.
+Invoked when an error has occurred following an attempt to retrieve suggestions for a key press. In this scenario, the user will also receive a message to manually input their address.
 
 The first argument is an error instance (i.e. inherits from Error) representing the error which has occurred.
 

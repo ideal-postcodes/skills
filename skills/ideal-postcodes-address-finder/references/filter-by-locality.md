@@ -2,7 +2,7 @@
 
 Display address results that match the chosen locality, like a post town (`post_town`) using `queryOptions`.
 
-Only addresses with exactly matching locality will be suggested.
+Only addresses with an exactly matching locality will be suggested.
 
 ## Live Demo
 

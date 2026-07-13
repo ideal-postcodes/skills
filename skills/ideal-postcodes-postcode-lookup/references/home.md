@@ -9,7 +9,7 @@
 ## Features
 
 - **Rapid Address Retrieval.** Postcode Lookup is the most widely understood and fastest way to retrieve a UK address.
-- **Fuzzy Matching.** Suggests nearest matching postcodes if invalid postcode provided.
+- **Fuzzy Matching.** Suggests nearest matching postcodes if an invalid postcode is provided.
 - **Postcode Fixing.** Fixes common mistakes in postcodes.
 - **Inclusive.** WAI-ARIA compliant and works on screen readers for maximum accessibility.
 - **Customisable.** Extensively customisable behaviour and styling.

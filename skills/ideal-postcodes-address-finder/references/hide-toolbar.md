@@ -2,7 +2,7 @@
 
 Suppress the toolbar that renders below the suggestion list on focus.
 
-`hideToolbar` is **independent** of [`restrictCountries`](./restrict-country.mdx). `restrictCountries: ["GBR"]` removes the country *picker control* inside the toolbar but the toolbar container still renders. To hide the bar entirely — useful for single-country checkouts that want a clean, "nothing shows until results" focus experience — set `hideToolbar: true`.
+`hideToolbar` is **independent** of [`restrictCountries`](https://docs.ideal-postcodes.co.uk/docs/address-finder/restrict-country). `restrictCountries: ["GBR"]` removes the country *picker control* inside the toolbar but the toolbar container still renders. To hide the bar entirely — useful for single-country checkouts that want a clean, "nothing shows until results" focus experience — set `hideToolbar: true`.
 
 Defaults to `false`.
 

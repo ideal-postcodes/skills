@@ -2,9 +2,9 @@
 
 We can also pull in more data from the Postcode Address File by passing more arguments into the outputFields object.
 
-In this instance, we pull location, organisation name (if any) and the Unique Delivery Point Reference Number.
+In this instance, we pull location, organisation name (if any) and the Unique Property Reference Number.
 
-You can access the full list of [available datapoints](https://docs.ideal-postcodes.co.uk/docs/api/postcodes).
+You can access the full list of [available data points](https://docs.ideal-postcodes.co.uk/docs/api/postcodes).
 
 Try a postcode with lots of local businesses like **NW1 0BG**.
 

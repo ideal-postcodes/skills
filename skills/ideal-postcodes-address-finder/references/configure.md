@@ -8,7 +8,7 @@ Address Finder exports a `setup` method to apply address verification to a form.
 
 `apiKey`
 
-API Key from your Ideal Postcodes account. Typically begins `ak_`
+API Key from your Ideal Postcodes account. Typically begins `ak_`.
 
 ## Address Targets
 

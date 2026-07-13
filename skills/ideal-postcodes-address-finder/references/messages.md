@@ -30,7 +30,7 @@ Defaults to `"No matches found"`
 
 `msgUnhide`
 
-Displayed to the user if Address Fields have been hidden. It is shown as a clickable element to trigger manual address entry.
+Displayed to the user if address fields have been hidden. It is shown as a clickable element to trigger manual address entry.
 
 Defaults to `"Enter address manually"`
 

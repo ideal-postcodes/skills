@@ -33,6 +33,7 @@ references:
   - custom-elements.md
   - custom-input.md
   - full-search.md
+  - gate-population.md
   - hide-fields.md
   - home.md
   - how-it-works.md

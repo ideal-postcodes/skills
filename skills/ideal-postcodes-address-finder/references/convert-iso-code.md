@@ -1,6 +1,6 @@
 # Convert ISO-3 to ISO-2
 
-By default, the Ideal Postcodes API returns country code in ISO-3 format.
+By default, the Ideal Postcodes API returns the country code in ISO-3 format.
 If your platform takes in ISO-2 codes instead, use the `onLoaded` callback function to remap the ISO-3 codes to ISO-2.
 
 ## Live Demo

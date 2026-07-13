@@ -4,11 +4,11 @@
 
 When you want to remove Address Finder from your form (e.g. after the user selects an address), you can do so by calling `.detach()` on the Address Finder controller. This will disable Address Finder's listening capabilities and remove any address suggestions.
 
-For instance you can call `this.detach()` in the onAddressPopulated callback function to stop the Address Finder after the user has selected an address.
+For instance, you can call `this.detach()` in the onAddressPopulated callback function to stop the Address Finder after the user has selected an address.
 
 ### Re-Attaching Address Finder
 
-You can attach Address Finder back to line one if you hold on to a reference of the controller with `.attach()`.
+You can attach Address Finder back to line one if you hold a reference to the controller with `.attach()`.
 
 ### Live Demo
 

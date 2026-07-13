@@ -116,7 +116,7 @@ All behavioural options from the underlying controller are supported as props.
 - `injectStyle` - default `true`. Auto-injects the widget stylesheet. See [CSS](#css) below.
 - `queryOptions` - forwarded to the [`/autocomplete/addresses`](https://docs.ideal-postcodes.co.uk/docs/api/find-address) endpoint.
 - `resolveOptions` - forwarded to the [resolve endpoints](https://docs.ideal-postcodes.co.uk/docs/api/udprn) (e.g. `tags` for usage attribution).
-- `detectCountry` - default `true`. Set `false` to skip IP-based country detection.
+- `detectCountry` - default `true`. Set to `false` to skip IP-based country detection.
 
 The legacy DOM-coupled options (`inputField`, `outputFields`, `hide`, `unhide`, `scope`, `inputStyle`, `listStyle`, `mainStyle`, `containerStyle`, `liStyle`) are intentionally absent. React owns the DOM - render your own form fields, update them from `onAddressRetrieved`, and style with CSS classes or your component library.
 

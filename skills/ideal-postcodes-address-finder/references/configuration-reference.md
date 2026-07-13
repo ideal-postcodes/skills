@@ -144,6 +144,14 @@ Additional query parameters applied to the address resolve request - the second 
 
 To apply new parameters after setup, use `setResolveOptions` on the controller instance. Do not mutate `options.resolveOptions` directly.
 
+### `shouldAddressPopulate`
+
+`(address) => boolean | Promise<boolean>` · default `() => true`
+
+Runs after an address is retrieved and before it is written to the form. Return `false` (synchronously or via a promise) to cancel population, or `true` to proceed - useful for delivery-area checks or custom confirmation flows.
+
+Error handling is your responsibility: a rejecting promise **fails open** (population proceeds) rather than blocking the user on a broken check. Catch inside the predicate and return an explicit boolean - `return false` to cancel, `return true` to allow. See [Gate population by delivery area](https://docs.ideal-postcodes.co.uk/docs/address-finder/gate-population) for a worked example.
+
 ### `checkKey`
 
 `boolean` · default `true`

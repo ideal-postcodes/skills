@@ -44,9 +44,9 @@ Invoked when `removeAll` is called.
 
 A function invoked as soon as an address search successfully completes.
 
-Note, this is also invoked on all errors including:
+Note that this is also invoked on all errors including:
 - 404-type errors such as "postcode not found" returning [] as the list of addresses.
-- Other 4XX and 5XX errors where the error argument will be available
+- Other 4XX and 5XX errors where the error argument will be available.
 
 ## API Request Failed
 
@@ -66,7 +66,7 @@ A function invoked when addresses have been retrieved and the dropdown has been 
 
 `onSelectRemoved`
 
-A function invoked when select element is removed from the DOM as user attempts to search another address or postcode.
+A function invoked when the select element is removed from the DOM as the user attempts to search another address or postcode.
 
 ## Hidden Address Fields are Unhidden
 

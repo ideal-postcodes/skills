@@ -37,6 +37,7 @@ references:
   - filter-by-geospatial-box.md
   - filter-by-locality.md
   - filter-by-postcode-outward.md
+  - gate-population.md
   - hide.md
   - hide-toolbar.md
   - home.md

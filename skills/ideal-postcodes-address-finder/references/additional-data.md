@@ -6,7 +6,7 @@ The key value should map to an address field described in our [standard address 
 
 ## Example
 
-In this example, geolocation, organisation name and the Unique Delivery Point Reference Number are inserted into additional input fields.
+In this example, geolocation, organisation name and the Unique Property Reference Number are inserted into additional input fields.
 
 ```html
 <form>
