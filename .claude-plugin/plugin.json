@@ -1,6 +1,6 @@
 {
   "name": "ideal-postcodes",
-  "description": "Skills and guidance for integrating Ideal Postcodes and AddressZen APIs and widgets",
+  "description": "Skills and guidance for integrating Ideal Postcodes APIs and widgets",
   "version": "0.1.0",
   "author": {
     "name": "Ideal Postcodes",
@@ -9,5 +9,5 @@
   "homepage": "https://ideal-postcodes.co.uk",
   "repository": "https://github.com/ideal-postcodes/skills",
   "license": "SEE LICENSE IN LICENSE",
-  "keywords": ["address", "postcode", "ideal-postcodes", "addresszen", "autocomplete", "lookup"]
+  "keywords": ["address", "postcode", "ideal-postcodes", "autocomplete", "lookup"]
 }
