@@ -4,7 +4,7 @@ In many countries including the UK, the organisation name will take precedence a
 
 Set `removeOrganisation` to `true` and include a target `organisation_name` in your `outputFields`. This will strip the address lines of the organisation but separately add the organisation to the input field you have designated with `organisation_name`.
 
-Note that addresses which only have an organisation name as a premise identifier will not have the name stripped.
+Note that addresses which only have an organisation name as a premises identifier will not have the name stripped.
 
 ## Live Demo
 

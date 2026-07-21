@@ -12,6 +12,10 @@ The Address Finder can be styled with CSS classes.
       <li class="idpc_error">
         This element only shows when a message is communicated to the user
       </li>
+      <li class="idpc_action">
+        This element only shows when a search returns no matches and
+        msgNoMatchAction is configured
+      </li>
       <li aria-selected="true">Address Suggestion One</li>
       <li aria-selected="false">Address Suggestion Two</li>
       <li aria-selected="false">Address Suggestion Three</li>

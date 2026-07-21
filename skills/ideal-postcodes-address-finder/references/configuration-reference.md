@@ -248,6 +248,7 @@ Override any of the user-facing strings. See [Messages](https://docs.ideal-postc
 | `msgInitial` | `"Start typing to find address"` |
 | `msgFallback` | `"Please enter your address manually"` |
 | `msgNoMatch` | `"No matches found"` |
+| `msgNoMatchAction` | `""` - assign a non-empty label (e.g. `"Enter address manually"`) to render an actionable item beneath `msgNoMatch` when a search returns no matches. Requires an `onNoMatchAction` callback |
 | `msgList` | `"Select your address"` |
 | `msgCountryToggle` | `"Change Country"` |
 
@@ -261,6 +262,7 @@ Override the class applied to each rendered element. See [CSS Classes](https://d
 | `mainClass` | `"idpc_af"` |
 | `listClass` | `"idpc_ul"` |
 | `messageClass` | `"idpc_error"` |
+| `noMatchActionClass` | `"idpc_action"` |
 | `toolbarClass` | `"idpc_toolbar"` |
 | `countryToggleClass` | `"idpc_country"` |
 
@@ -293,4 +295,4 @@ Inherited from the underlying API client. Defaults suit the production API and r
 
 ## Callbacks
 
-Every lifecycle hook is documented on the [Callbacks](https://docs.ideal-postcodes.co.uk/docs/address-finder/callbacks) page: `onLoaded`, `onFailedCheck`, `onMounted`, `onRemove`, `onOpen`, `onClose`, `onFocus`, `onBlur`, `onInput`, `onKeyDown`, `onMouseDown`, `onSuggestionsRetrieved`, `onSuggestionError`, `onAddressSelected`, `onSelect`, `onAddressRetrieved`, `onAddressPopulated`, `onSearchError`, `onCountrySelected`, `onContextChange` and `onUnhide`.
+Every lifecycle hook is documented on the [Callbacks](https://docs.ideal-postcodes.co.uk/docs/address-finder/callbacks) page: `onLoaded`, `onFailedCheck`, `onMounted`, `onRemove`, `onOpen`, `onClose`, `onFocus`, `onBlur`, `onInput`, `onKeyDown`, `onMouseDown`, `onSuggestionsRetrieved`, `onSuggestionError`, `onAddressSelected`, `onSelect`, `onAddressRetrieved`, `onAddressPopulated`, `onSearchError`, `onCountrySelected`, `onContextChange`, `onNoMatchAction` and `onUnhide`.

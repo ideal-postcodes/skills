@@ -40,7 +40,7 @@ Specify where to send address data given a selected address. `outputFields` is a
 
 > The fields above (`line_1`, `line_2`, `line_3`, `post_town` and `postcode`) are the minimum set needed to capture a complete, deliverable UK address. Collect all of them so the address you store reliably routes to the premises.
 
-Up to 3 address lines, post town and postcode fields cover all the addressing information required to identify a UK premises. You may extract more data for an address by passing more properties into the `outputFields` configuration object.
+Up to 3 address lines, post town and postcode fields cover all the addressing information required to identify UK premises. You may extract more data for an address by passing more properties into the `outputFields` configuration object.
 
 The configuration attributes for `outputFields` match the Address response object. For instance, street name can be populated using the [`thoroughfare`](https://docs.ideal-postcodes.co.uk/docs/data/paf#thoroughfare) attribute. A list of address attributes provided by the API can be found in our [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
 

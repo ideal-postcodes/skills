@@ -1,6 +1,6 @@
 # Address Finder
 
-> Add Address Validation to your address forms in moments with our Address Finder JavaScript package. Simple and quick set up. Guides and live technical support available.
+> Add Address Validation to your address forms in moments with our Address Finder JavaScript package. Simple and quick setup. Guides and live technical support available.
 
 <img
   src="https://img.ideal-postcodes.co.uk/address-finder.gif"

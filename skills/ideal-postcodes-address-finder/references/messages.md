@@ -26,6 +26,25 @@ Displays when no suggestions could be found for the query.
 
 Defaults to `"No matches found"`
 
+## No Match Action
+
+`msgNoMatchAction`
+
+Label for an optional actionable item presented beneath `msgNoMatch` when a search returns no matches. Use it to offer users an out when they cannot find their address, e.g. a jump to manual address entry. The item renders when both a non-empty label and an `onNoMatchAction` callback are provided; selecting it by click or keyboard closes Address Finder and invokes the callback.
+
+Defaults to `""` (disabled)
+
+```javascript
+AddressFinder.setup({
+  apiKey: "ak_test",
+  inputField: "#line_1",
+  msgNoMatchAction: "Enter address manually",
+  onNoMatchAction: function () {
+    // e.g. reveal a manual address entry form
+  },
+});
+```
+
 ## Unhide Label
 
 `msgUnhide`
@@ -44,4 +63,4 @@ Defaults to `"Please enter your address manually"`
 
 > **Accessibility**
 > 
-> Bear in mind these messages are also important for users who rely on the screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.
+> Bear in mind these messages are also important for users who rely on a screen reader. When altering the message, be sure that the necessary meaning and intent are understandable to visually impaired users who will be getting audio cues from their screen reader.

@@ -123,3 +123,9 @@ Invoked immediately after address suggestions are retrieved from the API. The fi
 `onUnhide`
 
 Invoked when hidden fields are unhidden (i.e. user selects an address or opts for manual input).
+
+## No-Match Action is Selected
+
+`onNoMatchAction`
+
+Invoked when the user selects the no-match action (by click or keyboard). The action is presented beneath the no-match message when a search returns no matches and both `msgNoMatchAction` and this callback are configured. Selecting it closes the Address Finder and invokes this callback.

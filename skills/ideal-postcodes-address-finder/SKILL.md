@@ -45,6 +45,7 @@ references:
   - key-usability.md
   - messages.md
   - multiple.md
+  - no-match-action.md
   - npm.md
   - nudge-address-finder.md
   - omit-organisation.md
@@ -163,6 +164,7 @@ The references below are organised by intent. Read only the ones relevant to the
 - [`separate-input.md`](./references/separate-input.md) — dedicated finder input separate from output fields
 - [`multiple.md`](./references/multiple.md) — more than one finder on the page
 - [`hide.md`](./references/hide.md) — hide output fields until an address is picked
+- [`no-match-action.md`](./references/no-match-action.md) — offer an out (e.g. manual entry) when a search returns no matches (`msgNoMatchAction` + `onNoMatchAction`)
 - [`prevent-autofill.md`](./references/prevent-autofill.md) — disable browser autofill on finder input
 - [`key-usability.md`](./references/key-usability.md) — keyboard navigation tweaks
 
