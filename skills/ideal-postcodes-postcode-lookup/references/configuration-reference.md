@@ -6,13 +6,13 @@ Callbacks have their own page - see [Callbacks](https://docs.ideal-postcodes.co.
 
 ### `context`
 
-`string | HTMLElement` · required
+`string | HTMLElement` **required**
 
 The area on your page where Postcode Lookup renders its interface - typically a `<div>`, referenced by CSS selector or a direct element reference.
 
 ### `apiKey`
 
-`string` · required
+`string` **required**
 
 API Key from your Ideal Postcodes account. Typically begins `ak_`.
 
@@ -119,13 +119,13 @@ Set to `false` to suppress `county` from being populated.
 
 ### `postcodeSearchFormatter`
 
-`function`
+`function` *optional*
 
 Converts an address object into the suggestion string shown in the dropdown after a postcode search.
 
 ### `addressSearchFormatter`
 
-`function`
+`function` *optional*
 
 Converts an address object into the suggestion string shown after a freeform address search.
 

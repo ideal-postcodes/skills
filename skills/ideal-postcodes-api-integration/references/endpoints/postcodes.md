@@ -8,11 +8,19 @@
 
 Returns the complete list of addresses for a postcode. Postcode searches are space and case insensitive.
 
-The Postcode Lookup API provides a JSON interface to search UK addresses from a postcode. It can be used to power Postcode Lookup driven address searches, like [Postcode Lookup](/docs/postcode-lookup/).
+Each request looks up one postcode. To extract the addresses for several postcodes, send one request per postcode.
+
+Use it to power postcode driven address searches, like [Postcode Lookup](/docs/postcode-lookup/).
+
+Postcode lookup covers the United Kingdom, the Republic of Ireland, the Netherlands and Singapore. The API detects the format of the postcode you submit. UK and Irish postcodes are searched by default. For a Dutch or Singapore postcode, set `context` to `NLD` or `SGP`, or to `GLOBAL` to accept any supported format.
+
+UK postcodes need PAF, Multiple Residence, Not Yet Built, PAF Alias, PAF Welsh, AddressBase or AddressBase Premium on your key. Eircodes need ECAD or ECAF. Dutch postcodes need Kadaster. Singapore postcodes need HERE Asia Pacific. Without a matching licence the request is rejected.
+
+An unfound postcode costs no lookup. A postcode that returns addresses costs one.
 
 ## Postcode Not Found
 
-Lookup balance is unaffected by invalid postcodes. The API returns a `404` response with response body:
+Invalid postcodes do not affect your lookup balance. The API returns a `404` response with this body:
 
 ```json
 {
@@ -24,15 +32,24 @@ Lookup balance is unaffected by invalid postcodes. The API returns a `404` respo
 
 ### Suggestions
 
-If a postcode cannot be found, the API will provide up to 5 closest matching postcodes. Common errors will be corrected first (e.g. mixing up `O` and `0` or `I` and `1`).
+If a postcode cannot be found, the API returns up to 5 of the closest matching postcodes. It corrects common errors first (e.g. mixing up `O` and `0` or `I` and `1`).
 
-If the suggestion list is small (fewer than 3), there is a high probability the correct postcode is there. You may notify the user or immediately trigger new searches.
+If the suggestion list is small (fewer than 3), the correct postcode is likely to be among them. Notify the user or trigger new searches immediately.
 
-The suggestion list will be empty if the postcode has deviated too far from a valid postcode format.
+The suggestion list is empty if the postcode has deviated too far from a valid postcode format.
 
 ## Multiple Residence
 
-A small number of postcodes will return more than 100 premises. These may require pagination. Use `page` to paginate the result set.
+A small number of postcodes return more than 100 premises. The API returns 100 addresses per page, so use `page` to paginate the result set.
+
+## Testing
+
+- **ID1 1QD** Returns a successful postcode lookup response `2000`
+- **ID1 KFA** Returns "postcode not found" error `4040`
+- **ID1 CLIP** Returns "no lookups remaining" error `4020`
+- **ID1 CHOP** Returns "daily (or individual) lookup limit breached" error `4021`
+
+Test requests undergo the usual authentication and restriction rules. They surface any issues during implementation and do not cost you a lookup.
 
 ## Parameters
 
@@ -42,14 +59,76 @@ A small number of postcodes will return more than 100 premises. These may requir
 | `filter` | query | no | string | Comma separated whitelist of address elements to return. |
 | `page` | query | no | integer | 0 indexed indicator of the page of results to receive. Virtually all postcode results are returned on page 0. |
 | `tags` | query | no | string | A comma separated list of tags to query over. |
+| `dataset` | query | no | array | Comma-separated list of datasets to search within. |
+| `context` | query | no | string | Limits search results, typically within a country. |
+
+## Request Samples
+
+**curl**
+
+```bash
+curl -G 'https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA' \
+  -d 'api_key=ak_test'
+```
+
+**JavaScript**
+
+```javascript
+const response = await fetch(
+  'https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA?' +
+  new URLSearchParams({
+    api_key: 'ak_test',
+  })
+);
+
+const { result } = await response.json();
+```
+
+**Python**
+
+```python
+import requests
+
+response = requests.get(
+    "https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA",
+    params={
+        "api_key": "ak_test",
+    },
+)
+result = response.json()["result"]
+```
+
+**Ruby**
+
+```ruby
+require "net/http"
+require "json"
+
+uri = URI("https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA")
+uri.query = URI.encode_www_form(api_key: "ak_test")
+result = JSON.parse(Net::HTTP.get(uri))["result"]
+```
+
+**PHP**
+
+```php
+<?php
+$response = file_get_contents(
+  "https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA?" .
+  http_build_query([
+    "api_key" => "ak_test",
+  ])
+);
+$result = json_decode($response, true)["result"];
+```
 
 ## Response Schema (200)
 
 | Field | Required | Type | Description |
 |---|---|---|---|
-| `result` | yes | array<oneOf> | All addresses listed at the postcode. |
-| `code` | yes | integer |  |
-| `message` | yes | string |  |
+| `result` | yes | array<[AddressListItem](../data/address-list-item.md)> | All addresses listed at the postcode. |
+| `code` | yes | `2000` |  |
+| `message` | yes | `Success` |  |
 | `page` | yes | integer |  |
 | `limit` | yes | integer |  |
 | `total` | yes | integer |  |
@@ -75,7 +154,7 @@ A small number of postcodes will return more than 100 premises. These may requir
       "department_name": "",
       "organisation_name": "Prime Minister & First Lord Of The Treasury",
       "udprn": 23747771,
-      "postcode_type": "L",
+      "postcode_type": "S",
       "su_organisation_indicator": "",
       "delivery_point_suffix": "1A",
       "line_1": "Prime Minister & First Lord Of The Treasury",
@@ -115,7 +194,6 @@ A small number of postcodes will return more than 100 premises. These may requir
 
 | HTTP | Code | Message |
 |---|---|---|
-| 400 |  | Bad Request |
 | 404 | 4040 | Postcode not found |
 
 ## See also

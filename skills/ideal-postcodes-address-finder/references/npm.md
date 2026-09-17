@@ -17,7 +17,7 @@ The `address-finder` npm package works out-of-the-box with most bundlers. The ad
 
 Add address-finder to your project via npm with
 
-```bash
+```bash title="terminal"
 npm install @ideal-postcodes/address-finder
 ```
 
@@ -25,7 +25,7 @@ npm install @ideal-postcodes/address-finder
 
 Instantiate Address Finder with `AddressFinder.setup`.
 
-```js
+```js title="address-finder.js"
 import { AddressFinder } from "@ideal-postcodes/address-finder";
 
 const controller = AddressFinder.setup({

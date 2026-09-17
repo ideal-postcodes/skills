@@ -4,7 +4,7 @@
 2. Bind Postcode Lookup with `setup`, passing in the reference as context
 3. Update address state using the `onAddressSelected` callback.
 
-```jsx
+```jsx title="PostcodeLookupForm.jsx"
 import "./styles.css";
 import { useEffect, createRef, useState } from "react";
 import { PostcodeLookup } from "@ideal-postcodes/postcode-lookup";

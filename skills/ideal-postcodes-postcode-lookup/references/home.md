@@ -2,16 +2,12 @@
 
 <img src="https://img.ideal-postcodes.co.uk/postcode-lookup.gif" alt="Ideal Postcodes Postcode Lookup" />
 
-> 
-> Use our [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt) file with AI tools like ChatGPT, Claude, or Cursor to quickly generate integration code, troubleshoot issues, and get instant answers about Postcode Lookup implementation. Learn more in our [AI Integration guide](https://docs.ideal-postcodes.co.uk/docs/guides/llms).
-> 
-
 ## Features
 
 - **Rapid Address Retrieval.** Postcode Lookup is the most widely understood and fastest way to retrieve a UK address.
 - **Fuzzy Matching.** Suggests nearest matching postcodes if an invalid postcode is provided.
 - **Postcode Fixing.** Fixes common mistakes in postcodes.
-- **Inclusive.** WAI-ARIA compliant and works on screen readers for maximum accessibility.
+- **Inclusive.** Works on screen readers and is fully keyboard operable, with results presented in a native select. See [WAI-ARIA support](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/messages#wai-aria).
 - **Customisable.** Extensively customisable behaviour and styling.
 
 ## Quick Setup

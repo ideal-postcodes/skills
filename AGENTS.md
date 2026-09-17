@@ -8,7 +8,7 @@ The private `ideal-postcodes/atlas` monorepo is the canonical source:
 
 - **Path:** `atlas/packages/skills-ideal/`
 - **Authoring:** see `CLAUDE.md` in that directory
-- **Version:** managed via release-please alongside other packages
+- **Version:** managed via Changesets alongside other packages
 
 ## This Repo
 

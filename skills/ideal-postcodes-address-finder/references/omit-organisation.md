@@ -4,7 +4,7 @@ In many countries including the UK, the organisation name will take precedence a
 
 By setting `removeOrganisation` to true, the plugin will scrub any organisation name from address lines.
 
-> Note that in instances where the organisation name is the _only_ premise identifier, it will not be removed from an address.
+> In instances where the organisation name is the _only_ premises identifier, it will not be removed from an address.
 
 ## Live Demo
 

@@ -45,7 +45,7 @@ Each lookup field is independent and so can behave differently if you pass in di
 ```javascript
   import { PostcodeLookup } from "@ideal-postcodes/postcode-lookup";
 
-  // Initialize each lookup field individually. You can specify completely different configurations. Each is isolated from the other.
+  // Initialise each lookup field individually. You can specify completely different configurations. Each is isolated from the other.
   // Hook up the first lookup field
   PostcodeLookup.setup({
     apiKey: "ak_test",
@@ -58,7 +58,7 @@ Each lookup field is independent and so can behave differently if you pass in di
       postcode: "#postcode",
     },
   });
-  // Hookup the second lookup field
+  // Hook up the second lookup field
   PostcodeLookup.setup({
     apiKey: "ak_test",
     context: "#lookup_field_2",

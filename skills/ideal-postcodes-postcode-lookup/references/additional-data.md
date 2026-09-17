@@ -1,8 +1,8 @@
 # Retrieve Additional Data
 
-We can also pull in more data from the Postcode Address File by passing more arguments into the outputFields object.
+We can also pull in more data from the Postcode Address File by passing more arguments into the `outputFields` object.
 
-In this instance, we pull location, organisation name (if any) and the Unique Property Reference Number.
+In this instance, we pull in location, the organisation name (if any) and the Unique Property Reference Number.
 
 You can access the full list of [available data points](https://docs.ideal-postcodes.co.uk/docs/api/postcodes).
 

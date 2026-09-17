@@ -6,21 +6,24 @@
 
 **Tags:** UK
 
-The address cleanse API attempts to return the closest matching address for any given address inputs. We also return a number of Match Level indicators that describe the degree to which the suggested address matches the input address. The more impaired the input address, the harder it is to cleanse.
+Returns the closest matching address for a freeform address input, with Match Level indicators describing how closely each element of the suggested address matches the input. The more impaired the input address, the harder it is to cleanse.
+
+A cleanse that returns a match costs a lookup. A no-match response is free.
 
 ## Confidence Score
 
-The confidence score is a number ranging between 0 and 1. Where 1 implies a full match and 0 implies no major elements completely match. Each incorrect, missing or misspelled element will subtract from the overall confidence score.
+Each incorrect, missing or misspelled element subtracts from the overall confidence score.
 
 ### Deciding on an Acceptable Confidence Score Threshold
 
-Different address cleanse projects can have radically different inputs. However, within each project, the inputs tend to repeat the same errors. For instance, some input datasets may be exclusively inputted manually and be prone to typos. Others may have a persistently missing datapoint such as organisation name or postcode. For this reason, it is important to understand that there is no absolute Confidence Score threshold. Instead, the acceptable confidence score must be determined on a project by project basis based on systematic errors present in the data and business goals.
+Inputs differ widely between address cleanse projects. Within a project, though, they tend to repeat the same errors. Some datasets are keyed in by hand and prone to typos. Others have a persistently missing datapoint such as organisation name or postcode. There is no absolute Confidence Score threshold. Set the acceptable score project by project, based on the systematic errors in the data and your business goals.
 
-When determining an acceptable Confidence Score threshold you should load a subset of the dataset into a spreadsheet application like Excel and sort on the score. Scrolling from top-to-bottom you will be able to observe matches from best to worst. As you start to hit the lower quality searches, you will be able to roughly determine:
- - Which confidence scores indicate ambiguous matches (i.e. up to building level only)
+To set a threshold, load a subset of the dataset into a spreadsheet application like Excel and sort on the score. Scrolling from top to bottom shows matches from best to worst. As you reach the lower quality searches you can judge roughly:
+
+- Which confidence scores indicate ambiguous matches (i.e. up to building level only)
 - Which confidence scores indicate a poor or no match (i.e. the nearest matching address is too far from the input address)
 
-Depending on your business goals, you can also use the Match Levels to determine an acceptable match. For instance, do you need to match up to the thoroughfare or building name only? Are accurate organisation names an important feature?
+Depending on your business goals, you can also use the Match Levels to determine an acceptable match. You may need to match only up to the thoroughfare or building name, or accurate organisation names may matter.
 
 ## Parameters
 
@@ -36,25 +39,92 @@ Content-Type: `application/json` (required)
 | Field | Required | Type | Description |
 |---|---|---|---|
 | `query` | yes | string | Freeform address input to cleanse |
-| `postcode` | no | string | Optionally specify postal code for the address. |
+| `postcode` | no | string | Optionally specify the postal code for the address. |
 | `post_town` | no | string | Optionally specify the city or town of the address. |
-| `county` | no | string | Optionally specify the county or state of the address. |
+| `county` | no | string | Optionally specify the county of the address. |
+
+## Request Samples
+
+**curl**
+
+```bash
+curl -X POST 'https://api.ideal-postcodes.co.uk/v1/cleanse/addresses' \
+  -H 'Authorization: api_key="ak_test"' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "query": "10 downing street sw1a"
+  }'
+```
+
+**JavaScript**
+
+```javascript
+const response = await fetch('https://api.ideal-postcodes.co.uk/v1/cleanse/addresses', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'api_key="ak_test"',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: '10 downing street sw1a',
+  }),
+});
+
+const { result } = await response.json();
+```
+
+**Python**
+
+```python
+import requests
+
+response = requests.post(
+    "https://api.ideal-postcodes.co.uk/v1/cleanse/addresses",
+    headers={"Authorization": 'api_key="ak_test"'},
+    json={
+        "query": "10 downing street sw1a",
+    },
+)
+result = response.json()["result"]
+```
+
+**Ruby**
+
+```ruby
+require "net/http"
+require "json"
+
+uri = URI("https://api.ideal-postcodes.co.uk/v1/cleanse/addresses")
+body = {
+  query: "10 downing street sw1a",
+}
+response = Net::HTTP.post(uri, body.to_json, "Authorization" => 'api_key="ak_test"', "Content-Type" => "application/json")
+result = JSON.parse(response.body)["result"]
+```
+
+**PHP**
+
+```php
+<?php
+$ch = curl_init("https://api.ideal-postcodes.co.uk/v1/cleanse/addresses");
+curl_setopt_array($ch, [
+  CURLOPT_POST => true,
+  CURLOPT_HTTPHEADER => ['Authorization: api_key="ak_test"', "Content-Type: application/json"],
+  CURLOPT_POSTFIELDS => json_encode([
+    "query" => "10 downing street sw1a",
+  ]),
+  CURLOPT_RETURNTRANSFER => true,
+]);
+$result = json_decode(curl_exec($ch), true)["result"];
+```
 
 ## Response Schema (200)
 
 | Field | Required | Type | Description |
 |---|---|---|---|
-| `code` | yes | integer |  |
-| `message` | yes | string |  |
-| `result` | yes |  |  |
-
-## Error Status Codes
-
-| HTTP | Code | Message |
-|---|---|---|
-| 400 |  | Bad Request |
-| 401 |  | Unauthorized |
-| 429 |  | Rate Limited |
+| `code` | yes | `2000` |  |
+| `message` | yes | `Success` |  |
+| `result` | yes | [GbrCleanseMatch](../data/gbr-cleanse-match.md) \| [GbrCleanseNoMatch](../data/gbr-cleanse-no-match.md) |  |
 
 ## See also
 

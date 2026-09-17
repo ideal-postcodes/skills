@@ -14,9 +14,9 @@ API Key from your Ideal Postcodes account. Typically begins `ak_`.
 
 `context`
 
-Specify an area on your page where Postcode Lookup can render its user interface. Typically a `<div>`, you may reference this using a CSS Selector or a direct reference to the node.
+Specify an area on your page where Postcode Lookup can render its user interface. Typically a `<div>`, you may reference this using a CSS selector or a direct reference to the node.
 
-```javascript
+```javascript title="postcode-lookup.js"
 {
   context: "#context_id"
 }
@@ -28,7 +28,7 @@ Specify an area on your page where Postcode Lookup can render its user interface
 
 Specify where to send address data given a selected address. `outputFields` is an object which maps an address attribute to an input field. The input field can be identified by CSS or reference to the DOM element itself.
 
-```javascript
+```javascript title="field-mappings.js"
 {
   line_1: "#line_1",
   line_2: "#line_2",

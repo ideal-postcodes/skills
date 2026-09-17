@@ -8,7 +8,7 @@ This simulates a user entering a postcode when the Postcode Lookup API is initia
 
 The first page collects the postcode and stores it in `localStorage`:
 
-```js
+```js title="postcode-page.js"
 localStorage.clear();
 const postcode = document.getElementById("postcode");
 const btn = document.getElementById("btn-postcode");
@@ -17,7 +17,7 @@ btn.addEventListener("click", function () {
 });
 ```
 
-```html
+```html title="postcode-page.html"
 <form>
   <label for="postcode">Type Postcode Below</label>
   <input type="text" id="postcode" />

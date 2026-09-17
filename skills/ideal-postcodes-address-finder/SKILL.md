@@ -20,6 +20,7 @@ inputs:
     description: API key for the Ideal Postcodes API. Get one at ideal-postcodes.co.uk/account
     required: true
 references:
+  - accessibility.md
   - additional-data.md
   - bias-by-geolocation.md
   - bias-by-ip.md

@@ -20,7 +20,7 @@
 - **Filtering.** Filter suggestions with criteria like locality, country and postcode areas.
 - **Biasing.** Bias suggestions towards a location defined by a geospatial point or IP address.
 - **Geospatial Filtering.** Restrict suggestions to a geospatial bounding box.
-- **Inclusive.** WAI-ARIA compliant and works on screen readers for maximum accessibility.
+- **Inclusive.** Developed to WCAG 2.1 AA: screen reader friendly and fully keyboard operable. See [Accessibility](https://docs.ideal-postcodes.co.uk/docs/address-finder/accessibility).
 - **Customisable.** Extensively customisable behaviour and styling.
 
 ## Quick Setup

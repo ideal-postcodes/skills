@@ -28,7 +28,7 @@ The item behaves like a suggestion: it can be clicked, or highlighted with the a
 
 ## Styling
 
-The item carries the `idpc_action` class (configurable via `noMatchActionClass`). The default stylesheet centers and underlines it - override the class to restyle. See [CSS Classes](https://docs.ideal-postcodes.co.uk/docs/address-finder/css-classes).
+The item carries the `idpc_action` class (configurable via `noMatchActionClass`). The default stylesheet centres and underlines it - override the class to restyle. See [CSS Classes](https://docs.ideal-postcodes.co.uk/docs/address-finder/css-classes).
 
 ## Live Demo
 

@@ -6,7 +6,7 @@ Callbacks have their own page - see [Callbacks](https://docs.ideal-postcodes.co.
 
 ### `apiKey`
 
-`string` · required
+`string` **required**
 
 API Key from your Ideal Postcodes account. Typically begins `ak_`.
 
@@ -84,7 +84,7 @@ Converts the post town from upper case to title case - e.g. `"LONDON"` becomes `
 
 `boolean` · default `false`
 
-Removes the organisation name from the address lines. Addresses that consist only of an organisation name are left untouched, as removing it would leave no premise identifier.
+Removes the organisation name from the address lines. Addresses that consist only of an organisation name are left untouched, as removing it would leave no premises identifier.
 
 ### `populateCounty`
 
@@ -124,7 +124,7 @@ Hides the toolbar so users cannot change country.
 
 ### `contexts`
 
-`object`
+`object` *optional*
 
 A custom list of countries/contexts the user can select from.
 
@@ -235,7 +235,7 @@ Sets `position: fixed` on the suggestion list element.
 
 `"1.0" | "1.1"` · default `"1.0"`
 
-The WAI-ARIA specification version to target. `"1.0"` enables regressions that receive the widest screen-reader support (notably VoiceOver and NVDA); `"1.1"` targets the more recent spec.
+The WAI-ARIA specification version to target. `"1.0"` enables workarounds that receive the widest screen-reader support (notably VoiceOver and NVDA); `"1.1"` targets the more recent spec.
 
 ## Messages
 

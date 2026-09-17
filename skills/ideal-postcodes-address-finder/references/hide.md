@@ -4,7 +4,7 @@
 
 In some instances, you may want to hide the address inputs and subsequently unhide them when the user has selected a verified address. This makes it harder for the user to input an incorrect address and bypass address verification.
 
-Address Finder provides this functionality natively using `hide`. Specify which HTML Elements you would like to hide as CSS Selector or references. When the user selects an address, or address verification fails (no balance, limit reached, etc), the fields will unhide.
+Address Finder provides this functionality natively using `hide`. Specify which HTML elements you would like to hide as CSS selectors or references. When the user selects an address, or address verification fails (no balance, limit reached, etc), the fields will unhide.
 
 A clickable link will also be provided to allow the user to manually enter an address.
 

@@ -9,7 +9,7 @@ Postcode Lookup consists of 5 main elements with the following order and hierarc
   - Dropdown Container `<div>`
   - Message Container `<p>`
 
-Identify custom elements to Postcode Lookup by supplying CSS Selectors or node references to your DOM elements. When a custom element is specified, the corresponding element will no longer be rendered in `context`. Listed below are elements of Postcode Lookup which can be supplied to the plugin:
+Identify custom elements to Postcode Lookup by supplying CSS selectors or node references to your DOM elements. When a custom element is specified, the corresponding element will no longer be rendered in `context`. Listed below are elements of Postcode Lookup which can be supplied to the plugin:
 
 ## Postcode Lookup Input Field
 

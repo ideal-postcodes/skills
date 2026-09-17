@@ -10,7 +10,7 @@ The fastest and simplest way to start is to drop our pre-bundled script onto a w
 
 ### Drop-In Script
 
-```html
+```html title="index.html"
 <script src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/postcode-lookup-bundled@3"></script>
 <script>
   IdealPostcodes.PostcodeLookup.setup({
@@ -69,7 +69,7 @@ The latest build can be downloaded [here](https://cdn.jsdelivr.net/npm/@ideal-po
 
 `postcode-lookup-bundled` also ships an ESM compatible build, targeting browsers with ESM support and upwards.
 
-```html
+```html title="index.html"
 <script
   type="module"
   src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/postcode-lookup-bundled@3/dist/postcode-lookup.esm.js"></script>
@@ -135,7 +135,7 @@ It is important you pin your bundle version in production. Pulling directly from
 For instance, follow the instructions on [jsdelivr.com/postcode-lookup-bundled](https://www.jsdelivr.com/package/npm/@ideal-postcodes/postcode-lookup-bundled) to pin a major version in production.
 
 E.g.
-```html
+```html title="index.html"
 <script src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/postcode-lookup-bundled@3"></script>
 ```
 
@@ -145,13 +145,13 @@ E.g.
 
 ### Install
 
-```bash
+```bash title="terminal"
 npm install --save @ideal-postcodes/postcode-lookup-bundled
 ```
 
 ### Use
 
-```javascript
+```javascript title="postcode-lookup.js"
 import { PostcodeLookup } from "@ideal-postcodes/postcode-lookup-bundled";
 
 const controller = PostcodeLookup.setup({

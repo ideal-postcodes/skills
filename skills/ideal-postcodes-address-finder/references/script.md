@@ -10,7 +10,7 @@ The fastest and simplest way to start is to drop our pre-bundled script onto a w
 
 ### Drop-In Script
 
-```html
+```html title="index.html"
 <script src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled"></script>
 <script>
   IdealPostcodes.AddressFinder.setup({
@@ -65,14 +65,14 @@ The latest build can be downloaded [here](https://cdn.jsdelivr.net/npm/@ideal-po
 
 `address-finder-bundled` also ships an ESM compatible build, targeting browsers with ESM support and upwards.
 
-```html
+```html title="index.html"
 <script
   type="module"
-  src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled@4/dist/address-finder.esm.js"
+  src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled@5/dist/address-finder.esm.js"
 ></script>
 
 <script type="module">
-  import { AddressFinder } from "https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled@4/dist/address-finder.esm.js";
+  import { AddressFinder } from "https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled@5/dist/address-finder.esm.js";
   AddressFinder.setup({
     apiKey: "ak_test",
     outputFields: {
@@ -129,7 +129,7 @@ For instance, follow the instructions on [jsdelivr.com/address-finder-bundled](h
 
 E.g.
 
-```html
+```html title="index.html"
 <script src="https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder-bundled"></script>
 ```
 
@@ -139,13 +139,13 @@ E.g.
 
 ### Install
 
-```bash
+```bash title="terminal"
 npm install --save @ideal-postcodes/address-finder-bundled
 ```
 
 ### Use
 
-```javascript
+```javascript title="address-finder.js"
 import { AddressFinder } from "@ideal-postcodes/address-finder-bundled";
 
 const controller = AddressFinder.setup({

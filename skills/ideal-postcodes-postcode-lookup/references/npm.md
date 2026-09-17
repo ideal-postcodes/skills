@@ -16,7 +16,7 @@ The `postcode-lookup` npm package works out-of-the-box with most bundlers. The a
 
 Add postcode-lookup to your project via npm with
 
-```bash
+```bash title="terminal"
 npm install @ideal-postcodes/postcode-lookup
 ```
 
@@ -24,7 +24,7 @@ npm install @ideal-postcodes/postcode-lookup
 
 Instantiate Postcode Lookup with `PostcodeLookup.setup`.
 
-```js
+```js title="postcode-lookup.js"
 import { PostcodeLookup } from "@ideal-postcodes/postcode-lookup";
 
 const controller = PostcodeLookup.setup({

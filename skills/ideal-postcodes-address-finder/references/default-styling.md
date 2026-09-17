@@ -8,7 +8,7 @@ To prevent this, set `injectStyle: false` and load the stylesheet yourself - req
 
 Alternatively, assign a CSS stylesheet URL to `injectStyle` and the widget loads it as a `<link>` tag instead. E.g.
 
-```javascript
+```javascript title="address-finder.js"
 {
   injectStyle: "https://cdn.jsdelivr.net/npm/@ideal-postcodes/address-finder@5/css/address-finder.min.css",
 }
