@@ -8,7 +8,7 @@
 
 Returns a CSV of the paid lookups made on a key, with the information recorded against each one.
 
-This method requires a `user_token`, which can be found on your [accounts page](https://account.ideal-postcodes.co.uk/account).
+This method requires your Management Key, which can be found on your [accounts page](https://account.ideal-postcodes.co.uk/account).
 
 You can request a maximum interval of 90 days. Without a start or end date, the interval defaults to the last 21 days.
 
@@ -43,7 +43,7 @@ Set the interval to `0` days to prevent PII collection altogether.
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
 | `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
-| `user_token` | query | no | string | A secret key used for sensitive operations on your account and API Keys. |
+| `user_token` | query | no | string | A secret key used to manage your account and API Keys. It was previously called the user token. |
 | `start` | query | no | integer | A start date/time in the form of a UNIX Timestamp in milliseconds. E.g. `1418556452651` |
 | `end` | query | no | integer | An end date/time in the form of a UNIX Timestamp in milliseconds. E.g.  `1418556477882` |
 | `licensee` | query | no | string | Uniquely identifies a licensee. |

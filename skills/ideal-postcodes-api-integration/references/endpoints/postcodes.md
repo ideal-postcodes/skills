@@ -42,15 +42,6 @@ The suggestion list is empty if the postcode has deviated too far from a valid p
 
 A small number of postcodes return more than 100 premises. The API returns 100 addresses per page, so use `page` to paginate the result set.
 
-## Testing
-
-- **ID1 1QD** Returns a successful postcode lookup response `2000`
-- **ID1 KFA** Returns "postcode not found" error `4040`
-- **ID1 CLIP** Returns "no lookups remaining" error `4020`
-- **ID1 CHOP** Returns "daily (or individual) lookup limit breached" error `4021`
-
-Test requests undergo the usual authentication and restriction rules. They surface any issues during implementation and do not cost you a lookup.
-
 ## Parameters
 
 | Name | In | Required | Type | Description |

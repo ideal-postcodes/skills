@@ -10,6 +10,20 @@ Returns the closest matching address for a freeform address input, with Match Le
 
 A cleanse that returns a match costs a lookup. A no-match response is free.
 
+## Countries
+
+Cleanse defaults to the UK. Pass `context` with an ISO 3166-1 alpha-3 country
+code to cleanse an address elsewhere, e.g. `context=USA` or `context=FRA`. The
+address datasets your key is licensed for decide which countries it can
+cleanse.
+
+The response shape is the same for every country: a standardised address in
+`match`, the raw source record in `match.native`, and the same confidence,
+fit and Match Level indicators. The Match Levels and confidence score are at
+their most discriminating for the UK, where cleanse runs against
+purpose-built indexes; elsewhere they are computed from the country's address
+dataset.
+
 ## Confidence Score
 
 Each incorrect, missing or misspelled element subtracts from the overall confidence score.

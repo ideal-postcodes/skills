@@ -4,7 +4,7 @@ The standard Ideal Postcodes address, which maps both UK and International addre
 
 Its fields follow the layout UK address databases typically use, and much of it reflects Royal Mail's Postcode Address File, the UK's primary address database.
 
-The API converts non-UK addresses into the same UK layout so international addresses will also seamlessly insert into a standard address database. Despite this mapping fidelity to the source is never compromised with the `native` address field.
+The API converts non-UK addresses into the same UK layout so international addresses will also seamlessly insert into a standard address database. Fidelity to the local details is retained with the `native` address field.
 
 Pay attention to the address lines (`line_1`, `line_2` and `line_3`), post town, postcode, county and country. Together they are all you need to identify an address uniquely, in the UK or as an international address.
 
@@ -40,8 +40,8 @@ The postcode and address list endpoints return the older `AddressListItem` shape
 | `uprn` | yes | string | UPRN stands for Unique Property Reference Number and is maintained by the Ordnance Survey (OS). Local governments in the UK have allocated a unique number for each land or property. |  |
 | `udprn` | yes | integer \| `""` | UDPRN stands for 'Unique Delivery Point Reference Number'. Royal Mail assigns a unique UDPRN code for each premise on PAF. Simple, unique reference number for each Delivery Point. Unlikely to be reused when an address expires. |  |
 | `umprn` | yes | string \| number | A small minority of individual premises (as identified by a UDPRN) may have multiple occupants behind the same letterbox. These are known as Multiple Residence occupants and can be queried via the Multiple Residence dataset. Simple, unique reference number for each Multiple Residence occupant. |  |
-| `postcode_outward` | yes | string | The first part of a postcode is known as the outward code. e.g. The outward code of ID1 1QD is ID1. Enables mail to be sorted to the correct local area for delivery. This part of the code contains the area and the district to which the mail is to be delivered, e.g. 'PO1', 'SW1A' or 'B23'. |  |
-| `postcode_inward` | yes | string | The second part of a postcode is known as the inward code. e.g. The inward code of ID1 1QD is 1QD. |  |
+| `postcode_outward` | yes | string | The first part of a postcode is known as the outward code. e.g. The outward code of BR8 7RE is BR8. Enables mail to be sorted to the correct local area for delivery. This part of the code contains the area and the district to which the mail is to be delivered, e.g. 'PO1', 'SW1A' or 'B23'. |  |
+| `postcode_inward` | yes | string | The second part of a postcode is known as the inward code. e.g. The inward code of BR8 7RE is 7RE. |  |
 | `dependant_locality` | yes | string | A locality that qualifies the thoroughfare. Used where the same thoroughfare name occurs more than once in a post town and no dependant thoroughfare distinguishes them. May be empty. |  |
 | `double_dependant_locality` | yes | string | Supplements dependant locality. Supplied where the dependant locality itself occurs twice in the same locality. May be empty. |  |
 | `thoroughfare` | yes | string | Also known as the street or road name. May be empty. |  |
@@ -64,7 +64,7 @@ The postcode and address list endpoints return the older `AddressListItem` shape
 | `longitude` | yes | string \| number | The longitude of the address or postcode (WGS84). |  |
 | `latitude` | yes | string \| number | The latitude of the address or postcode (WGS84). |  |
 | `eastings` | yes | string \| number | Eastings reference using the [Ordnance Survey National Grid reference system](https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid). |  |
-| `northings` | yes | string \| number | Northings reference using the [Ordnance Survey National Grid reference system](https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid) |  |
+| `northings` | yes | string \| number | Northings reference using the [Ordnance Survey National Grid reference system](https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid). |  |
 | `native` | yes | [NativeRecord](./native-record.md) | The raw dataset record backing an address, exactly as the dataset supplies it. One schema per dataset; `dataset` on the record says which. |  |
 
 ## Example

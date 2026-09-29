@@ -97,7 +97,7 @@ Your API Key was not recognised. The key may be incorrect, malformed or deleted.
 
 **HTTP 402.** Message: `Key balance depleted`
 
-Your API Key has no remaining lookup balance. Test with postcode `ID1 CLIP` to trigger this error without spending a lookup.
+Your API Key has no remaining lookup balance.
 
 #### Potential fixes {#fixes-4020}
 
@@ -108,7 +108,7 @@ Your API Key has no remaining lookup balance. Test with postcode `ID1 CLIP` to t
 
 **HTTP 402.** Message: `Lookup Limit Reached`
 
-Your API Key has a limit configured and the request would exceed it. Four limits raise this error: the daily lookup limit, the monthly lookup limit, the individual (per IP address) daily limit and a sub-licensee's daily limit. Test with postcode `ID1 CHOP` to trigger this error without spending a lookup.
+Your API Key has a limit configured and the request would exceed it. Four limits raise this error: the daily lookup limit, the monthly lookup limit, the individual (per IP address) daily limit and a sub-licensee's daily limit.
 
 #### Potential fixes {#fixes-4021}
 
@@ -263,7 +263,7 @@ No route matched the request. The code is `404`, not `4040`. Check the path and 
 
 **HTTP 404.** Message: `Postcode not found`
 
-`/v1/postcodes/:postcode` found no match. The response adds `suggestions`, an array of nearby valid postcodes: the auto-corrected postcode if one exists, otherwise the closest matches. `/v1/gbr/postcodes/:postcode` and `/v1/gbr/outcodes/:outcode` return the same code without suggestions. Test with postcode `ID1 KFA`.
+`/v1/postcodes/:postcode` found no match. The response adds `suggestions`, an array of nearby valid postcodes: the auto-corrected postcode if one exists, otherwise the closest matches. `/v1/gbr/postcodes/:postcode` and `/v1/gbr/outcodes/:outcode` return the same code without suggestions.
 
 Offer the suggestions to the user, or fall back to an [address search](https://docs.ideal-postcodes.co.uk/docs/api/find-address).
 
