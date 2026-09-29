@@ -18,6 +18,7 @@ Or configure a plugin manually in your Claude Code settings.
 | [`ideal-postcodes-postcode-lookup`](./skills/ideal-postcodes-postcode-lookup) | Postcode search widget — postcode in, address dropdown out, fills the form (`@ideal-postcodes/postcode-lookup`) |
 | [`ideal-postcodes-react`](./skills/ideal-postcodes-react) | React address autocomplete component — `<AddressFinder>` for React/Next.js, auto-populates fields on selection (`@ideal-postcodes/react`) |
 | [`ideal-postcodes-api-integration`](./skills/ideal-postcodes-api-integration) | Direct API integration - auth, `/postcodes`, `/autocomplete` find and resolve, `/cleanse`, `/places`, key admin, the `Address` model and its `native` dataset records, error handling |
+| [`ideal-postcodes-js-sdk`](./skills/ideal-postcodes-js-sdk) | Fetch-based TypeScript SDK - typed API calls, autocomplete, error handling and React or Preact Query adapters (`@ideal-postcodes/sdk`) |
 | [`ideal-postcodes-cli`](./skills/ideal-postcodes-cli) | Drive the API from the terminal — manage keys, cleanse addresses, resolve from partial queries via the `idpc` CLI |
 
 Each skill includes quickstarts, critical gotchas, and reference documentation tailored for agents. For comprehensive API reference, see [docs.ideal-postcodes.co.uk](https://docs.ideal-postcodes.co.uk).
