@@ -42,7 +42,7 @@ Specify where to send address data given a selected address. `outputFields` is a
 
 Up to 3 address lines, post town and postcode fields cover all the addressing information required to identify UK premises. You may extract more data for an address by passing more properties into the `outputFields` configuration object.
 
-The configuration attributes for `outputFields` match the Address response object. For instance, street name can be populated using the [`thoroughfare`](https://docs.ideal-postcodes.co.uk/docs/data/paf#thoroughfare) attribute. A list of address attributes provided by the API can be found in our [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
+The configuration attributes for `outputFields` match the Address response object. For instance, street name can be populated using the [`thoroughfare`](https://docs.ideal-postcodes.co.uk/docs/data/paf#thoroughfare-elements) attribute. A list of address attributes provided by the API can be found in our [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
 
 More complex, dynamic assignment can be performed using the `onAddressSelected` callback.
 

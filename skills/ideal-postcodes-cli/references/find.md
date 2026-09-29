@@ -1,6 +1,6 @@
 # idpc find & resolve
 
-Address autocomplete — two-step by design. Useful when you need to pin a specific address from partial info before using it downstream.
+Address autocomplete: two-step by design. Useful when you need to pin a specific address from partial info before using it downstream.
 
 ## `idpc find [query]`
 

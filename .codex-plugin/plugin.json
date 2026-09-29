@@ -2,7 +2,7 @@
   "name": "ideal-postcodes",
   "displayName": "Ideal Postcodes",
   "description": "Skills for integrating Ideal Postcodes APIs and widgets — address autocomplete, postcode lookup, React address components, direct API integration, and the CLI.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "skills": "./skills/",
   "author": {
     "name": "Ideal Postcodes",

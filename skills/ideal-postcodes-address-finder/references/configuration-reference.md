@@ -26,7 +26,7 @@ Specifies where to send address data when an address is selected. Maps an addres
 }
 ```
 
-The attribute names match the Address response object - e.g. street name populates from [`thoroughfare`](https://docs.ideal-postcodes.co.uk/docs/data/paf#thoroughfare). The full list of attributes is in the [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
+The attribute names match the Address response object - e.g. street name populates from [`thoroughfare`](https://docs.ideal-postcodes.co.uk/docs/data/paf#thoroughfare-elements). The full list of attributes is in the [UK address data guide](https://docs.ideal-postcodes.co.uk/docs/data/paf).
 
 Fields assigned with a query selector are evaluated lazily (when an address attribute needs to be piped to a field). Using an `HTMLElement` instead binds eagerly at setup.
 
