@@ -9,11 +9,11 @@ Every response carries a numeric `code` and a `message`. A successful request re
 ```json
 {
   "code": 4010,
-  "message": "Invalid Key. For more information see http://ideal-postcodes.co.uk/documentation/response-codes#4010"
+  "message": "Invalid Key. For more information see https://docs.ideal-postcodes.co.uk/docs/guides/error-codes#4010"
 }
 ```
 
-Check `code`, not the message text. Some messages carry a trailing link to a legacy response codes page. The anchors on that page match the anchors here.
+Check `code`, not the message text. Some messages end with a link to the matching section of this guide.
 
 Two errors add a field:
 
