@@ -18,7 +18,7 @@ const client = createIdpcClient({ apiKey: "ak_test" });
 
 ## Which client options are there?
 
-`createIdpcClient` takes one required option and three optional ones.
+`createIdpcClient` takes one required option and five optional ones.
 
 | Option | Type | Purpose |
 | --- | --- | --- |
@@ -26,6 +26,29 @@ const client = createIdpcClient({ apiKey: "ak_test" });
 | `userToken` | `string` | Management Key for account operations. Keep it on your server |
 | `baseUrl` | `string` | Defaults to `https://api.ideal-postcodes.co.uk/v1` |
 | `fetch` | `typeof fetch` | Custom fetch implementation for tests or request handling |
+| `headers` | `HeadersInit` | Headers sent with every request, such as `User-Agent`. Per-call `headers` take precedence |
+| `timeoutMs` | `number` | Milliseconds before each request rejects with `TimeoutError`. No timeout by default |
+
+## How do I set a request timeout?
+
+Set `timeoutMs` on the client. A request that runs longer rejects with a `DOMException` named `TimeoutError`, as described in [error handling](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors#how-do-i-tell-a-timeout-from-a-cancellation). A per-call `signal` can still cancel the request sooner.
+
+```ts title="timeout.ts"
+const client = createIdpcClient({ apiKey: "ak_test", timeoutMs: 30_000 });
+```
+
+To time out a single call, pass `signal: AbortSignal.timeout(5_000)` to the operation instead.
+
+## How do I send default headers?
+
+Pass `headers` to the client to send them with every request, for example a `User-Agent` that identifies your app. Headers passed to an operation take precedence. Browsers may drop a custom `User-Agent`, so set it on server-side clients.
+
+```ts title="headers.ts"
+const client = createIdpcClient({
+  apiKey: "ak_test",
+  headers: { "User-Agent": "my-app/1.0" },
+});
+```
 
 ## When do I need a Management Key?
 

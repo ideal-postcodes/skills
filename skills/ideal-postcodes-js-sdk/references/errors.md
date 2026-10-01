@@ -30,6 +30,19 @@ try {
 
 `ApiError` covers HTTP errors only. A network failure or an aborted request rejects with the runtime's native error, such as `TypeError` or `AbortError`. The [error codes guide](https://docs.ideal-postcodes.co.uk/docs/guides/error-codes) lists each code and how to fix it.
 
+## How do I tell a timeout from a cancellation?
+
+Check the error's `name`. A request that runs past `timeoutMs` or an `AbortSignal.timeout` rejects with `TimeoutError`. A request cancelled through an `AbortController` rejects with `AbortError`. Both are `DOMException`s, not `ApiError`s.
+
+```ts title="timeout-error.ts"
+try {
+  await postcodes({ client, path: { postcode: "SW1A 2AX" } });
+} catch (e) {
+  if (e instanceof DOMException && e.name === "TimeoutError") console.error("Request timed out");
+  else throw e;
+}
+```
+
 ## How do I handle errors without try/catch?
 
 Pass `throwOnError: false` to get `{ data, error }` instead of a rejection. For an HTTP error, `error` is the API's error body, typed per operation. `response` holds the HTTP status. For a network failure, `error` is the native error and `response` is `undefined`.

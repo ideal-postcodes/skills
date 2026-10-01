@@ -21,6 +21,8 @@ controller.abort();
 await pending.catch(console.error);
 ```
 
+To cap how long every request may run, set [`timeoutMs`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/setup#how-do-i-set-a-request-timeout) on the client.
+
 ## How do I import the types?
 
 Import request and response types with `import type`, for example `FindAddressData` and `FindAddressResponse`. The flat `Address` model includes a `native` union for dataset-specific fields.
