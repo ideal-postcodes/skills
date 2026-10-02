@@ -12,7 +12,7 @@ import { createIdpcClient, findAddress } from "@ideal-postcodes/sdk";
 const client = createIdpcClient({ apiKey: "ak_test" });
 const { data } = await findAddress({
   client,
-  query: { query: "downing street", postcode_outward: "SW1A" },
+  query: { query: "malyons road", postcode_outward: "BR8" },
 });
 console.log(data.result.hits);
 ```
@@ -51,12 +51,12 @@ An invalid bias term has no effect.
 
 | Filter | Restricts suggestions to | Example |
 | --- | --- | --- |
-| `postcode` | A full postcode | `SW1A 2AA` |
-| `postcode_outward` | An outward code, the first half of a postcode | `SW1A` |
-| `postcode_area` | A postcode area, the leading letters of a postcode | `SW` |
-| `postcode_sector` | A postcode sector, the outward code plus the first digit of the inward code | `SW1A 2` |
+| `postcode` | A full postcode | `BR8 7RE` |
+| `postcode_outward` | An outward code, the first half of a postcode | `BR8` |
+| `postcode_area` | A postcode area, the leading letters of a postcode | `BR` |
+| `postcode_sector` | A postcode sector, the outward code plus the first digit of the inward code | `BR8 7` |
 | `post_town` | A Royal Mail post town, city or locality | `London` |
-| `uprn` | One UPRN. Takes a number and accepts a single term only | `100023336956` |
+| `uprn` | One UPRN. Takes a number and accepts a single term only | `50002012147` |
 | `country` | A country: `England`, `Scotland`, `Wales`, `Northern Ireland`, `Jersey`, `Guernsey` or `Isle of Man` | `Scotland` |
 | `postcode_type` | Royal Mail postcode user type: `S` small user, `L` large user | `L` |
 
@@ -68,8 +68,8 @@ A small user postcode covers a group of delivery points, 19 on average and never
 
 | Bias | Ranks first | Example |
 | --- | --- | --- |
-| `bias_postcode` | A full postcode | `SW1A 2AA` |
-| `bias_postcode_outward` | An outward code | `SW1A` |
+| `bias_postcode` | A full postcode | `BR8 7RE` |
+| `bias_postcode_outward` | An outward code | `BR8` |
 | `bias_post_town` | A post town, city or locality | `Manchester` |
 | `bias_lonlat` | A circle given as `longitude,latitude,radius`, radius in metres up to `50000` | `-2.095,57.15,100` |
 | `bias_ip` | The approximate location of the requesting IP address. Takes `"true"` only | `"true"` |

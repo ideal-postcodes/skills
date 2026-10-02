@@ -1,6 +1,6 @@
 # Postcode lookup
 
-`postcodes` returns every address for a UK postcode. Searches ignore case and spacing, so `sw1a2aa` finds `SW1A 2AA`.
+`postcodes` returns every address for a UK postcode. Searches ignore case and spacing, so `br87re` finds `BR8 7RE`.
 
 ## How do I look up a postcode?
 
@@ -12,7 +12,7 @@ import { createIdpcClient, postcodes } from "@ideal-postcodes/sdk";
 const client = createIdpcClient({ apiKey: "ak_test" });
 const { data } = await postcodes({
   client,
-  path: { postcode: "SW1A 2AA" },
+  path: { postcode: "BR8 7RE" },
 });
 console.log(data.result);
 ```
@@ -56,7 +56,7 @@ form.addEventListener("submit", (event) => {
   const client = createIdpcClient({ apiKey: key.value });
   const search = document.createElement("form");
   const input = document.createElement("input");
-  input.value = "SW1A 2AA";
+  input.value = "BR8 7RE";
   input.setAttribute("aria-label", "Postcode");
   const button = document.createElement("button");
   button.textContent = "Look up";

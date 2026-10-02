@@ -2,17 +2,17 @@
 
 Address autocomplete: two-step by design. Useful when you need to pin a specific address from partial info before using it downstream.
 
-## `idpc find [query]`
+## `idpc find <query>`
 
 `GET /autocomplete/addresses`.
 
 | Flag | Description |
 |---|---|
-| `--country <iso3>` | Filter by ISO-3 (for example GBR, USA) |
+| `--country <iso3>` | Limit suggestions to one country, by ISO-3 code (for example GBR, USA) |
 
-**TTY (human):** prompts for input if no query, shows a `select` picker, auto-resolves the chosen suggestion, and prints the full address.
+**TTY (human):** prints a numbered list of suggestions with their ids.
 
-**Non-TTY (agent):** the query is required. Emits suggestions as JSON:
+**Non-TTY (agent):** emits suggestions as JSON:
 
 ```json
 {
@@ -28,7 +28,7 @@ Address autocomplete: two-step by design. Useful when you need to pin a specific
 
 `GET /autocomplete/addresses/{id}/gbr`.
 
-Returns the resolved address object.
+Returns the resolved address as `result`, in UK format for addresses in any country. On a TTY, prints the address lines.
 
 ## Agent pattern
 

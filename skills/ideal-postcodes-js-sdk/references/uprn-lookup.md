@@ -12,7 +12,7 @@ import { createIdpcClient, addresses } from "@ideal-postcodes/sdk";
 const client = createIdpcClient({ apiKey: "ak_test" });
 const { data } = await addresses({
   client,
-  query: { uprn: 100023336956 },
+  query: { uprn: 50002012147 },
 });
 const [address] = data.result.hits;
 console.log(address?.line_1, address?.post_town, address?.postcode);
@@ -32,12 +32,12 @@ The address sits in `result.hits`. This response is trimmed to the identifiers a
     "hits": [
       {
         "dataset": "paf",
-        "uprn": "100023336956",
-        "udprn": 23747771,
-        "line_1": "Prime Minister & First Lord Of The Treasury",
-        "line_2": "10 Downing Street",
-        "post_town": "London",
-        "postcode": "SW1A 2AA",
+        "uprn": "50002012147",
+        "udprn": 2670849,
+        "line_1": "9 Malyons Road",
+        "line_2": "Hextable",
+        "post_town": "Swanley",
+        "postcode": "BR8 7RE",
         "country": "England"
       }
     ]

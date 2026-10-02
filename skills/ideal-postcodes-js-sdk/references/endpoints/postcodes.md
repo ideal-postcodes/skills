@@ -86,7 +86,7 @@ export const example = async () => {
   const client = createIdpcClient({ apiKey: "ak_test" });
   const { data } = await postcodes({
     client,
-    path: { postcode: "SW1A 2AA" },
+    path: { postcode: "BR8 7RE" },
   });
   return data;
 };

@@ -14,7 +14,7 @@ Pass an `AbortSignal` as `signal`. Aborting rejects the call with `AbortError`.
 const controller = new AbortController();
 const pending = findAddress({
   client,
-  query: { query: "10 Downing Street" },
+  query: { query: "9 Malyons Road" },
   signal: controller.signal,
 });
 controller.abort();

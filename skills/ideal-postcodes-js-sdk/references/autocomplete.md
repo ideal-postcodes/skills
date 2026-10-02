@@ -18,7 +18,7 @@ const suggest = async (query: string) => {
   console.log(address.line_1);
 };
 
-await suggest("10 Downing Street");
+await suggest("9 Malyons Road");
 
 // Call when the input is removed or the component unmounts.
 autocomplete.cancel();
@@ -50,7 +50,7 @@ for (const country of contexts) console.log(country.emoji, country.description, 
 
 // Start with the country that matches the user's IP address, if any.
 let country = context || contexts[0]?.iso_3;
-await autocomplete.find({ query: "10 Downing Street", context: country });
+await autocomplete.find({ query: "9 Malyons Road", context: country });
 
 // When the user picks another country, search again with its code.
 country = "IRL";
@@ -118,7 +118,7 @@ form.addEventListener("submit", (event) => {
   const app = document.querySelector<HTMLElement>("#app")!;
   app.replaceChildren();
   const input = document.createElement("input");
-  input.placeholder = "10 Downing Street";
+  input.placeholder = "9 Malyons Road";
   input.setAttribute("aria-label", "Address");
   const list = document.createElement("ul");
   app.append(input, list);

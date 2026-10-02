@@ -12,7 +12,7 @@ import { createIdpcClient, addressCleanse } from "@ideal-postcodes/sdk";
 const client = createIdpcClient({ apiKey: "ak_test" });
 const { data } = await addressCleanse({
   client,
-  body: { query: "10 Downing Street, London, SW1A 2AA" },
+  body: { query: "9 Malyons Road, Swanley, BR8 7RE" },
 });
 console.log(data.result.match, data.result.confidence);
 ```
@@ -52,7 +52,7 @@ form.addEventListener("submit", (event) => {
   const client = createIdpcClient({ apiKey: key.value });
   const search = document.createElement("form");
   const input = document.createElement("input");
-  input.value = "10 Downing Street, London, SW1A 2AA";
+  input.value = "9 Malyons Road, Swanley, BR8 7RE";
   input.setAttribute("aria-label", "Address");
   const button = document.createElement("button");
   button.textContent = "Cleanse";

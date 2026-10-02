@@ -32,7 +32,7 @@ import { createIdpcClient, findAddress } from "@ideal-postcodes/sdk";
 const client = createIdpcClient({ apiKey: "ak_test" });
 const { data } = await findAddress({
   client,
-  query: { query: "10 Downing Street" },
+  query: { query: "9 Malyons Road" },
 });
 console.log(data.result.hits);
 ```

@@ -35,6 +35,8 @@ references:
 
 ## Installation
 
+Requires Node.js 22 or later.
+
 ```bash
 npm install -g @ideal-postcodes/cli
 idpc --version
@@ -91,48 +93,6 @@ Missing api_key → error code `missing_api_key`. Missing user_token on a comman
 | `idpc doctor` | Env + connectivity check |
 
 Read the matching reference file for flags and example output.
-
-<!-- `idpc auth signup` is implemented but hidden until the backing /signup-tokens
-endpoint ships. Uncomment this section when it goes live.
-
-## Standing up a brand-new account: `idpc auth signup`
-
-`idpc auth signup` mints a one-shot `cli_token`, prints the prefilled Rails signup URL, and polls until the new account propagates. **The command intentionally pauses for a human step**: a person (the user, not the agent) must open the URL in a browser and complete the captcha + ToS. The CLI resumes automatically and writes credentials to the same store `idpc auth login` uses — `whoami` works after with no extra step.
-
-Required flags (non-interactive — supply all when scripting):
-`--email`, `--name`, `--org-name`, `--org-address-line-one`, `--org-post-town`, `--org-postcode`, `--org-country-code`.
-
-Optional: `--org-address-line-two`, `--org-address-line-three`. Polling is fixed at 3s with a 30-minute ceiling.
-
-Progress signals while polling (in JSON / non-TTY mode), one NDJSON event per line on **stderr**:
-
-```jsonl
-{"event":"signup_url_issued","signup_url":"https://ideal-postcodes.co.uk/users/sign_up?...","expires_at":"..."}
-{"event":"waiting","elapsed_sec":30}
-{"event":"waiting","elapsed_sec":60}
-```
-
-Final success JSON on stdout:
-
-```json
-{"success":true,"config_path":"/home/you/.config/ideal-postcodes/credentials.json","email":"you@example.com","user_id":"..."}
-```
-
-Exit codes: `0` success, `2` invalid input or rate-limited (`429` is not retried — bulk minting is what the limit prevents), `3` network error, `4` link expired or polling timeout, `130` SIGINT.
-
-Example invocation an agent can copy:
-
-```bash
-idpc auth signup \
-  --email you@example.com \
-  --name "Your Name" \
-  --org-name "Your Company Ltd" \
-  --org-address-line-one "1 Example Street" \
-  --org-post-town London \
-  --org-postcode SW1A1AA \
-  --org-country-code GB
-```
--->
 
 ## Common Pitfalls
 

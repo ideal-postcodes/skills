@@ -117,7 +117,7 @@ function Search() {
 
   return (
     <div>
-      <input value={query} placeholder="10 Downing Street" onInput={(event) => setQuery(event.currentTarget.value)} aria-label="Address" />
+      <input value={query} placeholder="9 Malyons Road" onInput={(event) => setQuery(event.currentTarget.value)} aria-label="Address" />
       <ul>{hits.map((hit) => <li key={hit.id}>{hit.suggestion}</li>)}</ul>
     </div>
   );

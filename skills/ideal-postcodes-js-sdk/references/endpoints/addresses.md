@@ -123,7 +123,7 @@ export const example = async () => {
   const client = createIdpcClient({ apiKey: "ak_test" });
   const { data } = await addresses({
     client,
-    query: { query: "SW1A 2AA", page: 0 },
+    query: { query: "BR8 7RE", page: 0 },
   });
   return data;
 };

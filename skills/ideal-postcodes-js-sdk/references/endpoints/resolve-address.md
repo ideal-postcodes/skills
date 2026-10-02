@@ -54,7 +54,7 @@ export const example = async () => {
   const client = createIdpcClient({ apiKey: "ak_test" });
   const { data } = await resolveAddress({
     client,
-    path: { address: "paf_18524336" },
+    path: { address: "paf_2670849" },
   });
   return data;
 };
