@@ -1,25 +1,32 @@
 # Postcode lookup
 
-`postcodes` returns every address for a UK postcode. Searches ignore case and spacing, so `br87re` finds `BR8 7RE`.
+`lookupPostcode` returns every address for a UK postcode. Searches ignore case and spacing, so `br87re` finds `BR8 7RE`.
 
 ## How do I look up a postcode?
 
-Pass the postcode as `path.postcode`. The addresses sit in `data.result`.
+Pass the postcode. The addresses sit in `addresses`.
 
 ```ts title="postcode-lookup.ts"
-import { createIdpcClient, postcodes } from "@ideal-postcodes/sdk";
+import { createIdpcClient, lookupPostcode } from "@ideal-postcodes/sdk";
 
 const client = createIdpcClient({ apiKey: "ak_test" });
-const { data } = await postcodes({
-  client,
-  path: { postcode: "BR8 7RE" },
-});
-console.log(data.result);
+const { addresses } = await lookupPostcode({ client, postcode: "BR8 7RE" });
+console.log(addresses);
 ```
 
 ## What if the postcode does not exist?
 
-The call throws an [`ApiError`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors) with status `404` and code `4040`, and costs no lookup. The error body carries up to 5 `suggestions`, the closest matching postcodes. If there are fewer than 3, the right postcode is likely among them. See [result objects](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors#how-do-i-handle-errors-without-trycatch) to read them without a `try` block.
+`addresses` is empty and `suggestions` carries up to 5 of the closest matching postcodes. If there are fewer than 3, the right postcode is likely among them. An unknown postcode costs no lookup.
+
+```ts
+const { addresses, suggestions } = await lookupPostcode({
+  client,
+  postcode: "BR8 7RX",
+});
+if (addresses.length === 0) console.log("Did you mean", suggestions);
+```
+
+Other errors, such as an invalid key, throw an [`ApiError`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors).
 
 ## What does a postcode lookup cost?
 
@@ -27,9 +34,11 @@ A postcode that returns addresses costs one lookup. Your key needs one of PAF, M
 
 ## What about postcodes with more than 100 addresses?
 
-The API returns 100 addresses per page. Pass `query: { page: 1 }` for the next 100. Only a small number of postcodes need it.
+The API returns 100 addresses per page. Pass `page: 1` for the next 100. Only a small number of postcodes need it.
 
-See [`postcodes`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/endpoints/postcodes) for Irish, Dutch and Singapore postcodes. The [API reference](https://docs.ideal-postcodes.co.uk/docs/api/postcodes) documents the response.
+## How do I look up Irish, Dutch or Singapore postcodes?
+
+Pass `context`, for example `context: "NLD"`. `lookupPostcode` takes the same query parameters as [`postcodes`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/endpoints/postcodes). The [API reference](https://docs.ideal-postcodes.co.uk/docs/api/postcodes) documents the response.
 
 ## Try it
 
@@ -45,7 +54,7 @@ Enter a browser API key and select **Start example**. Requests use your account.
 ```
 
 ```ts
-import { createIdpcClient, postcodes } from "@ideal-postcodes/sdk";
+import { createIdpcClient, lookupPostcode } from "@ideal-postcodes/sdk";
 
 const form = document.querySelector<HTMLFormElement>("#credentials")!;
 const key = document.querySelector<HTMLInputElement>("#api-key")!;
@@ -68,8 +77,9 @@ form.addEventListener("submit", (event) => {
     list.replaceChildren();
     output.textContent = "";
     try {
-      const { data } = await postcodes({ client, path: { postcode: input.value } });
-      for (const address of data.result) {
+      const { addresses, suggestions } = await lookupPostcode({ client, postcode: input.value });
+      if (addresses.length === 0) output.textContent = "Did you mean " + suggestions.join(", ");
+      for (const address of addresses) {
         const item = document.createElement("li");
         item.textContent = [address.line_1, address.post_town, address.postcode].filter(Boolean).join(", ");
         list.append(item);
@@ -81,4 +91,19 @@ form.addEventListener("submit", (event) => {
 });
 form.querySelector<HTMLButtonElement>("button")!.disabled = false;
 output.textContent = "";
+```
+
+## Low-level access
+
+`lookupPostcode` wraps `postcodes`, the generated endpoint function. Call `postcodes` directly for the full response, including `total`. It throws an `ApiError` with status `404` and code `4040` on an unknown postcode, with the suggestions in the error body. See [result objects](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors#how-do-i-handle-errors-without-trycatch) to read them without a `try` block.
+
+```ts
+import { createIdpcClient, postcodes } from "@ideal-postcodes/sdk";
+
+const client = createIdpcClient({ apiKey: "ak_test" });
+const { data } = await postcodes({
+  client,
+  path: { postcode: "BR8 7RE" },
+});
+console.log(data.result);
 ```

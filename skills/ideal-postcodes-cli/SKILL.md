@@ -97,7 +97,7 @@ Read the matching reference file for flags and example output.
 ## Common Pitfalls
 
 - **`user_token` is separate from `api_key`.** `keys details`, `keys usage`, `keys logs`, `keys update`, and all `configs` writes require both.
-- **`cleanse`, `email`, and `phone` cost paid lookups.** Public test key `iddqd` will return `auth_failed`.
+- **`cleanse`, `email`, and `phone` cost paid lookups.**
 - **`cleanse` / `email` / `phone` batch mode emits CSV** unless `--json` is passed; a single query always emits JSON.
 - **`find` without a query in non-TTY errors.** Always pass a query when scripting.
 - **`keys logs` emits raw CSV**, not JSON, and rejects `--json` / `-q` with `invalid_input`. Redirect to a file or pipe into your CSV tooling.
