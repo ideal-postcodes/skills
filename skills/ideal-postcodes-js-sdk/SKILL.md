@@ -1,6 +1,6 @@
 ---
 name: ideal-postcodes-js-sdk
-description: Use when integrating the Ideal Postcodes fetch-based TypeScript SDK. Covers API calls, autocomplete, errors and React or Preact Query adapters.
+description: Use when integrating the Ideal Postcodes fetch-based TypeScript SDK. Covers API calls, autocomplete, errors, React or Preact Query adapters and migrating from core-axios or core-node.
 license: SEE LICENSE IN LICENSE
 metadata:
   author: ideal-postcodes
@@ -15,6 +15,7 @@ references:
   - react.md
   - errors.md
   - common.md
+  - migrate-from-core.md
   - endpoints/
 ---
 
@@ -54,4 +55,5 @@ Set `apiKey` on the client. Private account operations also need a Management Ke
 - [React and Preact](./references/react.md)
 - [Error handling](./references/errors.md)
 - [Common behaviour](./references/common.md)
+- [Migrate from the core clients](./references/migrate-from-core.md): replacing core-node, core-axios, core-browser and core-interface
 - [Operations](./references/endpoints/)
