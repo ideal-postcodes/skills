@@ -90,62 +90,23 @@ React and Preact apps can use [TanStack Query](https://docs.ideal-postcodes.co.u
 
 ## Try it
 
-Enter a browser API key and select **Start example**. Requests use your account. Do not enter a Management Key.
+Select **Find** to run the search. Edit the query in the code to try another.
 
 ```html
-<form id="credentials">
-  <label>API key <input id="api-key" type="password" required autocomplete="off" /></label>
-  <button disabled>Start example</button>
-</form>
-<div id="app"></div>
-<pre id="output" role="status">Loading example...</pre>
+<button>Find</button>
+<pre></pre>
 ```
 
-```ts
-import { createIdpcClient } from "@ideal-postcodes/sdk";
-import { createAutocomplete, type Autocomplete } from "@ideal-postcodes/sdk/autocomplete";
+```javascript
+  import { createIdpcClient } from "@ideal-postcodes/sdk";
+  import { createAutocomplete } from "@ideal-postcodes/sdk/autocomplete";
 
-const form = document.querySelector<HTMLFormElement>("#credentials")!;
-const key = document.querySelector<HTMLInputElement>("#api-key")!;
-const output = document.querySelector<HTMLElement>("#output")!;
+  const apiKey = "ak_test"; // Replace with your own API key
+  const client = createIdpcClient({ apiKey });
+  const autocomplete = createAutocomplete({ client });
 
-let autocomplete: Autocomplete | undefined;
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  autocomplete?.cancel();
-  const current = createAutocomplete({ client: createIdpcClient({ apiKey: key.value }), debounceMs: 150 });
-  autocomplete = current;
-  const app = document.querySelector<HTMLElement>("#app")!;
-  app.replaceChildren();
-  const input = document.createElement("input");
-  input.placeholder = "9 Malyons Road";
-  input.setAttribute("aria-label", "Address");
-  const list = document.createElement("ul");
-  app.append(input, list);
-  input.addEventListener("input", async () => {
-    list.replaceChildren();
-    if (input.value.length < 3) { current.cancel(); return; }
-    try {
-      const hits = await current.find({ query: input.value });
-      if (!hits) return;
-      for (const hit of hits) {
-        const item = document.createElement("li");
-        const button = document.createElement("button");
-        button.textContent = hit.suggestion;
-        button.addEventListener("click", async () => {
-          try {
-            const address = await current.resolve({ hit });
-            output.textContent = JSON.stringify(address, null, 2);
-          } catch (error) { output.textContent = "Request failed: " + String(error); }
-        });
-        item.append(button);
-        list.append(item);
-      }
-    } catch (error) {
-      output.textContent = "Request failed: " + String(error);
-    }
+  document.querySelector("button").addEventListener("click", async () => {
+    const hits = await autocomplete.find({ query: "9 Malyons Road" });
+    document.querySelector("pre").textContent = JSON.stringify(hits, null, 2);
   });
-});
-form.querySelector<HTMLButtonElement>("button")!.disabled = false;
-output.textContent = "";
 ```

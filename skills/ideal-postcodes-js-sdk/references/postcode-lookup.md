@@ -34,7 +34,15 @@ A postcode that returns addresses costs one lookup. Your key needs one of PAF, M
 
 ## What about postcodes with more than 100 addresses?
 
-The API returns 100 addresses per page. Pass `page: 1` for the next 100. Only a small number of postcodes need it.
+The API returns 100 addresses per page. `total` counts the addresses across every page. Pages start at `0`. Only a small number of postcodes need it.
+
+```ts
+const { addresses, total } = await lookupPostcode({ client, postcode });
+for (let page = 1; page < Math.ceil(total / 100); page++) {
+  const next = await lookupPostcode({ client, postcode, page });
+  addresses.push(...next.addresses);
+}
+```
 
 ## How do I look up Irish, Dutch or Singapore postcodes?
 
@@ -42,60 +50,28 @@ Pass `context`, for example `context: "NLD"`. `lookupPostcode` takes the same qu
 
 ## Try it
 
-Enter a browser API key and select **Start example**. Requests use your account. Do not enter a Management Key.
+Select **Look up** to run the lookup. Edit the postcode in the code to try another.
 
 ```html
-<form id="credentials">
-  <label>API key <input id="api-key" type="password" required autocomplete="off" /></label>
-  <button disabled>Start example</button>
-</form>
-<div id="app"></div>
-<pre id="output" role="status">Loading example...</pre>
+<button>Look up</button>
+<pre></pre>
 ```
 
-```ts
-import { createIdpcClient, lookupPostcode } from "@ideal-postcodes/sdk";
+```javascript
+  import { createIdpcClient, lookupPostcode } from "@ideal-postcodes/sdk";
 
-const form = document.querySelector<HTMLFormElement>("#credentials")!;
-const key = document.querySelector<HTMLInputElement>("#api-key")!;
-const output = document.querySelector<HTMLElement>("#output")!;
+  const apiKey = "ak_test"; // Replace with your own API key
+  const client = createIdpcClient({ apiKey });
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const client = createIdpcClient({ apiKey: key.value });
-  const search = document.createElement("form");
-  const input = document.createElement("input");
-  input.value = "BR8 7RE";
-  input.setAttribute("aria-label", "Postcode");
-  const button = document.createElement("button");
-  button.textContent = "Look up";
-  const list = document.createElement("ul");
-  search.append(input, button);
-  document.querySelector<HTMLElement>("#app")!.replaceChildren(search, list);
-  search.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    list.replaceChildren();
-    output.textContent = "";
-    try {
-      const { addresses, suggestions } = await lookupPostcode({ client, postcode: input.value });
-      if (addresses.length === 0) output.textContent = "Did you mean " + suggestions.join(", ");
-      for (const address of addresses) {
-        const item = document.createElement("li");
-        item.textContent = [address.line_1, address.post_town, address.postcode].filter(Boolean).join(", ");
-        list.append(item);
-      }
-    } catch (error) {
-      output.textContent = "Request failed: " + String(error);
-    }
+  document.querySelector("button").addEventListener("click", async () => {
+    const result = await lookupPostcode({ client, postcode: "BR8 7RE" });
+    document.querySelector("pre").textContent = JSON.stringify(result, null, 2);
   });
-});
-form.querySelector<HTMLButtonElement>("button")!.disabled = false;
-output.textContent = "";
 ```
 
 ## Low-level access
 
-`lookupPostcode` wraps `postcodes`, the generated endpoint function. Call `postcodes` directly for the full response, including `total`. It throws an `ApiError` with status `404` and code `4040` on an unknown postcode, with the suggestions in the error body. See [result objects](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors#how-do-i-handle-errors-without-trycatch) to read them without a `try` block.
+`lookupPostcode` wraps `postcodes`, the generated endpoint function. Call `postcodes` directly for the full response. It throws an `ApiError` with status `404` and code `4040` on an unknown postcode, with the suggestions in the error body. See [result objects](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors#how-do-i-handle-errors-without-trycatch) to read them without a `try` block.
 
 ```ts
 import { createIdpcClient, postcodes } from "@ideal-postcodes/sdk";

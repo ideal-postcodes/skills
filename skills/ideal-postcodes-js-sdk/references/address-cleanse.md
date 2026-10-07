@@ -29,51 +29,24 @@ See [`addressCleanse`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/e
 
 ## Try it
 
-Enter a browser API key and select **Start example**. Requests use your account. Do not enter a Management Key.
+Select **Cleanse** to run the cleanse. Edit the address in the code to try another.
 
 ```html
-<form id="credentials">
-  <label>API key <input id="api-key" type="password" required autocomplete="off" /></label>
-  <button disabled>Start example</button>
-</form>
-<div id="app"></div>
-<pre id="output" role="status">Loading example...</pre>
+<button>Cleanse</button>
+<pre></pre>
 ```
 
-```ts
-import { createIdpcClient, addressCleanse } from "@ideal-postcodes/sdk";
+```javascript
+  import { createIdpcClient, addressCleanse } from "@ideal-postcodes/sdk";
 
-const form = document.querySelector<HTMLFormElement>("#credentials")!;
-const key = document.querySelector<HTMLInputElement>("#api-key")!;
-const output = document.querySelector<HTMLElement>("#output")!;
+  const apiKey = "ak_test"; // Replace with your own API key
+  const client = createIdpcClient({ apiKey });
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const client = createIdpcClient({ apiKey: key.value });
-  const search = document.createElement("form");
-  const input = document.createElement("input");
-  input.value = "9 Malyons Road, Swanley, BR8 7RE";
-  input.setAttribute("aria-label", "Address");
-  const button = document.createElement("button");
-  button.textContent = "Cleanse";
-  const list = document.createElement("ul");
-  search.append(input, button);
-  document.querySelector<HTMLElement>("#app")!.replaceChildren(search, list);
-  search.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    list.replaceChildren();
-    output.textContent = "";
-    try {
-      const { data } = await addressCleanse({ client, body: { query: input.value } });
-      const { match, confidence } = data.result;
-      output.textContent = match
-        ? [match.line_1, match.post_town, match.postcode].filter(Boolean).join(", ") + " (confidence " + confidence + ")"
-        : "No match";
-    } catch (error) {
-      output.textContent = "Request failed: " + String(error);
-    }
+  document.querySelector("button").addEventListener("click", async () => {
+    const { data } = await addressCleanse({
+      client,
+      body: { query: "9 Malyons Road, Swanley, BR8 7RE" },
+    });
+    document.querySelector("pre").textContent = JSON.stringify(data, null, 2);
   });
-});
-form.querySelector<HTMLButtonElement>("button")!.disabled = false;
-output.textContent = "";
 ```
