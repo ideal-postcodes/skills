@@ -24,7 +24,7 @@ await suggest("9 Malyons Road");
 autocomplete.cancel();
 ```
 
-## How do I find suggestions?
+## Find suggestions
 
 Call `find` with the partial address as `query`. It waits for typing to pause, then resolves to an array of hits. An empty array means nothing matched.
 
@@ -32,7 +32,7 @@ Call `find` with the partial address as `query`. It waits for typing to pause, t
 
 A newer `find` resolves the previous pending call with `undefined` and aborts its request. `cancel()` does the same without starting another. Superseded calls never reject, so check for `undefined` and return early.
 
-## How do I let users switch country?
+## Switch country
 
 Load the countries your key can search with [`keyAvailability`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/endpoints/key-availability), show them in a picker, then pass the chosen code as `context`. A key can be licensed for several countries, such as the UK (`GBR`) and Ireland (`IRL`). The check needs only the API key, so it can run in the browser.
 
@@ -59,17 +59,17 @@ await autocomplete.find({ query: "1 Main Street, Dublin", context: country });
 
 Each entry in `contexts` has `iso_3` (the `context` code), `iso_2`, `description` and `emoji`. `context` is the licensed country that best matches the caller's IP address, or an empty string when none does.
 
-## How do I get the full address for a suggestion?
+## Resolve a suggestion
 
 Pass the hit to `resolve`. It requests the full address from [`resolveAddress`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/endpoints/resolve-address) at once, without a debounce.
 
 `resolve` returns the flat `Address` model. Use `native` for dataset-specific fields and narrow the union before accessing them. See the [API reference](https://openapi.ideal-postcodes.co.uk) for field definitions.
 
-## What does autocomplete cost?
+## Cost
 
 Suggestions are free. Each `resolve` costs one lookup. The API rate limits, then suspends, integrations that request suggestions without resolving any. The default limit is 3,000 suggestion requests per 5 minutes for each key and IP address.
 
-## Which options can I set?
+## Options
 
 | Option | Default | Effect |
 | --- | --- | --- |
@@ -78,15 +78,15 @@ Suggestions are free. Each `resolve` costs one lookup. The API rate limits, then
 
 The cache belongs to one helper instance. Create a new client and helper when credentials change.
 
-## Which types does it export?
+## Exported types
 
 `@ideal-postcodes/sdk/autocomplete` exports `CreateAutocompleteOptions`, `Autocomplete`, `Hit`, `ResolvedAddress`, `FindInput` and `ResolveInput` for typing your own wrappers.
 
-## How are errors reported?
+## Errors
 
 HTTP errors reject with [`ApiError`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors). Network failures reject with the runtime's native error. The helper does not cache failed requests. Pass `signal` to `find` or `resolve` to abort a request yourself, and the call rejects with `AbortError`.
 
-React and Preact apps can use [TanStack Query](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/react#how-do-i-use-tanstack-query) for query caching instead.
+React and Preact apps can use [TanStack Query](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/react#tanstack-query) for query caching instead.
 
 ## Try it
 

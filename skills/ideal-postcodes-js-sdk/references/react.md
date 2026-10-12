@@ -2,11 +2,11 @@
 
 Use the SDK to build your own UK address search component in React or Preact. The examples below search as the user types.
 
-## Should I use the SDK or a ready-made component?
+## SDK or ready-made component
 
 To add address search to a form, use [Address Finder for React](https://docs.ideal-postcodes.co.uk/docs/address-finder/react) or [Postcode Lookup for React](https://docs.ideal-postcodes.co.uk/docs/postcode-lookup/react). They provide the interface and fill in your address fields. Use the SDK when you need your own interface.
 
-## How do I build a search component without dependencies?
+## Without dependencies
 
 Use the [autocomplete helper](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/autocomplete) in a hook. It debounces keystrokes and drops stale requests, so you need no data-fetching library.
 
@@ -121,7 +121,7 @@ Type an address to see suggestions. Suggestions are free.
   createRoot(document.getElementById("app")).render(<Search />);
 ```
 
-## How do I use TanStack Query?
+## TanStack Query
 
 Import the query options for the operation you need. The SDK exports TanStack Query options, query keys and mutations for every operation from `@ideal-postcodes/sdk/react-query` and `@ideal-postcodes/sdk/preact-query`. Install the matching peer, `@tanstack/react-query` or `@tanstack/preact-query`. Wrap the component in a `QueryClientProvider`.
 

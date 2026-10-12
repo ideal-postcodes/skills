@@ -2,7 +2,7 @@
 
 Filters restrict address suggestions to matching addresses. Biases rank matching addresses first but still return the rest. Both are query parameters on [`findAddress`](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/endpoints/find-address), and the [autocomplete helper](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/autocomplete) accepts them alongside `query` in `find`.
 
-## How do I restrict suggestions to one area?
+## Filter to an area
 
 Add a filter, such as `postcode_outward`, to the query.
 
@@ -25,7 +25,7 @@ const hits = await autocomplete.find({ query: "high street", country: "Wales" })
 
 An invalid filter term returns an empty list.
 
-## How do I rank addresses in an area first?
+## Bias towards an area
 
 Add a bias, such as `bias_post_town`. Addresses outside the post town still appear, ranked lower.
 
@@ -47,7 +47,7 @@ const near = await autocomplete.find({
 
 An invalid bias term has no effect.
 
-## Which filters can I use?
+## Filters
 
 | Filter | Restricts suggestions to | Example |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ An invalid bias term has no effect.
 
 A small user postcode covers a group of delivery points, 19 on average and never more than 100. A large user postcode belongs to one address, because of the volume of mail it receives or because it has a PO Box or Selectapost service.
 
-## Which biases can I use?
+## Biases
 
 | Bias | Ranks first | Example |
 | --- | --- | --- |
@@ -74,9 +74,9 @@ A small user postcode covers a group of delivery points, 19 on average and never
 | `bias_lonlat` | A circle given as `longitude,latitude,radius`, radius in metres up to `50000` | `-2.095,57.15,100` |
 | `bias_ip` | The approximate location of the requesting IP address. Takes `"true"` only | `"true"` |
 
-## Can I pass several terms?
+## Multiple terms
 
-Yes. Separate terms with commas to match any of them, such as `postcode_area: "SW,SE"`. Separate filters combine, so each one narrows the list further.
+Separate terms with commas to match any of them, such as `postcode_area: "SW,SE"`. Separate filters combine, so each one narrows the list further.
 
 The API accepts at most 8 filter terms and 5 bias terms per request. `uprn` takes one term, and `bias_lonlat` takes one circle.
 

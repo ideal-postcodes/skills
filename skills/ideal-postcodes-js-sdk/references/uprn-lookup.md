@@ -2,7 +2,7 @@
 
 Pass a UPRN to `addresses` as the `uprn` filter to retrieve the address it identifies. The UPRN (Unique Property Reference Number) is the number UK local authorities assign to each property and Ordnance Survey maintains.
 
-## How do I look up an address by UPRN?
+## Look up a UPRN
 
 Call `addresses` with `uprn` and no `query`.
 
@@ -20,7 +20,7 @@ console.log(address?.line_1, address?.post_town, address?.postcode);
 
 The `uprn` filter takes one UPRN per request. It does not accept a comma separated list.
 
-## What does the response look like?
+## Result
 
 The address sits in `result.hits`. This response is trimmed to the identifiers and postal fields:
 
@@ -49,11 +49,11 @@ The address sits in `result.hits`. This response is trimmed to the identifiers a
 
 The API returns `uprn` as a string. A UPRN runs to 12 digits, so store it as text or as a 64-bit integer. Spreadsheet applications such as Excel corrupt values of that length.
 
-## Which addresses carry a UPRN?
+## Addresses with a UPRN
 
 UK addresses carry a UPRN, taken from Ordnance Survey AddressBase. A small number of Great Britain addresses return an empty string while AddressBase catches up, as do addresses outside the UK. Multiple Residence premises share the UPRN of their parent premise.
 
-## What does a UPRN lookup cost?
+## Cost
 
 A request that returns an address costs one lookup. An empty result costs nothing. Your key needs at least one of PAF, Multiple Residence, Not Yet Built, PAF Alias, PAF Welsh, AddressBase or AddressBase Premium, or the API rejects the request.
 

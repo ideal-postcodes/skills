@@ -9,7 +9,7 @@ npm uninstall @ideal-postcodes/core-axios
 npm install @ideal-postcodes/sdk
 ```
 
-## How do I look up a postcode?
+## Look up a postcode
 
 ```ts title="before.ts"
 import { Client, lookupPostcode } from "@ideal-postcodes/core-axios";
@@ -28,7 +28,7 @@ const addresses = data.result;
 
 `lookupPostcode` returned `[]` for an unknown postcode. `postcodes` throws an `ApiError` with code `4040`. See [error handling](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors).
 
-## What replaces each function?
+## Function mapping
 
 | core clients | `@ideal-postcodes/sdk` |
 | --- | --- |

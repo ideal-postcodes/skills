@@ -2,7 +2,7 @@
 
 `addressCleanse` matches a freeform UK address to the closest address on file. It returns the match, a confidence score and a match level for each address element.
 
-## How do I clean an address?
+## Clean an address
 
 Send the address as `body.query`. The match and its score sit in `data.result`.
 
@@ -17,11 +17,11 @@ const { data } = await addressCleanse({
 console.log(data.result.match, data.result.confidence);
 ```
 
-## What does a cleanse cost?
+## Cost
 
 A cleanse that returns a match costs one lookup. A no-match costs nothing.
 
-## What confidence score should I accept?
+## Confidence threshold
 
 No single threshold suits every project. Each incorrect, missing or misspelled element lowers the score, and inputs repeat the same errors within a project, so set the threshold per project. Sort a sample of results by score and note where matches turn ambiguous or wrong.
 
