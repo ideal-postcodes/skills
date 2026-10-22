@@ -26,7 +26,7 @@ import { keyUsage } from "@ideal-postcodes/sdk";
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `string` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `string` | yes | **API Key** The API Key. Begins `ak_`. |
 
 ## Query Parameters
 
@@ -43,6 +43,12 @@ import { keyUsage } from "@ideal-postcodes/sdk";
 import type { KeyUsageResponse } from "@ideal-postcodes/sdk";
 ```
 
+The `result` property has the type `KeyUsageResult`.
+
+```ts
+import type { KeyUsageResult } from "@ideal-postcodes/sdk";
+```
+
 ## Errors
 
 HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` and `message`. Network failures and aborts reject with the runtime's native error. Pass `throwOnError: false` to get `{ data, error }` instead. See [error handling](https://docs.ideal-postcodes.co.uk/docs/sdks/typescript/errors).
@@ -53,10 +59,7 @@ HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` 
 import { createIdpcClient, keyUsage } from "@ideal-postcodes/sdk";
 
 export const example = async () => {
-  const client = createIdpcClient({
-    apiKey: "ak_test",
-    userToken: "uk_example",
-  });
+  const client = createIdpcClient({ userToken: "uk_example" });
   const { data } = await keyUsage({
     client,
     path: { key: "ak_test" },

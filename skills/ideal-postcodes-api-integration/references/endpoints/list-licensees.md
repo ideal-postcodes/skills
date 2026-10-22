@@ -12,7 +12,7 @@ Returns a key's licensees, oldest first, up to 100 per request. The list omits c
 
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
-| `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
+| `key` | path | yes | string | The API Key. Begins `ak_`. |
 | `starting_after` | query | no | integer | ID of the licensee after which to list results |
 | `user_token` | query | no | string | A secret key used to manage your account and API Keys. It was previously called the user token. |
 | `limit` | query | no | integer | Specifies the maximum number of records to retrieve. |
@@ -30,28 +30,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees' \
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees?' +
-  new URLSearchParams({
-    user_token: 'uk_secret',
-  })
-);
+import { createIdpcClient, listLicensees } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test', userToken: 'uk_secret' });
+
+const { data } = await listLicensees({
+  client,
+  path: { key: 'ak_test' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees",
-    params={
-        "user_token": "uk_secret",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.list_licensees("ak_test", user_token="uk_secret")
 ```
 
 **Ruby**

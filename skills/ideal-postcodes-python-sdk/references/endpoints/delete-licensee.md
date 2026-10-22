@@ -24,7 +24,7 @@ Call `delete_licensee` on the `IdealPostcodes` client. Path parameters are posit
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `str` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `str` | yes | **API Key** The API Key. Begins `ak_`. |
 | `licensee` | `str` | yes | **Licensee Key** Uniquely identifies a licensee. |
 
 ## Query Parameters

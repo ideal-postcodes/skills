@@ -12,7 +12,7 @@ UK Address Suggestion will return a UMPRN if it references a multiple occupancy 
 
 | Field | Required | Type | Description | Example |
 |---|---|---|---|---|
-| `id` | yes | string | Global unique internally generated identifier for an address |  |
+| `id` | yes | string | Globally unique internally generated identifier for an address |  |
 | `suggestion` | yes | string | Address suggestion for a given query. |  |
 | `udprn` | yes | integer | UDPRN stands for 'Unique Delivery Point Reference Number'. Royal Mail assigns a unique UDPRN code for each premise on PAF. Simple, unique reference number for each Delivery Point. Unlikely to be reused when an address expires. |  |
 | `umprn` | no | integer | Optionally returned field, representing the UMPRN of a Multiple Residence household |  |

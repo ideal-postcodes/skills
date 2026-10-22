@@ -22,7 +22,7 @@ import { deleteLicensee } from "@ideal-postcodes/sdk";
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `string` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `string` | yes | **API Key** The API Key. Begins `ak_`. |
 | `licensee` | `string` | yes | **Licensee Key** Uniquely identifies a licensee. |
 
 ## Query Parameters
@@ -45,10 +45,7 @@ HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` 
 import { createIdpcClient, deleteLicensee } from "@ideal-postcodes/sdk";
 
 export const example = async () => {
-  const client = createIdpcClient({
-    apiKey: "ak_test",
-    userToken: "uk_example",
-  });
+  const client = createIdpcClient({ userToken: "uk_example" });
   const { data } = await deleteLicensee({
     client,
     path: { key: "ak_test", licensee: "sl_example" },

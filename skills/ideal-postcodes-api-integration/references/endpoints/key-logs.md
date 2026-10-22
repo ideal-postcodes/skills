@@ -42,7 +42,7 @@ Set the interval to `0` days to prevent PII collection altogether.
 
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
-| `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
+| `key` | path | yes | string | The API Key. Begins `ak_`. |
 | `user_token` | query | no | string | A secret key used to manage your account and API Keys. It was previously called the user token. |
 | `start` | query | no | integer | A start date/time in the form of a UNIX Timestamp in milliseconds. E.g. `1418556452651` |
 | `end` | query | no | integer | An end date/time in the form of a UNIX Timestamp in milliseconds. E.g.  `1418556477882` |
@@ -60,28 +60,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/lookups' \
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/lookups?' +
-  new URLSearchParams({
-    user_token: 'uk_secret',
-  })
-);
+import { createIdpcClient, keyLogs } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test', userToken: 'uk_secret' });
+
+const { data: csv } = await keyLogs({
+  client,
+  path: { key: 'ak_test' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/keys/ak_test/lookups",
-    params={
-        "user_token": "uk_secret",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.key_logs("ak_test", user_token="uk_secret")
 ```
 
 **Ruby**

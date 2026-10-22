@@ -24,7 +24,7 @@ Call `create_config` on the `IdealPostcodes` client. Path parameters are positio
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `str` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `str` | yes | **API Key** The API Key. Begins `ak_`. |
 
 ## Query Parameters
 

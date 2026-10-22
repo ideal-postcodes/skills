@@ -22,7 +22,7 @@ import { createLicensee } from "@ideal-postcodes/sdk";
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `string` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `string` | yes | **API Key** The API Key. Begins `ak_`. |
 
 ## Query Parameters
 
@@ -31,13 +31,19 @@ _None._
 ## Request Body
 
 ```ts
-LicenseeEditable
+import type { LicenseeEditable } from "@ideal-postcodes/sdk";
 ```
 
 ## Response Type
 
 ```ts
 import type { CreateLicenseeResponse } from "@ideal-postcodes/sdk";
+```
+
+The `result` property has the type `Licensee`.
+
+```ts
+import type { Licensee } from "@ideal-postcodes/sdk";
 ```
 
 ## Errors
@@ -50,10 +56,7 @@ HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` 
 import { createIdpcClient, createLicensee } from "@ideal-postcodes/sdk";
 
 export const example = async () => {
-  const client = createIdpcClient({
-    apiKey: "ak_test",
-    userToken: "uk_example",
-  });
+  const client = createIdpcClient({ userToken: "uk_example" });
   const { data } = await createLicensee({
     client,
     path: { key: "ak_test" },

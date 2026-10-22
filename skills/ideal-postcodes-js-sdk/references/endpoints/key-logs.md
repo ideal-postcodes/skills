@@ -52,7 +52,7 @@ import { keyLogs } from "@ideal-postcodes/sdk";
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `string` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `string` | yes | **API Key** The API Key. Begins `ak_`. |
 
 ## Query Parameters
 
@@ -78,10 +78,7 @@ HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` 
 import { createIdpcClient, keyLogs } from "@ideal-postcodes/sdk";
 
 export const example = async () => {
-  const client = createIdpcClient({
-    apiKey: "ak_test",
-    userToken: "uk_example",
-  });
+  const client = createIdpcClient({ userToken: "uk_example" });
   const { data } = await keyLogs({
     client,
     path: { key: "ak_test" },

@@ -24,7 +24,7 @@ The postcode and address list endpoints return the older `AddressListItem` shape
 
 | Field | Required | Type | Description | Example |
 |---|---|---|---|---|
-| `id` | yes | string | Global unique internally generated identifier for an address |  |
+| `id` | yes | string | Globally unique internally generated identifier for an address |  |
 | `dataset` | yes | string | Indicates the provenance of an address. |  |
 | `country_iso` | yes | string | 3 letter country code (ISO 3166-1) |  |
 | `country_iso_2` | yes | string | 2 letter country code (ISO 3166-1) |  |

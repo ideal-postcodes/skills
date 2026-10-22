@@ -39,7 +39,7 @@ Direct HTTP integration with the Ideal Postcodes API. Supports multiple client l
 ```javascript
 const key = process.env.IDEAL_POSTCODES_API_KEY;
 const base = 'https://api.ideal-postcodes.co.uk/v1';
-const headers = { Authorization: `api_key="${key}"` };
+const headers = { Authorization: `Bearer ${key}` };
 
 // Postcode lookup: every address at a postcode, as an AddressListItem[]
 const lookup = await fetch(`${base}/postcodes/SW1A1AA`, { headers });
@@ -68,7 +68,7 @@ import axios from 'axios';
 const client = axios.create({
   baseURL: 'https://api.ideal-postcodes.co.uk/v1',
   headers: {
-    Authorization: `api_key="${process.env.IDEAL_POSTCODES_API_KEY}"`,
+    Authorization: `Bearer ${process.env.IDEAL_POSTCODES_API_KEY}`,
   },
 });
 
@@ -97,7 +97,7 @@ See [`endpoints/`](./references/endpoints/) for one reference per operation.
 
 ## Critical Gotchas
 
-- **Auth header format** - `Authorization: api_key="<your-key>"` (with double quotes around the key). Not `Bearer`, not `ApiKey <key>`. Query-string `?api_key=...` also works
+- **Auth header format** - `Authorization: Bearer <your-key>`. Key management routes under `/keys/{key}` take the Management Key instead: `Authorization: Bearer uk_...`. Query-string `?api_key=...` also works. The older `Authorization: api_key="<your-key>"` form still works but is deprecated
 - **API key restrictions** - default keys are restricted to specific domains. Ensure your domain is in the key's allowed list
 - **Rate limits** - each IP is rate limited at 30 requests per second. Tripping the limit returns a 503. Autocomplete adds its own limit of 3,000 requests per 5 minutes per key and IP, reported in the `X-RateLimit-Limit`, `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers
 - **Free find, paid resolve** - autocomplete suggestions cost nothing; resolving a suggestion costs one lookup. Keys that find without ever resolving are rate limited, then suspended

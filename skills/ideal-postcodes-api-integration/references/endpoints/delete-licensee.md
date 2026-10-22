@@ -12,7 +12,7 @@ Cancels a licensee. Its key stops working and it drops out of the licensee list.
 
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
-| `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
+| `key` | path | yes | string | The API Key. Begins `ak_`. |
 | `licensee` | path | yes | string | Uniquely identifies a licensee. |
 | `user_token` | query | no | string | A secret key used to manage your account and API Keys. It was previously called the user token. |
 
@@ -27,21 +27,24 @@ curl -X DELETE 'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_i
 **JavaScript**
 
 ```javascript
-const response = await fetch('https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_ijoiqsxeQgXW2gkiE0X94?user_token=uk_secret', {
-  method: 'DELETE',
+import { createIdpcClient, deleteLicensee } from '@ideal-postcodes/sdk';
+
+const client = createIdpcClient({ apiKey: 'ak_test', userToken: 'uk_secret' });
+
+const { data } = await deleteLicensee({
+  client,
+  path: { key: 'ak_test', licensee: 'sl_ijoiqsxeQgXW2gkiE0X94' },
 });
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.delete(
-    "https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_ijoiqsxeQgXW2gkiE0X94",
-    params={"user_token": "uk_secret"},
-)
-response.raise_for_status()
+with IdealPostcodes("ak_test") as client:
+    result = client.delete_licensee("ak_test", "sl_ijoiqsxeQgXW2gkiE0X94", user_token="uk_secret")
 ```
 
 **Ruby**

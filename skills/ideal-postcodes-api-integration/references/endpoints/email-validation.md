@@ -32,30 +32,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/emails' \
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/emails?' +
-  new URLSearchParams({
-    api_key: 'ak_test',
-    query: 'foo@domain.com',
-  })
-);
+import { createIdpcClient, emailValidation } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await emailValidation({
+  client,
+  query: { query: 'foo@domain.com' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/emails",
-    params={
-        "api_key": "ak_test",
-        "query": "foo@domain.com",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.email_validation(query="foo@domain.com")
 ```
 
 **Ruby**

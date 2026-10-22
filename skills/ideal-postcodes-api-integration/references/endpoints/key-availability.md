@@ -18,7 +18,7 @@ Supply a valid Management Key and the endpoint returns the key's private details
 
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
-| `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
+| `key` | path | yes | string | The API Key. Begins `ak_`. |
 
 ## Request Samples
 
@@ -31,18 +31,24 @@ curl 'https://api.ideal-postcodes.co.uk/v1/keys/ak_test'
 **JavaScript**
 
 ```javascript
-const response = await fetch('https://api.ideal-postcodes.co.uk/v1/keys/ak_test');
+import { createIdpcClient, keyAvailability } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await keyAvailability({
+  client,
+  path: { key: 'ak_test' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get("https://api.ideal-postcodes.co.uk/v1/keys/ak_test")
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.key_availability("ak_test")
 ```
 
 **Ruby**

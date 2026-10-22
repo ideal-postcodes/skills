@@ -46,30 +46,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/places' \
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/places?' +
-  new URLSearchParams({
-    api_key: 'ak_test',
-    query: 'london',
-  })
-);
+import { createIdpcClient, findPlace } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await findPlace({
+  client,
+  query: { query: 'london' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/places",
-    params={
-        "api_key": "ak_test",
-        "query": "london",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.find_place(query="london")
 ```
 
 **Ruby**

@@ -73,33 +73,26 @@ curl -X POST 'https://api.ideal-postcodes.co.uk/v1/cleanse/addresses' \
 **JavaScript**
 
 ```javascript
-const response = await fetch('https://api.ideal-postcodes.co.uk/v1/cleanse/addresses', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'api_key="ak_test"',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    query: '10 downing street sw1a',
-  }),
-});
+import { createIdpcClient, addressCleanse } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await addressCleanse({
+  client,
+  body: {
+    query: '10 downing street sw1a',
+  },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.post(
-    "https://api.ideal-postcodes.co.uk/v1/cleanse/addresses",
-    headers={"Authorization": 'api_key="ak_test"'},
-    json={
-        "query": "10 downing street sw1a",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.address_cleanse(query="10 downing street sw1a")
 ```
 
 **Ruby**

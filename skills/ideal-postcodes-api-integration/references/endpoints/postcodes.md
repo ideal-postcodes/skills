@@ -65,28 +65,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA' \
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA?' +
-  new URLSearchParams({
-    api_key: 'ak_test',
-  })
-);
+import { createIdpcClient, postcodes } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await postcodes({
+  client,
+  path: { postcode: 'SW1A2AA' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/postcodes/SW1A2AA",
-    params={
-        "api_key": "ak_test",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.postcodes("SW1A2AA")
 ```
 
 **Ruby**

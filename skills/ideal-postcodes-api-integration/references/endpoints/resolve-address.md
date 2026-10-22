@@ -33,28 +33,41 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/autocomplete/addresses/paf_2374777
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/autocomplete/addresses/paf_23747771/gbr?' +
-  new URLSearchParams({
-    api_key: 'ak_test',
-  })
-);
+import { createIdpcClient } from '@ideal-postcodes/sdk';
+import { createAutocomplete } from '@ideal-postcodes/sdk/autocomplete';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+// Debounces keystrokes, drops superseded requests and caches suggestions
+const autocomplete = createAutocomplete({ client });
+
+const hits = await autocomplete.find({ query: '10 downing' });
+if (hits?.length) {
+  const address = await autocomplete.resolve({ hit: hits[0] });
+}
+```
+
+**JavaScript (direct)**
+
+```javascript
+import { createIdpcClient, resolveAddress } from '@ideal-postcodes/sdk';
+
+const client = createIdpcClient({ apiKey: 'ak_test' });
+
+const { data } = await resolveAddress({
+  client,
+  path: { address: 'paf_23747771' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/autocomplete/addresses/paf_23747771/gbr",
-    params={
-        "api_key": "ak_test",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.resolve_address("paf_23747771")
 ```
 
 **Ruby**

@@ -12,7 +12,7 @@ Returns a licensee by its `sl_` key. A cancelled or unknown licensee returns `40
 
 | Name | In | Required | Type | Description |
 |---|---|---|---|---|
-| `key` | path | yes | string | The API Key to retrieve. Begins `ak_`. |
+| `key` | path | yes | string | The API Key. Begins `ak_`. |
 | `licensee` | path | yes | string | Uniquely identifies a licensee. |
 | `user_token` | query | no | string | A secret key used to manage your account and API Keys. It was previously called the user token. |
 
@@ -28,28 +28,24 @@ curl -G 'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_ijoiqsxe
 **JavaScript**
 
 ```javascript
-const response = await fetch(
-  'https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_ijoiqsxeQgXW2gkiE0X94?' +
-  new URLSearchParams({
-    user_token: 'uk_secret',
-  })
-);
+import { createIdpcClient, retrieveLicensee } from '@ideal-postcodes/sdk';
 
-const { result } = await response.json();
+const client = createIdpcClient({ apiKey: 'ak_test', userToken: 'uk_secret' });
+
+const { data } = await retrieveLicensee({
+  client,
+  path: { key: 'ak_test', licensee: 'sl_ijoiqsxeQgXW2gkiE0X94' },
+});
 ```
 
 **Python**
 
 ```python
-import requests
+# pip install ideal-postcodes
+from ideal_postcodes import IdealPostcodes
 
-response = requests.get(
-    "https://api.ideal-postcodes.co.uk/v1/keys/ak_test/licensees/sl_ijoiqsxeQgXW2gkiE0X94",
-    params={
-        "user_token": "uk_secret",
-    },
-)
-result = response.json()["result"]
+with IdealPostcodes("ak_test") as client:
+    result = client.retrieve_licensee("ak_test", "sl_ijoiqsxeQgXW2gkiE0X94", user_token="uk_secret")
 ```
 
 **Ruby**

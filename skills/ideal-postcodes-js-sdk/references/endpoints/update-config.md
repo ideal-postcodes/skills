@@ -22,7 +22,7 @@ import { updateConfig } from "@ideal-postcodes/sdk";
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| `key` | `string` | yes | **API Key** The API Key to retrieve. Begins `ak_`. |
+| `key` | `string` | yes | **API Key** The API Key. Begins `ak_`. |
 | `config` | `string` | yes | **Configuration Name** User-provided configuration object name. |
 
 ## Query Parameters
@@ -32,13 +32,19 @@ _None._
 ## Request Body
 
 ```ts
-ConfigUpdateParam
+import type { ConfigUpdateParam } from "@ideal-postcodes/sdk";
 ```
 
 ## Response Type
 
 ```ts
 import type { UpdateConfigResponse } from "@ideal-postcodes/sdk";
+```
+
+The `result` property has the type `Config`.
+
+```ts
+import type { Config } from "@ideal-postcodes/sdk";
 ```
 
 ## Errors
@@ -51,10 +57,7 @@ HTTP errors throw an `ApiError` with the HTTP `status` and the API error `code` 
 import { createIdpcClient, updateConfig } from "@ideal-postcodes/sdk";
 
 export const example = async () => {
-  const client = createIdpcClient({
-    apiKey: "ak_test",
-    userToken: "uk_example",
-  });
+  const client = createIdpcClient({ userToken: "uk_example" });
   const { data } = await updateConfig({
     client,
     path: { key: "ak_test", config: "checkout" },
