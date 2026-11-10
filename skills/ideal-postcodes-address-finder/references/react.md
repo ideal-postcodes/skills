@@ -1,6 +1,6 @@
 # Add to your React Application
 
-[`@ideal-postcodes/react`](https://www.npmjs.com/package/@ideal-postcodes/react) is the official integration for Address Finder. It renders an `<input>`, attaches the widget, and hands selected addresses back through callbacks — no `useEffect` or `useRef` wiring required.
+[`@ideal-postcodes/react`](https://www.npmjs.com/package/@ideal-postcodes/react) is the official integration for Address Finder. It renders an `<input>`, attaches the widget, and hands selected addresses back through callbacks, with no `useEffect` or `useRef` wiring required.
 
 ## Install
 
@@ -74,7 +74,7 @@ export default function CheckoutForm() {
 
 ## Wrap an Existing Input
 
-Pass a single `<input>` (or any element that renders one and forwards a ref) as `children`. The component attaches the widget to your input rather than rendering its own — useful for design systems like shadcn/ui, MUI, or Mantine, or for any input you've already styled.
+Pass a single `<input>` (or any element that renders one and forwards a ref) as `children`. The component attaches the widget to your input rather than rendering its own. This suits design systems like shadcn/ui, MUI, or Mantine, or for any input you've already styled.
 
 ```tsx
 <AddressFinder
@@ -89,7 +89,7 @@ Pass a single `<input>` (or any element that renders one and forwards a ref) as 
 </AddressFinder>
 ```
 
-In wrap mode, HTML props on `<AddressFinder>` (like `placeholder`, `className`) are ignored — the child owns its own props.
+In wrap mode, HTML props on `<AddressFinder>` (like `placeholder`, `className`) are ignored. The child owns its own props.
 
 ## Common Options
 
@@ -112,7 +112,7 @@ All behavioural options from the underlying controller are supported as props.
 
 - [`defaultCountry`](https://docs.ideal-postcodes.co.uk/docs/address-finder/default-country) - ISO country code applied on mount, e.g. `"GBR"`.
 - [`restrictCountries`](https://docs.ideal-postcodes.co.uk/docs/address-finder/restrict-country) - array of ISO codes to restrict the search to.
-- [`hideToolbar`](https://docs.ideal-postcodes.co.uk/docs/address-finder/hide-toolbar) — hide the country selector toolbar.
+- [`hideToolbar`](https://docs.ideal-postcodes.co.uk/docs/address-finder/hide-toolbar): hide the country selector toolbar.
 - `injectStyle` - default `true`. Auto-injects the widget stylesheet. See [CSS](#css) below.
 - `queryOptions` - forwarded to the [`/autocomplete/addresses`](https://docs.ideal-postcodes.co.uk/docs/api/find-address) endpoint.
 - `resolveOptions` - forwarded to the [resolve endpoint](https://docs.ideal-postcodes.co.uk/docs/api/resolve-address) (e.g. `tags` for usage attribution).

@@ -51,6 +51,7 @@ With a JSONP `callback` parameter the API returns every error with HTTP 200, so 
 | [4016](#4016) | 401 | Invalid context |
 | [4020](#4020) | 402 | Balance depleted |
 | [4021](#4021) | 402 | Lookup limit reached |
+| [4026](#4026) | 402 | Individual IP lookup limit reached |
 | [404](#404) | 404 | Page not found |
 | [4040](#4040) | 404 | Postcode not found |
 | [4042](#4042) | 404 | Key not found |
@@ -109,14 +110,33 @@ Your API Key has no remaining lookup balance.
 
 **HTTP 402.** Message: `Lookup Limit Reached`
 
-Your API Key has a limit configured and the request would exceed it. Four limits raise this error: the daily lookup limit, the monthly lookup limit, the individual (per IP address) daily limit and a sub-licensee's daily limit.
+Your API Key has a limit configured and the request would exceed it. Three limits raise this error: the daily lookup limit, the monthly lookup limit and a sub-licensee's daily limit. The individual (per IP address) limit returns [4026](#4026).
+
+The response is the same for each, so check which limit you hit:
+
+| Limit | How to tell | Resets |
+| --- | --- | --- |
+| Daily lookup limit | Today's lookups on the Key equal the daily limit in your [key settings](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings#daily-lookup-limits). You also receive the 100% email notification | Midnight |
+| Monthly lookup limit | The daily limit is not reached but the month's lookups equal the monthly limit | Next month |
+| Sub-licensee daily limit | The request used a sub-licensee key and the parent Key is under its own limits | Midnight |
 
 #### Potential fixes {#fixes-4021}
 
-1. **Disable the rate limit** - remove the responsible limit in your [key settings](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings) for an immediate fix.
-2. **Increase the limit** - adjust the daily, monthly or individual limit in your key settings.
-3. **Forward the end user's IP** - if requests reach us through a proxy, one address absorbs every user's lookups and trips the individual limit early. Enable IP Address Forwarding and send `IDPC-Source-IP`.
-4. **Check the licensee's limit** - a sub-licensee key carries its own daily limit, separate from the parent key.
+1. **Disable the limit** - remove the responsible limit in your [key settings](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings) for an immediate fix.
+2. **Increase the limit** - adjust the daily or monthly limit in your key settings.
+3. **Check the licensee's limit** - a sub-licensee key carries its own daily limit, separate from the parent key.
+
+### 4026 - Individual IP Lookup Limit Reached {#4026}
+
+**HTTP 402.** Message: `Individual IP lookup limit reached`
+
+The IP address making the request has used up the [individual lookup limit](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings#individual-lookup-limits) on your API Key for the day. Other IP addresses are unaffected and your Key is still working.
+
+#### Potential fixes {#fixes-4026}
+
+1. **Raise or disable the individual limit** - change it in the Security panel of your dashboard. See [individual lookup limits](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings#individual-lookup-limits).
+2. **Forward the end user's IP** - if requests reach us through your own servers, every user shares the proxy's IP address and its limit. Enable [IP Address Forwarding](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings#ip-address-forwarding) and send the end user's IP in `IDPC-Source-IP`.
+3. **Wait for the reset** - the limit resets for each IP address at midnight.
 
 ### 4000 - Invalid Syntax {#4000}
 
@@ -258,7 +278,7 @@ Your key has no dataset or service enabled for this endpoint. Raised by `/v1/add
 
 ## 402 Payment Required
 
-Codes 4020 and 4021 are covered under [Common fixes](#common-fixes).
+Codes 4020, 4021 and 4026 are covered under [Common fixes](#common-fixes).
 
 ### 404 - Page Not Found {#404}
 
@@ -348,7 +368,7 @@ A database query exceeded its time limit. Retry after a short delay. If it persi
 
 ## Related guides
 
-- [API Key Settings](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings): daily, monthly and individual lookup limits behind 4021
+- [API Key Settings](https://docs.ideal-postcodes.co.uk/docs/guides/api-key-settings): daily, monthly and individual lookup limits behind 4021 and 4026
 - [Allowed URLs](https://docs.ideal-postcodes.co.uk/docs/guides/allowed-urls): the matching rules behind 4011
 - [Automated Top-Ups](https://docs.ideal-postcodes.co.uk/docs/guides/automated-topups): stop 4020 recurring
 - [Sublicensing](https://docs.ideal-postcodes.co.uk/docs/guides/sublicensing): licensee keys behind 4013, 4014 and 4045
