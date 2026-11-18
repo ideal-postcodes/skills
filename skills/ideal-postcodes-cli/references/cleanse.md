@@ -59,7 +59,7 @@ cat messy.txt | idpc cleanse --stdin > clean.json
 
 ## Error codes
 
-- `missing_argument`: no `[query]`, `--file`, or `--stdin` supplied
+- `missing_argument`: no `[query]`, `--file` or `--stdin` supplied
 - `auth_failed`: invalid key, or key lacks paid cleanse permission
 - `rate_limited`: 30 req/sec per IP, so back off
 - `invalid_input`: malformed body rejected by the API

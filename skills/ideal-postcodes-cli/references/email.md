@@ -64,7 +64,7 @@ cat emails.txt | idpc email --stdin --json | jq '.results[] | select(.response.r
 
 ## Error codes
 
-- `missing_argument`: no `[query]`, `--file`, or `--stdin` supplied
+- `missing_argument`: no `[query]`, `--file` or `--stdin` supplied
 - `auth_failed`: invalid key, or key lacks paid email validation permission
 - `rate_limited`: back off and retry
 - `invalid_input`: malformed request rejected by the API

@@ -1,6 +1,6 @@
 # Add to your React Application
 
-[`@ideal-postcodes/react`](https://www.npmjs.com/package/@ideal-postcodes/react) is the official integration for Address Finder. It renders an `<input>`, attaches the widget, and hands selected addresses back through callbacks, with no `useEffect` or `useRef` wiring required.
+[`@ideal-postcodes/react`](https://www.npmjs.com/package/@ideal-postcodes/react) is the official integration for Address Finder. It renders an `<input>`, attaches the widget and hands selected addresses back through callbacks, with no `useEffect` or `useRef` wiring required.
 
 ## Install
 
@@ -74,7 +74,7 @@ export default function CheckoutForm() {
 
 ## Wrap an Existing Input
 
-Pass a single `<input>` (or any element that renders one and forwards a ref) as `children`. The component attaches the widget to your input rather than rendering its own. This suits design systems like shadcn/ui, MUI, or Mantine, or for any input you've already styled.
+Pass a single `<input>` (or any element that renders one and forwards a ref) as `children`. The component attaches the widget to your input rather than rendering its own. This suits design systems like shadcn/ui, MUI or Mantine, or for any input you've already styled.
 
 ```tsx
 <AddressFinder
@@ -141,7 +141,7 @@ The three most common:
 />
 ```
 
-See [Callbacks](https://docs.ideal-postcodes.co.uk/docs/address-finder/callbacks) for the full list and semantics (`onAddressPopulated`, `onSuggestionsRetrieved`, `onCountrySelected`, `onOpen`, `onClose`, `onFocus`, `onBlur`, `onFailedCheck`, and more).
+See [Callbacks](https://docs.ideal-postcodes.co.uk/docs/address-finder/callbacks) for the full list and semantics (`onAddressPopulated`, `onSuggestionsRetrieved`, `onCountrySelected`, `onOpen`, `onClose`, `onFocus`, `onBlur`, `onFailedCheck` and more).
 
 ## CSS
 

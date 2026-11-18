@@ -8,7 +8,7 @@
 />
 
 > 
-> Use our [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt) file with AI tools like ChatGPT, Claude, or Cursor to quickly generate integration code, troubleshoot issues, and get instant answers about Address Finder implementation. Learn more in our [AI Integration guide](https://docs.ideal-postcodes.co.uk/docs/guides/llms).
+> Use our [llms.txt](https://docs.ideal-postcodes.co.uk/llms.txt) file with AI tools like ChatGPT, Claude or Cursor to quickly generate integration code, troubleshoot issues, and get instant answers about Address Finder implementation. Learn more in our [AI Integration guide](https://docs.ideal-postcodes.co.uk/docs/guides/llms).
 > 
 
 ## Features
